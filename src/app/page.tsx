@@ -1,3 +1,5 @@
+import { Button } from "@/_ui/button";
+
 export default function Home() {
-  return <h1>Olá mundo - MesaHub</h1>;
+  return <Button>Olá mundo - MesaHub</Button>;
 }
