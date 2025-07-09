@@ -6,7 +6,7 @@ import { Label } from "@/_ui/label";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import { useState } from "react";
 
-export function InputPassword() {
+export function InputPassword({ register }: any) {
   const [showPassword, setShowPassword] = useState(false);
 
   function toggleShowPassword() {
@@ -25,9 +25,11 @@ export function InputPassword() {
           id="password"
           type={showPassword ? "text" : "password"}
           placeholder="Digite a sua senha"
+          {...register("password")}
         />
         <Button
           className="absolute top-0 right-0 text-gray-400 cursor-pointer"
+          type="button"
           variant="ghost"
           onClick={toggleShowPassword}
         >
@@ -35,7 +37,7 @@ export function InputPassword() {
         </Button>
       </div>
       <div className="text-right">
-        <Button className="!p-0 cursor-pointer" variant="link">
+        <Button className="!p-0 cursor-pointer" variant="link" type="button">
           Esqueceu a senha?
         </Button>
       </div>

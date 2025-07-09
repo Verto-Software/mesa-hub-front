@@ -26,7 +26,7 @@ export function Login() {
           </CardHeader>
           <form onClick={handleSubmit(handleFormLogin)}>
             <InputLogin register={register} />
-            <InputPassword />
+            <InputPassword register={register} />
             <Button className="cursor-pointer" type="submit">
               Entrar
             </Button>
