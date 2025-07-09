@@ -5,9 +5,17 @@ import { Button } from "@/_ui/button";
 import { CreateAccount } from "./create-account";
 import { LoginWithGoogle } from "./login-with-google";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormLoginSchema, loginSchema } from "./schema";
 
 export function Login() {
-  const { register } = useForm();
+  const { register, handleSubmit } = useForm<FormLoginSchema>({
+    resolver: zodResolver(loginSchema),
+  });
+
+  function handleFormLogin(data: FormLoginSchema) {
+    console.log("Login realizado com sucesso", data);
+  }
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 p-4">
@@ -16,11 +24,15 @@ export function Login() {
           <CardHeader className="text-center text-xl text-gray-500">
             Entre na sua conta
           </CardHeader>
-          <InputLogin register={register} />
-          <InputPassword />
-          <Button className="cursor-pointer">Entrar</Button>
-          <CreateAccount />
-          <LoginWithGoogle />
+          <form onClick={handleSubmit(handleFormLogin)}>
+            <InputLogin register={register} />
+            <InputPassword />
+            <Button className="cursor-pointer" type="submit">
+              Entrar
+            </Button>
+            <CreateAccount />
+            <LoginWithGoogle />
+          </form>
         </Card>
       </div>
     </section>
