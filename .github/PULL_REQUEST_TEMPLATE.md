@@ -2,13 +2,13 @@
 
 Descreva de forma resumida o que esta Pull Request faz.
 
----
-
 ## 📸 Evidências
 
 Adicione capturas de tela ou GIFs mostrando o resultado (se aplicável).
 
----
+## Link do Jira
+
+Adicione o link da terefa do Jira.
 
 ## 🔄 Tipo de mudança
 
@@ -17,8 +17,6 @@ Adicione capturas de tela ou GIFs mostrando o resultado (se aplicável).
 - [ ] Refatoração ♻️
 - [ ] Documentação 📚
 - [ ] Outro
-
----
 
 ## ✅ Checklist
 
@@ -30,8 +28,6 @@ Adicione capturas de tela ou GIFs mostrando o resultado (se aplicável).
 - [ ] Tipagem TypeScript está correta e sem `any` desnecessário.
 - [ ] Não deixei `console.log` ou comentários temporários no código.
 - [ ] Atualizei documentação ou README, se necessário.
-
----
 
 ## 📝 Observações
 
