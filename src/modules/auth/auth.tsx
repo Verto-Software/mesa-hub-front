@@ -2,7 +2,7 @@
 
 'use client';
 
-import { Card, CardContent, CardHeader } from '@/_ui/card';
+import { Card, CardContent, CardFooter, CardHeader } from '@/_ui/card';
 import { InputEmail } from './components/input-email';
 import { InputPassword } from './components/input-password';
 import { Button } from '@/_ui/button';
@@ -60,7 +60,7 @@ export function Auth() {
    return (
       <section className='min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 p-4'>
          <div className='w-full max-w-md'>
-            <Card className='shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in'>
+            <Card className='w-full shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in'>
                <CardHeader>
                   <p className='text-center text-2xl font-medium text-gray-500'>{isRegister ? 'Criar conta' : 'Bem-vindo de volta!'}</p>
                </CardHeader>
@@ -99,13 +99,17 @@ export function Auth() {
                      >
                         {isRegister ? 'Criar conta' : 'Entrar'}
                      </Button>
+                  </form>
+               </CardContent>
+               <CardFooter>
+                  <div className='flex flex-col w-full gap-2'>
                      <CreateAccount
                         handleCreateAccount={handleCreateAccount}
                         isRegister={isRegister}
                      />
                      <LoginWithGoogle />
-                  </form>
-               </CardContent>
+                  </div>
+               </CardFooter>
             </Card>
          </div>
       </section>
