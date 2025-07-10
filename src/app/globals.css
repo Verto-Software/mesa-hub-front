@@ -145,6 +145,6 @@
   }
 
   .animated-right {
-    animation: slide-in-right 0.8s ease-out forwards;
+    animation: slide-in-right 0.7s ease-out forwards;
   }
 }

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const loginSchema = z.object({
+export const authSchema = z.object({
   email: z
     .string()
     .min(1, "O Email é obrigatório")
@@ -15,8 +15,8 @@ export const loginSchema = z.object({
       /[^A-Za-z0-9]/,
       "A senha deve conter pelo menos um caractere especial"
     ),
-  name: z.string().min(1, "Seu nome é obrigatório"),
-  lastname: z.string().min(1, "Seu sobrenome é obrigatório"),
+  firstname: z.string().min(1, "Seu nome é obrigatório").optional(),
+  lastname: z.string().min(1, "Seu sobrenome é obrigatório").optional(),
 });
 
-export type FormLoginSchema = z.infer<typeof loginSchema>;
+export type FormAuthSchema = z.infer<typeof authSchema>;

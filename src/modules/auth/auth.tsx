@@ -8,7 +8,7 @@ import { CreateAccount } from "./components/create-account";
 import { LoginWithGoogle } from "./components/login-with-google";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormLoginSchema, loginSchema } from "./components/schema";
+import { FormAuthSchema, authSchema } from "./components/schema";
 import { useState } from "react";
 import { InputFirstName } from "./components/input-first-name";
 import { InputLastName } from "./components/input-last-name";
@@ -20,23 +20,25 @@ export function Auth() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<FormLoginSchema>({
-    resolver: zodResolver(loginSchema),
-    mode: "onBlur",
-    delayError: 1000,
+    formState: { errors, isValid },
+    reset,
+  } = useForm<FormAuthSchema>({
+    resolver: zodResolver(authSchema),
+    mode: "all",
   });
 
   function toggleShowPassword() {
     setShowPassword(!showPassword);
   }
 
-  function handleFormLogin(data: FormLoginSchema) {
-    console.log("Login realizado com sucesso", data);
-  }
-
   function handleCreateAccount() {
     setRegister(!isRegister);
+    reset();
+  }
+
+  function handleSubmitFormLogin(data: FormAuthSchema) {
+    console.log("📋 Dados recebidos:", data);
+    reset();
   }
 
   return (
@@ -48,7 +50,7 @@ export function Auth() {
           </CardHeader>
           <form
             className="flex flex-col gap-4"
-            onSubmit={handleSubmit(handleFormLogin)}
+            onSubmit={handleSubmit(handleSubmitFormLogin)}
           >
             {isRegister ? (
               <>
@@ -64,7 +66,11 @@ export function Auth() {
               toggleShowPassword={toggleShowPassword}
               isRegister={isRegister}
             />
-            <Button className="cursor-pointer" type="submit">
+            <Button
+              className="cursor-pointer"
+              type="submit"
+              disabled={!isValid}
+            >
               {isRegister ? "Criar conta" : "Entrar"}
             </Button>
             <CreateAccount
