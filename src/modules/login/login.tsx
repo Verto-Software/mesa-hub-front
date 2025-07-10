@@ -1,14 +1,14 @@
 "use client";
 
 import { Card, CardHeader } from "@/_ui/card";
-import { InputEmail } from "./input-email";
-import { InputPassword } from "./input-password";
+import { InputEmail } from "./components/input-email";
+import { InputPassword } from "./components/input-password";
 import { Button } from "@/_ui/button";
-import { CreateAccount } from "./create-account";
-import { LoginWithGoogle } from "./login-with-google";
+import { CreateAccount } from "./components/create-account";
+import { LoginWithGoogle } from "./components/login-with-google";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormLoginSchema, loginSchema } from "./schema";
+import { FormLoginSchema, loginSchema } from "./components/schema";
 import { useState } from "react";
 
 export function Login() {

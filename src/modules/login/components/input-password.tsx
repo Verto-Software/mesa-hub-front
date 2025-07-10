@@ -4,6 +4,7 @@ import { Button } from "@/_ui/button";
 import { Input } from "@/_ui/input";
 import { Label } from "@/_ui/label";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
+import Link from "next/link";
 
 export function InputPassword({
   register,
@@ -34,8 +35,13 @@ export function InputPassword({
         </Button>
       </div>
       <div className="text-right">
-        <Button className="!p-0 cursor-pointer" variant="link">
-          Esqueceu a senha?
+        <Button
+          className="!p-0 cursor-pointer"
+          type="button"
+          variant="link"
+          asChild
+        >
+          <Link href="#">Esqueceu a senha?</Link>
         </Button>
       </div>
     </div>
