@@ -1,5 +1,5 @@
-import { ForgotPassword } from "@/modules/forgot-password/forgot-password";
+import { ForgotPassword } from '@/modules/forgot-password/forgot-password';
 
-export default function () {
-  return <ForgotPassword />;
+export default function ForgotPasswordPage() {
+   return <ForgotPassword />;
 }
