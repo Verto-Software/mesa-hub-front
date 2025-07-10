@@ -10,9 +10,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormLoginSchema, loginSchema } from "./components/schema";
 import { useState } from "react";
+import { InputFirstName } from "./components/input-first-name";
+import { InputLastName } from "./components/input-last-name";
 
-export function Login() {
+export function Auth() {
   const [showPassword, setShowPassword] = useState(false);
+  const [isRegister, setRegister] = useState(false);
 
   const {
     register,
@@ -32,28 +35,42 @@ export function Login() {
     console.log("Login realizado com sucesso", data);
   }
 
+  function handleCreateAccount() {
+    setRegister(!isRegister);
+  }
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 p-4">
       <div className="w-full max-w-md">
         <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in px-6">
-          <CardHeader className="text-center text-xl text-gray-500">
-            Entre na sua conta
+          <CardHeader className="text-center text-2xl font-medium text-gray-500">
+            {isRegister ? "Criar conta" : "Bem-vindo de volta!"}
           </CardHeader>
           <form
             className="flex flex-col gap-4"
             onSubmit={handleSubmit(handleFormLogin)}
           >
+            {isRegister ? (
+              <>
+                <InputFirstName register={register} errors={errors} />
+                <InputLastName register={register} errors={errors} />
+              </>
+            ) : null}
             <InputEmail register={register} errors={errors} />
             <InputPassword
               register={register}
               errors={errors}
               showPassword={showPassword}
               toggleShowPassword={toggleShowPassword}
+              isRegister={isRegister}
             />
             <Button className="cursor-pointer" type="submit">
-              Entrar
+              {isRegister ? "Criar conta" : "Entrar"}
             </Button>
-            <CreateAccount />
+            <CreateAccount
+              handleCreateAccount={handleCreateAccount}
+              isRegister={isRegister}
+            />
             <LoginWithGoogle />
           </form>
         </Card>

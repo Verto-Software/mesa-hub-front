@@ -15,6 +15,8 @@ export const loginSchema = z.object({
       /[^A-Za-z0-9]/,
       "A senha deve conter pelo menos um caractere especial"
     ),
+  name: z.string().min(1, "Seu nome é obrigatório"),
+  lastname: z.string().min(1, "Seu sobrenome é obrigatório"),
 });
 
 export type FormLoginSchema = z.infer<typeof loginSchema>;

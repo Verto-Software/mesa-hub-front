@@ -11,6 +11,7 @@ export function InputPassword({
   errors,
   showPassword,
   toggleShowPassword,
+  isRegister,
 }: any) {
   return (
     <div className="space-y-2">
@@ -40,16 +41,18 @@ export function InputPassword({
           {showPassword ? <EyeOff size="20" /> : <Eye size="20" />}
         </Button>
       </div>
-      <div className="text-right">
-        <Button
-          className="!p-0 cursor-pointer"
-          type="button"
-          variant="link"
-          asChild
-        >
-          <Link href="#">Esqueceu a senha?</Link>
-        </Button>
-      </div>
+      {!isRegister ? (
+        <div className="text-right">
+          <Button
+            className="!p-0 cursor-pointer"
+            type="button"
+            variant="link"
+            asChild
+          >
+            <Link href="#">Esqueceu a senha?</Link>
+          </Button>
+        </div>
+      ) : null}
     </div>
   );
 }
