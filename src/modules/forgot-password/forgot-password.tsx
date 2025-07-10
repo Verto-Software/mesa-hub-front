@@ -38,7 +38,7 @@ export function ForgotPassword() {
 
    function handleSubmitResetPassword(data: resetSchema) {
       if (data.newpassword === 'Coxinh@123' && data.confirmpassword === 'Coxinh@123') {
-         toast.success('Parabéns! Sua nova senha foi criada com sucesso.');
+         toast.success('Parabéns! Sua nova senha foi criada com sucesso.', { duration: 3000, closeButton: true });
          push(Routes.home);
       }
       reset();
