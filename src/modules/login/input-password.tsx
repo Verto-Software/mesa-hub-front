@@ -4,15 +4,12 @@ import { Button } from "@/_ui/button";
 import { Input } from "@/_ui/input";
 import { Label } from "@/_ui/label";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
-import { useState } from "react";
 
-export function InputPassword({ register }: any) {
-  const [showPassword, setShowPassword] = useState(false);
-
-  function toggleShowPassword() {
-    setShowPassword(!showPassword);
-  }
-
+export function InputPassword({
+  register,
+  showPassword,
+  toggleShowPassword,
+}: any) {
   return (
     <div className="space-y-2">
       <Label className="text-gray-500" htmlFor="password">
@@ -29,15 +26,15 @@ export function InputPassword({ register }: any) {
         />
         <Button
           className="absolute top-0 right-0 text-gray-400 cursor-pointer"
-          type="button"
           variant="ghost"
+          type="button"
           onClick={toggleShowPassword}
         >
           {showPassword ? <EyeOff size="20" /> : <Eye size="20" />}
         </Button>
       </div>
       <div className="text-right">
-        <Button className="!p-0 cursor-pointer" variant="link" type="button">
+        <Button className="!p-0 cursor-pointer" variant="link">
           Esqueceu a senha?
         </Button>
       </div>

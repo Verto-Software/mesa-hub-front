@@ -2,7 +2,7 @@ import { Input } from "@/_ui/input";
 import { Label } from "@/_ui/label";
 import { Mail } from "lucide-react";
 
-export function InputLogin({ register }: any) {
+export function InputEmail({ register }: any) {
   return (
     <div className="space-y-2">
       <Label className="text-gray-500" htmlFor="email">

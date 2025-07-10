@@ -10,7 +10,7 @@ export function LoginWithGoogle() {
         </span>
         <div className="w-full border-t border-gray-200" />
       </div>
-      <Button className="cursor-pointer" variant="secondary" type="button">
+      <Button className="cursor-pointer" variant="secondary">
         Google
       </Button>
     </>

@@ -1,5 +1,7 @@
+"use client";
+
 import { Card, CardHeader } from "@/_ui/card";
-import { InputLogin } from "./input-login";
+import { InputEmail } from "./input-email";
 import { InputPassword } from "./input-password";
 import { Button } from "@/_ui/button";
 import { CreateAccount } from "./create-account";
@@ -7,11 +9,18 @@ import { LoginWithGoogle } from "./login-with-google";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormLoginSchema, loginSchema } from "./schema";
+import { useState } from "react";
 
 export function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+
   const { register, handleSubmit } = useForm<FormLoginSchema>({
     resolver: zodResolver(loginSchema),
   });
+
+  function toggleShowPassword() {
+    setShowPassword(!showPassword);
+  }
 
   function handleFormLogin(data: FormLoginSchema) {
     console.log("Login realizado com sucesso", data);
@@ -24,9 +33,16 @@ export function Login() {
           <CardHeader className="text-center text-xl text-gray-500">
             Entre na sua conta
           </CardHeader>
-          <form onClick={handleSubmit(handleFormLogin)}>
-            <InputLogin register={register} />
-            <InputPassword register={register} />
+          <form
+            className="flex flex-col gap-4"
+            onSubmit={handleSubmit(handleFormLogin)}
+          >
+            <InputEmail register={register} />
+            <InputPassword
+              register={register}
+              showPassword={showPassword}
+              toggleShowPassword={toggleShowPassword}
+            />
             <Button className="cursor-pointer" type="submit">
               Entrar
             </Button>
