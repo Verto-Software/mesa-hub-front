@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardHeader } from "@/_ui/card";
+import { Card, CardContent, CardHeader } from "@/_ui/card";
 import { InputEmail } from "./components/input-email";
 import { InputPassword } from "./components/input-password";
 import { Button } from "@/_ui/button";
@@ -44,41 +44,45 @@ export function Auth() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 p-4">
       <div className="w-full max-w-md">
-        <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in px-6">
-          <CardHeader className="text-center text-2xl font-medium text-gray-500">
-            {isRegister ? "Criar conta" : "Bem-vindo de volta!"}
+        <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in">
+          <CardHeader>
+            <p className="text-center text-2xl font-medium text-gray-500">
+              {isRegister ? "Criar conta" : "Bem-vindo de volta!"}
+            </p>
           </CardHeader>
-          <form
-            className="flex flex-col gap-4"
-            onSubmit={handleSubmit(handleSubmitFormLogin)}
-          >
-            {isRegister ? (
-              <>
-                <InputFirstName register={register} errors={errors} />
-                <InputLastName register={register} errors={errors} />
-              </>
-            ) : null}
-            <InputEmail register={register} errors={errors} />
-            <InputPassword
-              register={register}
-              errors={errors}
-              showPassword={showPassword}
-              toggleShowPassword={toggleShowPassword}
-              isRegister={isRegister}
-            />
-            <Button
-              className="cursor-pointer"
-              type="submit"
-              disabled={!isValid}
+          <CardContent>
+            <form
+              className="flex flex-col gap-4"
+              onSubmit={handleSubmit(handleSubmitFormLogin)}
             >
-              {isRegister ? "Criar conta" : "Entrar"}
-            </Button>
-            <CreateAccount
-              handleCreateAccount={handleCreateAccount}
-              isRegister={isRegister}
-            />
-            <LoginWithGoogle />
-          </form>
+              {isRegister ? (
+                <>
+                  <InputFirstName register={register} errors={errors} />
+                  <InputLastName register={register} errors={errors} />
+                </>
+              ) : null}
+              <InputEmail register={register} errors={errors} />
+              <InputPassword
+                register={register}
+                errors={errors}
+                showPassword={showPassword}
+                toggleShowPassword={toggleShowPassword}
+                isRegister={isRegister}
+              />
+              <Button
+                className="cursor-pointer"
+                type="submit"
+                disabled={!isValid}
+              >
+                {isRegister ? "Criar conta" : "Entrar"}
+              </Button>
+              <CreateAccount
+                handleCreateAccount={handleCreateAccount}
+                isRegister={isRegister}
+              />
+              <LoginWithGoogle />
+            </form>
+          </CardContent>
         </Card>
       </div>
     </section>

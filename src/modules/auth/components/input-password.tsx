@@ -1,8 +1,7 @@
-"use client";
-
 import { Button } from "@/_ui/button";
 import { Input } from "@/_ui/input";
 import { Label } from "@/_ui/label";
+import { Routes } from "@/routes";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import Link from "next/link";
 
@@ -49,7 +48,7 @@ export function InputPassword({
             variant="link"
             asChild
           >
-            <Link href="#">Esqueceu a senha?</Link>
+            <Link href={Routes.forgotPassword}>Esqueceu a senha?</Link>
           </Button>
         </div>
       ) : null}
