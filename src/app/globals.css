@@ -116,36 +116,5 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-geist-mono), monospace;
-  }
-
-  input:-webkit-autofill {
-    box-shadow: 0 0 0px 1000px white inset !important;
-    border: 1px solid #ccc !important;
-    border-radius: 0.375rem !important;
-    -webkit-text-fill-color: #010101 !important;
-    -webkit-text-fill-color: #6b7280 !important;
-  }
-
-  input:-webkit-autofill:focus {
-    box-shadow: 0 0 0px 1000px white inset !important;
-    -webkit-text-fill-color: #333 !important;
-  }
-}
-
-@layer utilities {
-  @keyframes slide-in-right {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-  }
-
-  .animated-right {
-    animation: slide-in-right 0.7s ease-out forwards;
   }
 }
