@@ -1,8 +1,9 @@
 import { Input } from "@/_ui/input";
 import { Label } from "@/_ui/label";
-import { Mail, User } from "lucide-react";
+import { User } from "lucide-react";
+import { TInputLastName } from "./interface";
 
-export function InputLastName({ register, errors }: any) {
+export function InputLastName({ register, errors }: TInputLastName) {
   return (
     <div className="space-y-2 animated-right">
       <Label className="text-gray-500" htmlFor="lastname">

@@ -2,8 +2,9 @@ import { Button } from "@/_ui/button";
 import { Input } from "@/_ui/input";
 import { Label } from "@/_ui/label";
 import { Routes } from "@/routes";
-import { Eye, EyeOff, Lock, Mail } from "lucide-react";
+import { Eye, EyeOff, Lock } from "lucide-react";
 import Link from "next/link";
+import { TInputPassword } from "./interface";
 
 export function InputPassword({
   register,
@@ -11,7 +12,7 @@ export function InputPassword({
   showPassword,
   toggleShowPassword,
   isRegister,
-}: any) {
+}: TInputPassword) {
   return (
     <div className="space-y-2">
       <Label className="text-gray-500" htmlFor="password">

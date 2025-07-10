@@ -3,12 +3,14 @@ import { Input } from "@/_ui/input";
 import { Label } from "@/_ui/label";
 import { Eye, EyeOff, Lock } from "lucide-react";
 
+import { TInputConfirmNewPassword } from "./interface";
+
 export function InputConfirmNewPassword({
   toggleShowConfirmPassword,
   showConfirmPassword,
   register,
   errors,
-}: any) {
+}: TInputConfirmNewPassword) {
   return (
     <div className="space-y-2">
       <Label className="text-gray-500" htmlFor="confirmpassword">

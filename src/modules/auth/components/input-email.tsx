@@ -1,8 +1,9 @@
 import { Input } from "@/_ui/input";
 import { Label } from "@/_ui/label";
 import { Mail } from "lucide-react";
+import { TInputEmail } from "./interface";
 
-export function InputEmail({ register, errors }: any) {
+export function InputEmail({ register, errors }: TInputEmail) {
   return (
     <div className="space-y-2">
       <Label className="text-gray-500" htmlFor="email">

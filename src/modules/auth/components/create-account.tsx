@@ -1,10 +1,6 @@
 import { Button } from "@/_ui/button";
 import Link from "next/link";
-
-interface TCreateAccount {
-  handleCreateAccount: () => void;
-  isRegister: any;
-}
+import { TCreateAccount } from "./interface";
 
 export function CreateAccount({
   handleCreateAccount,
