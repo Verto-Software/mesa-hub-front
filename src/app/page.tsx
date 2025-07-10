@@ -1,3 +1,5 @@
-export default function Home() {
-  return <h1>Olá mundo - MesaHub</h1>;
+import { Home } from '@/modules/(home)/home';
+
+export default function HomePage() {
+   return <Home />;
 }
