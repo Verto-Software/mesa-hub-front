@@ -10,10 +10,13 @@ import { InputNewPassword } from './components/input-new-password';
 import { InputConfirmNewPassword } from './components/input-confirm-password';
 import Link from 'next/link';
 import { Routes } from '@/routes';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 export function ForgotPassword() {
    const [showNewPassword, setShowNewPassword] = useState(false);
    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+   const { push } = useRouter();
 
    const {
       register,
@@ -34,7 +37,10 @@ export function ForgotPassword() {
    }
 
    function handleSubmitResetPassword(data: resetSchema) {
-      console.log('📋 Dados recebidos:', data);
+      if (data.newpassword === 'Coxinh@123' && data.confirmpassword === 'Coxinh@123') {
+         toast.success('Parabéns! Sua nova senha foi criada com sucesso.');
+         push(Routes.home);
+      }
       reset();
    }
 
@@ -75,6 +81,7 @@ export function ForgotPassword() {
                   <p>Lembrou da senha?</p>
                   <Button
                      className='!p-0 font-medium cursor-pointer'
+                     type='submit'
                      variant='link'
                      asChild
                   >
