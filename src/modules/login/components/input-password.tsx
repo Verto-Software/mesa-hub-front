@@ -8,6 +8,7 @@ import Link from "next/link";
 
 export function InputPassword({
   register,
+  errors,
   showPassword,
   toggleShowPassword,
 }: any) {
@@ -25,8 +26,13 @@ export function InputPassword({
           placeholder="Digite a sua senha"
           {...register("password")}
         />
+        {errors.password?.message && (
+          <p className="text-xs text-red-500 font-mono">
+            {errors.password?.message}
+          </p>
+        )}
         <Button
-          className="absolute top-0 right-0 text-gray-400 cursor-pointer"
+          className="absolute top-0 right-0 text-gray-400 cursor-pointer hover:bg-transparent"
           variant="ghost"
           type="button"
           onClick={toggleShowPassword}

@@ -14,8 +14,14 @@ import { useState } from "react";
 export function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
-  const { register, handleSubmit } = useForm<FormLoginSchema>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormLoginSchema>({
     resolver: zodResolver(loginSchema),
+    mode: "onBlur",
+    delayError: 1000,
   });
 
   function toggleShowPassword() {
@@ -37,9 +43,10 @@ export function Login() {
             className="flex flex-col gap-4"
             onSubmit={handleSubmit(handleFormLogin)}
           >
-            <InputEmail register={register} />
+            <InputEmail register={register} errors={errors} />
             <InputPassword
               register={register}
+              errors={errors}
               showPassword={showPassword}
               toggleShowPassword={toggleShowPassword}
             />
