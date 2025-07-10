@@ -21,7 +21,7 @@ export function InputConfirmNewPassword({
         <Input
           className="pl-10 text-gray-500"
           id="confirmpassword"
-          type={showConfirmPassword ? "password" : "text"}
+          type={!showConfirmPassword ? "password" : "text"}
           placeholder="Confirme a nova senha"
           {...register("confirmpassword")}
         />

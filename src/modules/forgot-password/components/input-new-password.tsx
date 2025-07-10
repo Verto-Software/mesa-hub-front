@@ -20,7 +20,7 @@ export function InputNewPassword({
         <Input
           className="pl-10 text-gray-500"
           id="newpassword"
-          type={showNewPassword ? "password" : "text"}
+          type={!showNewPassword ? "password" : "text"}
           placeholder="Digite sua nova senha"
           {...register("newpassword")}
         />

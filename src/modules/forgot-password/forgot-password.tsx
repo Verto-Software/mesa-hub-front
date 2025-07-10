@@ -49,7 +49,7 @@ export function ForgotPassword() {
           </CardHeader>
           <CardContent>
             <form
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-6"
               onSubmit={handleSubmit(handleSubmitResetPassword)}
             >
               <InputNewPassword
