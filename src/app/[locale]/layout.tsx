@@ -4,8 +4,8 @@ import '../globals.css';
 import { Toaster } from 'sonner';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { notFound } from 'next/navigation';
-import { LanguageSwitcher } from '@/_ui/LanguageSwitcher';
 import { getMessages } from 'next-intl/server';
+import { Language } from '@/_ui/language';
 
 const poppins = Poppins({
    variable: '--font-poppins',
@@ -45,7 +45,7 @@ export default async function RootLayout({
                   duration={3000}
                   visibleToasts={1}
                />
-               <LanguageSwitcher />
+               <Language />
                {children}
             </NextIntlClientProvider>
          </body>

@@ -3,7 +3,7 @@
 import { useLocale } from 'next-intl';
 import { usePathname, Link } from '@/i18n/navigation';
 
-export function LanguageSwitcher() {
+export function Language() {
    const locale = useLocale();
    const pathname = usePathname();
    const otherLocale = locale === 'pt-BR' ? 'en-US' : 'pt-BR';
