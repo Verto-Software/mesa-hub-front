@@ -4,7 +4,7 @@ import './globals.css';
 import { Toaster } from 'sonner';
 
 const poppins = Poppins({
-   variable: '--font-geist-mono',
+   variable: '--font-poppins',
    subsets: ['latin'],
    weight: ['400', '500', '600', '700'],
 });

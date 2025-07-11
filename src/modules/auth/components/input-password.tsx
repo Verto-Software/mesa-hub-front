@@ -1,7 +1,7 @@
 import { Button } from '@/_ui/button';
 import { Input } from '@/_ui/input';
 import { Label } from '@/_ui/label';
-import { Routes } from '@/routes';
+import { Routes } from '@/routes/routes';
 import { Eye, EyeOff, Lock } from 'lucide-react';
 import Link from 'next/link';
 import { TInputPassword } from './interface';
@@ -45,7 +45,7 @@ export function InputPassword({ register, errors, showPassword, toggleShowPasswo
                   variant='link'
                   asChild
                >
-                  <Link href={Routes.forgotPassword}>Esqueceu a senha?</Link>
+                  <Link href={Routes.ForgotPassword}>Esqueceu a senha?</Link>
                </Button>
             </div>
          ) : null}

@@ -15,7 +15,7 @@ import { useState } from 'react';
 import { InputFirstName } from './components/input-first-name';
 import { InputLastName } from './components/input-last-name';
 import { useRouter } from 'next/navigation';
-import { Routes } from '@/routes';
+import { Routes } from '@/routes/routes';
 import { toast } from 'sonner';
 
 export function Auth() {
@@ -42,13 +42,17 @@ export function Auth() {
    }
 
    function handleSubmitFormLogin(data: FormAuthSchema) {
-      const isValid = isRegister
-         ? data.firstname === 'Marlon' && data.lastname === 'Ferreira' && data.email === 'teste@teste.com' && data.password === 'Coxinh@123'
-         : data.email === 'teste@teste.com' && data.password === 'Coxinh@123';
+      const isValid = isRegister ? data.firstname && data.lastname && data.email && data.password : data.email === 'teste@teste.com' && data.password === 'Coxinh@123';
 
       if (isValid) {
-         push(Routes.home);
+         isRegister && toast.success('Sua conta foi criada com sucesso!');
+
+         push(Routes.Home);
          reset();
+      } else {
+         if (!isRegister) {
+            toast.error('Verifique seu e-mail e senha! Tente novamente.');
+         }
       }
    }
 
@@ -56,45 +60,42 @@ export function Auth() {
       <section className='min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 p-4'>
          <div className='w-full max-w-md'>
             <Card className='w-full shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in'>
-               <CardHeader>
-                  <p className='text-center text-2xl font-medium text-gray-800'>{isRegister ? 'Criar conta' : 'Bem-vindo(a) de volta!'}</p>
-               </CardHeader>
                <CardContent>
-                  <form
-                     className='flex flex-col gap-6'
-                     onSubmit={handleSubmit(handleSubmitFormLogin)}
-                  >
-                     {isRegister ? (
-                        <>
-                           <InputFirstName
-                              register={register}
-                              errors={errors}
-                           />
-                           <InputLastName
-                              register={register}
-                              errors={errors}
-                           />
-                        </>
-                     ) : null}
-                     <InputEmail
-                        register={register}
-                        errors={errors}
-                     />
-                     <InputPassword
-                        register={register}
-                        errors={errors}
-                        showPassword={showPassword}
-                        toggleShowPassword={toggleShowPassword}
-                        isRegister={isRegister}
-                     />
-                     <Button
-                        className='cursor-pointer'
-                        type='submit'
-                        animated
-                        disabled={!isValid}
-                     >
-                        {isRegister ? 'Criar conta' : 'Entrar'}
-                     </Button>
+                  <form onSubmit={handleSubmit(handleSubmitFormLogin)}>
+                     <fieldset className='flex flex-col gap-6'>
+                        <legend className='text-center text-gray-800 text-xl mb-6'>{isRegister ? 'Cadastro' : 'Login'}</legend>
+                        {isRegister ? (
+                           <>
+                              <InputFirstName
+                                 register={register}
+                                 errors={errors}
+                              />
+                              <InputLastName
+                                 register={register}
+                                 errors={errors}
+                              />
+                           </>
+                        ) : null}
+                        <InputEmail
+                           register={register}
+                           errors={errors}
+                        />
+                        <InputPassword
+                           register={register}
+                           errors={errors}
+                           showPassword={showPassword}
+                           toggleShowPassword={toggleShowPassword}
+                           isRegister={isRegister}
+                        />
+                        <Button
+                           className='cursor-pointer'
+                           type='submit'
+                           animated
+                           disabled={!isValid}
+                        >
+                           {isRegister ? 'Criar conta' : 'Entrar'}
+                        </Button>
+                     </fieldset>
                   </form>
                </CardContent>
                <CardFooter>

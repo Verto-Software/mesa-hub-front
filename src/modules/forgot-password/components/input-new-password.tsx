@@ -22,7 +22,7 @@ export function InputNewPassword({ toggleShowNewPassword, showNewPassword, regis
                className='pl-10 text-gray-800'
                id='newpassword'
                type={!showNewPassword ? 'password' : 'text'}
-               placeholder='Digite sua nova senha'
+               placeholder='Digite uma nova senha'
                {...register('newpassword')}
             />
             {errors.newpassword?.message && <p className='text-xs text-red-500 mt-0.5'>{errors.newpassword?.message}</p>}

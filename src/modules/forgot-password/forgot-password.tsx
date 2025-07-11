@@ -9,9 +9,9 @@ import { resetPasswordSchema, FormResetPasswordSchema } from './components/schem
 import { InputNewPassword } from './components/input-new-password';
 import { InputConfirmNewPassword } from './components/input-confirm-password';
 import Link from 'next/link';
-import { Routes } from '@/routes';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
+import { Routes } from '@/routes/routes';
 
 export function ForgotPassword() {
    const [showNewPassword, setShowNewPassword] = useState(false);
@@ -37,9 +37,9 @@ export function ForgotPassword() {
    }
 
    function handleSubmitResetPassword(data: FormResetPasswordSchema) {
-      if (data.newpassword === 'Coxinh@123' && data.confirmpassword === 'Coxinh@123') {
+      if (data.newpassword && data.confirmpassword) {
          toast.success('Parabéns! Sua nova senha foi criada com sucesso.');
-         push(Routes.home);
+         push(Routes.Home);
       }
       reset();
    }
@@ -48,33 +48,33 @@ export function ForgotPassword() {
       <section className='min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 p-4'>
          <div className='w-full max-w-md'>
             <Card className='shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in'>
-               <CardHeader className='text-center text-2xl font-medium text-gray-800'>
-                  <p className='text-center text-2xl font-medium text-gray-800'>Redefinir senha</p>
-               </CardHeader>
                <CardContent>
                   <form
                      className='flex flex-col gap-6'
                      onSubmit={handleSubmit(handleSubmitResetPassword)}
                   >
-                     <InputNewPassword
-                        toggleShowNewPassword={toggleShowNewPassword}
-                        showNewPassword={showNewPassword}
-                        register={register}
-                        errors={errors}
-                     />
-                     <InputConfirmNewPassword
-                        toggleShowConfirmPassword={toggleShowConfirmPassword}
-                        showConfirmPassword={showConfirmPassword}
-                        register={register}
-                        errors={errors}
-                     />
-                     <Button
-                        className='cursor-pointer'
-                        type='submit'
-                        disabled={!isValid}
-                     >
-                        Redefinir Senha
-                     </Button>
+                     <fieldset className='flex flex-col gap-6'>
+                        <legend className='text-center text-gray-800 text-xl mb-6'>Redefinir Senha</legend>
+                        <InputNewPassword
+                           toggleShowNewPassword={toggleShowNewPassword}
+                           showNewPassword={showNewPassword}
+                           register={register}
+                           errors={errors}
+                        />
+                        <InputConfirmNewPassword
+                           toggleShowConfirmPassword={toggleShowConfirmPassword}
+                           showConfirmPassword={showConfirmPassword}
+                           register={register}
+                           errors={errors}
+                        />
+                        <Button
+                           className='cursor-pointer'
+                           type='submit'
+                           disabled={!isValid}
+                        >
+                           Redefinir Senha
+                        </Button>
+                     </fieldset>
                   </form>
                </CardContent>
                <CardFooter className='w-full flex items-center justify-center gap-2 text-gray-800'>
@@ -85,7 +85,7 @@ export function ForgotPassword() {
                      variant='link'
                      asChild
                   >
-                     <Link href={Routes.auth}>Fazer login</Link>
+                     <Link href={Routes.Auth}>Fazer login</Link>
                   </Button>
                </CardFooter>
             </Card>
