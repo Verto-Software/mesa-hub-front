@@ -27,4 +27,6 @@ export default {
    NewPassword: 'Nova senha',
    EnterANewPassword: 'Digite uma nova senha',
    Register: 'Cadastro',
+   ResetPassword: 'Redefinir Senha',
+   DidYouRememberPassword: 'Lembrou da senha?',
 } as const;

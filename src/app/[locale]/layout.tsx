@@ -5,7 +5,7 @@ import { Toaster } from 'sonner';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
-import { Language } from '@/_ui/language';
+import { Language } from '@/i18n/language';
 
 const poppins = Poppins({
    variable: '--font-poppins',
