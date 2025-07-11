@@ -8,7 +8,7 @@ export function InputNewPassword({ toggleShowNewPassword, showNewPassword, regis
    return (
       <div className='space-y-2'>
          <Label
-            className='text-gray-500'
+            className='text-gray-800'
             htmlFor='newpassword'
          >
             Nova senha
@@ -19,7 +19,7 @@ export function InputNewPassword({ toggleShowNewPassword, showNewPassword, regis
                size={16}
             />
             <Input
-               className='pl-10 text-gray-500'
+               className='pl-10 text-gray-800'
                id='newpassword'
                type={!showNewPassword ? 'password' : 'text'}
                placeholder='Digite sua nova senha'

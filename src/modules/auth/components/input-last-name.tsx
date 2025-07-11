@@ -7,7 +7,7 @@ export function InputLastName({ register, errors }: TInputLastName) {
    return (
       <div className='space-y-2 animated-right'>
          <Label
-            className='text-gray-500'
+            className='text-gray-800'
             htmlFor='lastname'
          >
             Sobrenome
@@ -18,7 +18,7 @@ export function InputLastName({ register, errors }: TInputLastName) {
                size={16}
             />
             <Input
-               className='pl-10 text-gray-500 autofill:none'
+               className='pl-10 text-gray-800 autofill:none'
                id='lastname'
                type='text'
                placeholder='Digite o seu sobrenome'

@@ -10,7 +10,7 @@ export function InputPassword({ register, errors, showPassword, toggleShowPasswo
    return (
       <div className='space-y-2'>
          <Label
-            className='text-gray-500'
+            className='text-gray-800'
             htmlFor='password'
          >
             Senha
@@ -21,7 +21,7 @@ export function InputPassword({ register, errors, showPassword, toggleShowPasswo
                size={16}
             />
             <Input
-               className='pl-10 text-gray-500'
+               className='pl-10 text-gray-800'
                id='password'
                type={showPassword ? 'text' : 'password'}
                placeholder='Digite a sua senha'
@@ -30,8 +30,8 @@ export function InputPassword({ register, errors, showPassword, toggleShowPasswo
             {errors.password?.message && <p className='text-xs text-red-500 mt-0.5'>{errors.password?.message}</p>}
             <Button
                className='absolute top-0 right-0 text-gray-400 cursor-pointer hover:bg-transparent'
-               variant='ghost'
                type='button'
+               variant='ghost'
                onClick={toggleShowPassword}
             >
                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -40,7 +40,7 @@ export function InputPassword({ register, errors, showPassword, toggleShowPasswo
          {!isRegister ? (
             <div className='text-right'>
                <Button
-                  className='!p-0 cursor-pointer'
+                  className='!p-0 cursor-pointer text-sm'
                   type='button'
                   variant='link'
                   asChild

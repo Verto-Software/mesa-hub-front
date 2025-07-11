@@ -9,7 +9,7 @@ export function InputConfirmNewPassword({ toggleShowConfirmPassword, showConfirm
    return (
       <div className='space-y-2'>
          <Label
-            className='text-gray-500'
+            className='text-gray-800'
             htmlFor='confirmpassword'
          >
             Confirme a senha
@@ -20,7 +20,7 @@ export function InputConfirmNewPassword({ toggleShowConfirmPassword, showConfirm
                size={16}
             />
             <Input
-               className='pl-10 text-gray-500'
+               className='pl-10 text-gray-800'
                id='confirmpassword'
                type={!showConfirmPassword ? 'password' : 'text'}
                placeholder='Confirme a nova senha'

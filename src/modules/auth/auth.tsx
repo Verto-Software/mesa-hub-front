@@ -49,11 +49,6 @@ export function Auth() {
       if (isValid) {
          push(Routes.home);
          reset();
-      } else {
-         toast.error('Algo deu errado! Verifique os dados preenchidos.', {
-            duration: 3000,
-            closeButton: true,
-         });
       }
    }
 
@@ -62,7 +57,7 @@ export function Auth() {
          <div className='w-full max-w-md'>
             <Card className='w-full shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in'>
                <CardHeader>
-                  <p className='text-center text-2xl font-medium text-gray-500'>{isRegister ? 'Criar conta' : 'Bem-vindo(a) de volta!'}</p>
+                  <p className='text-center text-2xl font-medium text-gray-800'>{isRegister ? 'Criar conta' : 'Bem-vindo(a) de volta!'}</p>
                </CardHeader>
                <CardContent>
                   <form
@@ -95,6 +90,7 @@ export function Auth() {
                      <Button
                         className='cursor-pointer'
                         type='submit'
+                        animated
                         disabled={!isValid}
                      >
                         {isRegister ? 'Criar conta' : 'Entrar'}

@@ -7,7 +7,7 @@ export function InputFirstName({ register, errors }: TInputFirstName) {
    return (
       <div className='space-y-2 animated-right'>
          <Label
-            className='text-gray-500'
+            className='text-gray-800'
             htmlFor='firstname'
          >
             Nome
@@ -18,7 +18,7 @@ export function InputFirstName({ register, errors }: TInputFirstName) {
                size={16}
             />
             <Input
-               className='pl-10 text-gray-500 autofill:none'
+               className='pl-10 text-gray-800 autofill:none'
                id='firstname'
                type='text'
                placeholder='Digite o seu nome'

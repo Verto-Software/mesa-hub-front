@@ -7,7 +7,7 @@ export function InputEmail({ register, errors }: TInputEmail) {
    return (
       <div className='space-y-2'>
          <Label
-            className='text-gray-500'
+            className='text-gray-800'
             htmlFor='email'
          >
             Email
@@ -18,7 +18,7 @@ export function InputEmail({ register, errors }: TInputEmail) {
                size={16}
             />
             <Input
-               className='pl-10 text-gray-500 autofill:none'
+               className='pl-10 text-gray-800 autofill:none'
                id='email'
                type='email'
                placeholder='Digite o seu e-mail'

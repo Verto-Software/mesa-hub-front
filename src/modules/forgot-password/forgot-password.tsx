@@ -5,7 +5,7 @@ import { Button } from '@/_ui/button';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { resetPasswordSchema, resetSchema } from './components/schema';
+import { resetPasswordSchema, FormResetPasswordSchema } from './components/schema';
 import { InputNewPassword } from './components/input-new-password';
 import { InputConfirmNewPassword } from './components/input-confirm-password';
 import Link from 'next/link';
@@ -23,7 +23,7 @@ export function ForgotPassword() {
       handleSubmit,
       formState: { errors, isValid },
       reset,
-   } = useForm<resetSchema>({
+   } = useForm<FormResetPasswordSchema>({
       resolver: zodResolver(resetPasswordSchema),
       mode: 'all',
    });
@@ -36,9 +36,9 @@ export function ForgotPassword() {
       setShowConfirmPassword(!showConfirmPassword);
    }
 
-   function handleSubmitResetPassword(data: resetSchema) {
+   function handleSubmitResetPassword(data: FormResetPasswordSchema) {
       if (data.newpassword === 'Coxinh@123' && data.confirmpassword === 'Coxinh@123') {
-         toast.success('Parabéns! Sua nova senha foi criada com sucesso.', { duration: 3000, closeButton: true });
+         toast.success('Parabéns! Sua nova senha foi criada com sucesso.');
          push(Routes.home);
       }
       reset();
@@ -48,8 +48,8 @@ export function ForgotPassword() {
       <section className='min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 p-4'>
          <div className='w-full max-w-md'>
             <Card className='shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in'>
-               <CardHeader className='text-center text-2xl font-medium text-gray-500'>
-                  <p className='text-center text-2xl font-medium text-gray-500'>Redefinir senha</p>
+               <CardHeader className='text-center text-2xl font-medium text-gray-800'>
+                  <p className='text-center text-2xl font-medium text-gray-800'>Redefinir senha</p>
                </CardHeader>
                <CardContent>
                   <form
@@ -77,8 +77,8 @@ export function ForgotPassword() {
                      </Button>
                   </form>
                </CardContent>
-               <CardFooter className='w-full flex items-center justify-center gap-2 text-gray-500'>
-                  <p>Lembrou da senha?</p>
+               <CardFooter className='w-full flex items-center justify-center gap-2 text-gray-800'>
+                  <p className='text-sm'>Lembrou da senha?</p>
                   <Button
                      className='!p-0 font-medium cursor-pointer'
                      type='submit'
