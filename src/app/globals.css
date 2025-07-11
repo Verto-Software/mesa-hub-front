@@ -81,7 +81,7 @@
    --foreground: oklch(0.985 0 0);
    --card: hsl(262 80% 60%);
    --card-foreground: oklch(0.985 0 0);
-   --popover: hsl(262 80% 60%);
+   --popover: rgb(131, 71, 235);
    --popover-foreground: oklch(0.985 0 0);
    --primary: oklch(0.922 0 0);
    --primary-foreground: hsl(262 80% 60%);

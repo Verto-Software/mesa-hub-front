@@ -13,7 +13,7 @@ export default function NotFoundPage() {
             height={300}
          />
          <div className='flex flex-col items-center justify-center gap-6 mt-10'>
-            <p className='text-gray-800 font-bold text-xl text-center'>404 — Até nós estamos procurando essa página!</p>
+            <p className='text-gray-800 font-bold text-lg text-center'>Até nós estamos procurando essa página!</p>
             <Button
                animated
                asChild
