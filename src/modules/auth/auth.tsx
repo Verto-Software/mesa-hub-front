@@ -17,11 +17,13 @@ import { InputLastName } from './components/input-last-name';
 import { useRouter } from 'next/navigation';
 import { Routes } from '@/routes/routes';
 import { toast } from 'sonner';
+import { useFullscreen } from '@/hooks/useFullScreen';
+import { Expand, Shrink } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/_ui/tooltip';
 
 export function Auth() {
    const [showPassword, setShowPassword] = useState(false);
    const [isRegister, setRegister] = useState(false);
-   const { push } = useRouter();
 
    const {
       register,
@@ -32,6 +34,9 @@ export function Auth() {
       resolver: zodResolver(authSchema),
       mode: 'all',
    });
+
+   const { push } = useRouter();
+   const { isFullscreen, toggleFullscreen } = useFullscreen();
 
    function toggleShowPassword() {
       setShowPassword(!showPassword);
@@ -109,6 +114,19 @@ export function Auth() {
                </CardFooter>
             </Card>
          </div>
+         <Tooltip>
+            <TooltipTrigger asChild>
+               <Button
+                  className='cursor-pointer w-fit'
+                  onClick={toggleFullscreen}
+               >
+                  {isFullscreen ? <Shrink /> : <Expand />}
+               </Button>
+            </TooltipTrigger>
+            <TooltipContent side='right'>
+               <p>{isFullscreen ? 'Sair do modo tela cheia' : 'Ativar modo tela cheia'}</p>
+            </TooltipContent>
+         </Tooltip>
       </section>
    );
 }
