@@ -5,6 +5,7 @@ import { Toaster } from 'sonner';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { LanguageSwitcher } from '@/_ui/LanguageSwitcher';
+import { getMessages } from 'next-intl/server';
 
 const poppins = Poppins({
    variable: '--font-poppins',
@@ -17,14 +18,16 @@ export const metadata: Metadata = {
    description: 'Sistema de gestão para restaurantes.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
    children,
-   params: { locale },
+   params,
 }: Readonly<{
    children: React.ReactNode;
-   params: { locale: string };
+   params: Promise<{ locale: string }>;
 }>) {
-   const messages = useMessages();
+   const { locale } = await params;
+   const messages = await getMessages();
+
    if (!messages) notFound();
 
    return (
