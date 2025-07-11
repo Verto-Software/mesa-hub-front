@@ -1,11 +1,14 @@
 import { Button } from '@/_ui/button';
 import Link from 'next/link';
 import { TCreateAccount } from './interface';
+import { useTranslations } from 'next-intl';
 
 export function CreateAccount({ handleCreateAccount, isRegister }: TCreateAccount) {
+   const t = useTranslations();
+
    return (
       <div className='flex items-center justify-center gap-2 text-gray-800'>
-         <p className='text-sm'>{isRegister ? 'Já possui uma conta?' : 'Não tem uma conta?'}</p>
+         <p className='text-sm'>{isRegister ? t('HaveAccount') : t('NotHaveAccount')}</p>
          <Button
             className='!p-0 font-medium cursor-pointer text-sm'
             type='button'
@@ -13,7 +16,7 @@ export function CreateAccount({ handleCreateAccount, isRegister }: TCreateAccoun
             asChild
             onClick={handleCreateAccount}
          >
-            <Link href='#'>{isRegister ? 'Login' : 'Criar conta'}</Link>
+            <Link href='#'>{isRegister ? t('Login') : t('CreateAccount')}</Link>
          </Button>
       </div>
    );

@@ -3,15 +3,18 @@ import { Input } from '@/_ui/input';
 import { Label } from '@/_ui/label';
 import { Eye, EyeOff, Lock } from 'lucide-react';
 import { TInputNewPassword } from './interface';
+import { useTranslations } from 'next-intl';
 
 export function InputNewPassword({ toggleShowNewPassword, showNewPassword, register, errors }: TInputNewPassword) {
+   const t = useTranslations();
+
    return (
       <div className='space-y-2'>
          <Label
             className='text-gray-800'
             htmlFor='newpassword'
          >
-            Nova senha
+            {t('NewPassword')}
          </Label>
          <div className='relative'>
             <Lock
@@ -22,7 +25,7 @@ export function InputNewPassword({ toggleShowNewPassword, showNewPassword, regis
                className='pl-10 text-gray-800'
                id='newpassword'
                type={!showNewPassword ? 'password' : 'text'}
-               placeholder='Digite uma nova senha'
+               placeholder={t('EnterANewPassword')}
                {...register('newpassword')}
             />
             {errors.newpassword?.message && <p className='text-xs text-red-500 mt-0.5'>{errors.newpassword?.message}</p>}
