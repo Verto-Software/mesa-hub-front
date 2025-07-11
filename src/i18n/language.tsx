@@ -2,6 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import { usePathname, Link } from '@/i18n/navigation';
+import Image from 'next/image';
 
 export function Language() {
    const locale = useLocale();
@@ -12,9 +13,15 @@ export function Language() {
       <Link
          href={pathname}
          locale={otherLocale}
-         className='px-4 py-2 rounded bg-blue-600 text-white'
+         aria-label={`Switch to ${otherLocale}`}
+         className='w-full flex justify-end p-4 fixed top-0 left-0 z-50'
       >
-         {otherLocale === 'pt-BR' ? 'Português' : 'English'}
+         <Image
+            src={otherLocale === 'pt-BR' ? '/flag/br-flag.svg' : '/flag/us-flag.svg'}
+            alt={otherLocale}
+            width={24}
+            height={24}
+         />
       </Link>
    );
 }

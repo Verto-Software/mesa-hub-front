@@ -46,7 +46,7 @@ export default async function RootLayout({
                   visibleToasts={1}
                />
                <Language />
-               {children}
+               <main>{children}</main>
             </NextIntlClientProvider>
          </body>
       </html>
