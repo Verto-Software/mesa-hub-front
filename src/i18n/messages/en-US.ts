@@ -3,7 +3,7 @@ export default {
    EnterYourEmail: 'Enter your email',
    HaveAccount: 'Already have an account?',
    NotHaveAccount: "Don't have an account?",
-   Login: 'Log in',
+   Login: 'Login',
    CreateAccount: 'Create account',
    FirstName: 'First name',
    EnterYourFirstName: 'Enter your first name',
