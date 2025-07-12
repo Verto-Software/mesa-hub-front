@@ -12,8 +12,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { Routes } from '@/routes/routes';
+import { useTranslations } from 'next-intl';
 
 export function ForgotPassword() {
+   const t = useTranslations();
    const [showNewPassword, setShowNewPassword] = useState(false);
    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
    const { push } = useRouter();
@@ -45,7 +47,7 @@ export function ForgotPassword() {
    }
 
    return (
-      <section className='min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 p-4'>
+      <section className='select-none min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 p-4'>
          <div className='w-full max-w-md'>
             <Card className='shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in'>
                <CardContent>
@@ -54,7 +56,7 @@ export function ForgotPassword() {
                      onSubmit={handleSubmit(handleSubmitResetPassword)}
                   >
                      <fieldset className='flex flex-col gap-6'>
-                        <legend className='text-center text-gray-800 text-xl mb-6'>Redefinir Senha</legend>
+                        <legend className='text-center text-gray-800 text-xl mb-6'>{t('ResetPassword')}</legend>
                         <InputNewPassword
                            toggleShowNewPassword={toggleShowNewPassword}
                            showNewPassword={showNewPassword}
@@ -72,20 +74,20 @@ export function ForgotPassword() {
                            type='submit'
                            disabled={!isValid}
                         >
-                           Redefinir Senha
+                           {t('ResetPassword')}
                         </Button>
                      </fieldset>
                   </form>
                </CardContent>
                <CardFooter className='w-full flex items-center justify-center gap-2 text-gray-800'>
-                  <p className='text-sm'>Lembrou da senha?</p>
+                  <p className='text-sm'>{t('DidYouRememberPassword')}</p>
                   <Button
                      className='!p-0 font-medium cursor-pointer'
                      type='submit'
                      variant='link'
                      asChild
                   >
-                     <Link href={Routes.Auth}>Fazer login</Link>
+                     <Link href={Routes.Auth}>{t('Login')}</Link>
                   </Button>
                </CardFooter>
             </Card>

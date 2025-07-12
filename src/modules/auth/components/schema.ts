@@ -1,17 +1,22 @@
+import { useTranslations } from 'next-intl';
 import { z } from 'zod';
 
-export const authSchema = z.object({
-   email: z.string().min(1, 'O Email é obrigatório').email('Formato de email inválido'),
-   password: z
-      .string()
-      .min(6, 'A senha deve ter no mínimo 6 caracteres')
-      .trim()
-      .regex(/[A-Z]/, 'A senha deve conter pelo menos uma letra maiúscula')
-      .regex(/[a-z]/, 'A senha deve conter pelo menos uma letra minúscula')
-      .regex(/[0-9]/, 'A senha deve conter pelo menos um número')
-      .regex(/[^A-Za-z0-9]/, 'A senha deve conter pelo menos um caractere especial'),
-   firstname: z.string().min(1, 'Seu nome é obrigatório').trim().optional(),
-   lastname: z.string().min(1, 'Seu sobrenome é obrigatório').trim().optional(),
-});
+export const AuthSchema = () => {
+   const t = useTranslations();
 
-export type FormAuthSchema = z.infer<typeof authSchema>;
+   return z.object({
+      email: z.string().min(1, t('EmailRequired')).email(t('EmailInvalid')),
+      password: z
+         .string()
+         .min(6, t('PasswordMin'))
+         .trim()
+         .regex(/[A-Z]/, t('PasswordUpper'))
+         .regex(/[a-z]/, t('PasswordLower'))
+         .regex(/[0-9]/, t('PasswordNumber'))
+         .regex(/[^A-Za-z0-9]/, t('PasswordSpecial')),
+      firstname: z.string().min(1, t('FirstNameRequired')).trim().optional(),
+      lastname: z.string().min(1, t('LastNameRequired')).trim().optional(),
+   });
+};
+
+export type FormAuthSchema = z.infer<ReturnType<typeof AuthSchema>>;

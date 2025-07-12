@@ -2,15 +2,18 @@ import { Input } from '@/_ui/input';
 import { Label } from '@/_ui/label';
 import { Mail, User } from 'lucide-react';
 import { TInputFirstName } from './interface';
+import { useTranslations } from 'next-intl';
 
 export function InputFirstName({ register, errors }: TInputFirstName) {
+   const t = useTranslations();
+
    return (
       <div className='space-y-2 animated-right'>
          <Label
             className='text-gray-800'
             htmlFor='firstname'
          >
-            Nome
+            {t('FirstName')}
          </Label>
          <div className='relative'>
             <User
@@ -21,7 +24,7 @@ export function InputFirstName({ register, errors }: TInputFirstName) {
                className='pl-10 text-gray-800 autofill:none'
                id='firstname'
                type='text'
-               placeholder='Digite o seu nome'
+               placeholder={t('EnterYourFirstName')}
                {...register('firstname')}
             />
             {errors.firstname?.message && <p className='text-xs text-red-500 mt-0.5'>{errors.firstname?.message}</p>}

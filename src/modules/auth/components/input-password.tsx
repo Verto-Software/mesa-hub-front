@@ -5,15 +5,17 @@ import { Routes } from '@/routes/routes';
 import { Eye, EyeOff, Lock } from 'lucide-react';
 import Link from 'next/link';
 import { TInputPassword } from './interface';
+import { useTranslations } from 'next-intl';
 
 export function InputPassword({ register, errors, showPassword, toggleShowPassword, isRegister }: TInputPassword) {
+   const t = useTranslations();
    return (
       <div className='space-y-2'>
          <Label
             className='text-gray-800'
             htmlFor='password'
          >
-            Senha
+            {t('Password')}
          </Label>
          <div className='relative'>
             <Lock
@@ -24,7 +26,7 @@ export function InputPassword({ register, errors, showPassword, toggleShowPasswo
                className='pl-10 text-gray-800'
                id='password'
                type={showPassword ? 'text' : 'password'}
-               placeholder='Digite a sua senha'
+               placeholder={t('EnterYourPassword')}
                {...register('password')}
             />
             {errors.password?.message && <p className='text-xs text-red-500 mt-0.5'>{errors.password?.message}</p>}
@@ -45,7 +47,7 @@ export function InputPassword({ register, errors, showPassword, toggleShowPasswo
                   variant='link'
                   asChild
                >
-                  <Link href={Routes.ForgotPassword}>Esqueceu a senha?</Link>
+                  <Link href={Routes.ForgotPassword}>{t('ForgotYourPassword')}</Link>
                </Button>
             </div>
          ) : null}

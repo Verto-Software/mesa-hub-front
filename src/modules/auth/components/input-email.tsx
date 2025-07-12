@@ -2,8 +2,11 @@ import { Input } from '@/_ui/input';
 import { Label } from '@/_ui/label';
 import { Mail } from 'lucide-react';
 import { TInputEmail } from './interface';
+import { useTranslations } from 'next-intl';
 
 export function InputEmail({ register, errors }: TInputEmail) {
+   const t = useTranslations();
+
    return (
       <div className='space-y-2'>
          <Label
@@ -21,7 +24,7 @@ export function InputEmail({ register, errors }: TInputEmail) {
                className='pl-10 text-gray-800 autofill:none'
                id='email'
                type='email'
-               placeholder='Digite o seu e-mail'
+               placeholder={t('EnterYourEmail')}
                {...register('email')}
             />
             {errors.email?.message && <p className='text-xs text-red-500 mt-0.5'>{errors.email?.message}</p>}
