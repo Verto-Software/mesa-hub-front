@@ -1,7 +1,5 @@
 'use client';
 
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -11,8 +9,10 @@ import { InputConfirmNewPassword } from './components/input-confirm-password';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
-import { Routes } from '@/routes/routes';
 import { useTranslations } from 'next-intl';
+import { Routes } from '@/_shared/routes/routes';
+import { Card, CardContent, CardFooter } from '@/_shared/components/ui/card';
+import { Button } from '@/_shared/components/ui/button';
 
 export function ForgotPassword() {
    const t = useTranslations();

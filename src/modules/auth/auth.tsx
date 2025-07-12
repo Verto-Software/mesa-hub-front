@@ -1,25 +1,24 @@
 'use client';
 
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { InputEmail } from './components/input-email';
-import { InputPassword } from './components/input-password';
-import { Button } from '@/components/ui/button';
-import { CreateAccount } from './components/create-account';
-import { LoginWithGoogle } from './components/login-with-google';
-import { useForm } from 'react-hook-form';
+import { Button } from '@/_shared/components/ui/button';
+import { Card, CardContent, CardFooter } from '@/_shared/components/ui/card';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/_shared/components/ui/tooltip';
+import { useFullscreen } from '@/_shared/hooks/useFullScreen';
+import { Routes } from '@/_shared/routes/routes';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { AuthSchema, FormAuthSchema } from './components/schema';
+import { Expand, Shrink } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+import { CreateAccount } from './components/create-account';
+import { InputEmail } from './components/input-email';
 import { InputFirstName } from './components/input-first-name';
 import { InputLastName } from './components/input-last-name';
-import { useRouter } from 'next/navigation';
-import { Routes } from '@/routes/routes';
-import { toast } from 'sonner';
-import { useFullscreen } from '@/_shared/hooks/useFullScreen';
-import { Expand, Shrink } from 'lucide-react';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { useTranslations } from 'next-intl';
-import { Loading } from '@/components/ui/loading';
+import { InputPassword } from './components/input-password';
+import { LoginWithGoogle } from './components/login-with-google';
+import { AuthSchema, FormAuthSchema } from './components/schema';
 
 export function Auth() {
    const t = useTranslations();
