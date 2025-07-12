@@ -1,5 +1,3 @@
-/** @format */
-
 'use client';
 
 import { Card, CardContent, CardFooter, CardHeader } from '@/_ui/card';
@@ -10,15 +8,17 @@ import { CreateAccount } from './components/create-account';
 import { LoginWithGoogle } from './components/login-with-google';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FormAuthSchema, authSchema } from './components/schema';
+import { AuthSchema, FormAuthSchema } from './components/schema';
 import { useState } from 'react';
 import { InputFirstName } from './components/input-first-name';
 import { InputLastName } from './components/input-last-name';
 import { useRouter } from 'next/navigation';
 import { Routes } from '@/routes/routes';
 import { toast } from 'sonner';
+import { useTranslations } from 'next-intl';
 
 export function Auth() {
+   const t = useTranslations();
    const [showPassword, setShowPassword] = useState(false);
    const [isRegister, setRegister] = useState(false);
    const { push } = useRouter();
@@ -29,7 +29,7 @@ export function Auth() {
       formState: { errors, isValid },
       reset,
    } = useForm<FormAuthSchema>({
-      resolver: zodResolver(authSchema),
+      resolver: zodResolver(AuthSchema()),
       mode: 'all',
    });
 
@@ -57,13 +57,13 @@ export function Auth() {
    }
 
    return (
-      <section className='min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 p-4'>
+      <section className='select-none min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 p-4'>
          <div className='w-full max-w-md'>
             <Card className='w-full shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in'>
                <CardContent>
                   <form onSubmit={handleSubmit(handleSubmitFormLogin)}>
                      <fieldset className='flex flex-col gap-6'>
-                        <legend className='text-center text-gray-800 text-xl mb-6'>{isRegister ? 'Cadastro' : 'Login'}</legend>
+                        <legend className='text-center text-gray-800 text-xl mb-6'>{isRegister ? t('Register') : t('Login')}</legend>
                         {isRegister ? (
                            <>
                               <InputFirstName
@@ -93,7 +93,7 @@ export function Auth() {
                            animated
                            disabled={!isValid}
                         >
-                           {isRegister ? 'Criar conta' : 'Entrar'}
+                           {isRegister ? t('Register') : t('Login')}
                         </Button>
                      </fieldset>
                   </form>
