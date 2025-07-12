@@ -16,7 +16,7 @@ export function CreateAccount({ handleCreateAccount, isRegister }: TCreateAccoun
             asChild
             onClick={handleCreateAccount}
          >
-            <Link href='#'>{isRegister ? t('Login') : t('CreateAccount')}</Link>
+            <p>{isRegister ? t('Login') : t('CreateAccount')}</p>
          </Button>
       </div>
    );
