@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from '@/_ui/button';
-import { Routes } from '@/routes/routes';
+import { Button } from '@/_shared/components/ui/button';
+import { Routes } from '@/_shared/routes/routes';
 import Image from 'next/image';
 import Link from 'next/link';
 

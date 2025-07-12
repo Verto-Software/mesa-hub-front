@@ -1,7 +1,7 @@
 'use client';
 
-import { Card, CardContent, CardFooter, CardHeader } from '@/_ui/card';
-import { Button } from '@/_ui/button';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';

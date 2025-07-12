@@ -1,4 +1,4 @@
-import { Button } from '@/_ui/button';
+import { Button } from '@/components/ui/button';
 import { useTranslations } from 'next-intl';
 
 export function LoginWithGoogle() {

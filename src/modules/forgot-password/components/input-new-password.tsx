@@ -1,6 +1,6 @@
-import { Button } from '@/_ui/button';
-import { Input } from '@/_ui/input';
-import { Label } from '@/_ui/label';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Eye, EyeOff, Lock } from 'lucide-react';
 import { TInputNewPassword } from './interface';
 import { useTranslations } from 'next-intl';

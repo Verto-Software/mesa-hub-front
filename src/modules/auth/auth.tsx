@@ -1,9 +1,9 @@
 'use client';
 
-import { Card, CardContent, CardFooter, CardHeader } from '@/_ui/card';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { InputEmail } from './components/input-email';
 import { InputPassword } from './components/input-password';
-import { Button } from '@/_ui/button';
+import { Button } from '@/components/ui/button';
 import { CreateAccount } from './components/create-account';
 import { LoginWithGoogle } from './components/login-with-google';
 import { useForm } from 'react-hook-form';
@@ -15,11 +15,11 @@ import { InputLastName } from './components/input-last-name';
 import { useRouter } from 'next/navigation';
 import { Routes } from '@/routes/routes';
 import { toast } from 'sonner';
-import { useFullscreen } from '@/hooks/useFullScreen';
+import { useFullscreen } from '@/_shared/hooks/useFullScreen';
 import { Expand, Shrink } from 'lucide-react';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/_ui/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { useTranslations } from 'next-intl';
-import { Loading } from '@/_ui/loading';
+import { Loading } from '@/components/ui/loading';
 
 export function Auth() {
    const t = useTranslations();
