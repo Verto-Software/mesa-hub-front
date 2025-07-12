@@ -19,6 +19,7 @@ import { useFullscreen } from '@/hooks/useFullScreen';
 import { Expand, Shrink } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/_ui/tooltip';
 import { useTranslations } from 'next-intl';
+import { Loading } from '@/_ui/loading';
 
 export function Auth() {
    const t = useTranslations();
