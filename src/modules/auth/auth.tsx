@@ -47,9 +47,9 @@ export function Auth() {
    }
 
    function handleSubmitFormLogin(data: FormAuthSchema) {
-      const isValid = isRegister ? data.firstname && data.lastname && data.email && data.password : data.email === 'teste@teste.com' && data.password === 'Coxinh@123';
+      const register = isRegister ? data.firstname && data.lastname && data.email && data.password : data.email === 'teste@teste.com' && data.password === 'Coxinh@123';
 
-      if (isValid) {
+      if (register) {
          isRegister && toast.success('Sua conta foi criada com sucesso!');
 
          push(Routes.Home);
