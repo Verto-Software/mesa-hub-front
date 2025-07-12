@@ -29,4 +29,9 @@ export default {
    Register: 'Register',
    ResetPassword: 'Reset Password',
    DidYouRememberPassword: 'Remembered your password?',
+   Looking: 'Even we’re looking for this page!',
+   ScreenHome: 'Home Screen',
+   ParagraphScreenError1: 'Sorry, we’re experiencing a technical issue.',
+   ParagraphScreenError2: 'If the problem persists, please contact our support team.',
+   Support: 'Support',
 } as const;
