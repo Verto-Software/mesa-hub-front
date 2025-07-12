@@ -14,7 +14,7 @@ export function Language() {
          href={pathname}
          locale={otherLocale}
          aria-label={`Switch to ${otherLocale}`}
-         className='w-full flex justify-end p-4 fixed top-0 left-0 z-50'
+         className='w-fit fixed top-3 right-3 z-50'
       >
          <Image
             src={otherLocale === 'pt-BR' ? '/flag/br-flag.svg' : '/flag/us-flag.svg'}
