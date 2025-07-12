@@ -1,8 +1,8 @@
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { User } from 'lucide-react';
 import { TInputLastName } from './interface';
 import { useTranslations } from 'next-intl';
+import { Label } from '@/_shared/components/ui/label';
+import { Input } from '@/_shared/components/ui/input';
 
 export function InputLastName({ register, errors }: TInputLastName) {
    const t = useTranslations();

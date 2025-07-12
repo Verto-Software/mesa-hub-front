@@ -1,8 +1,8 @@
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Mail } from 'lucide-react';
 import { TInputEmail } from './interface';
 import { useTranslations } from 'next-intl';
+import { Label } from '@/_shared/components/ui/label';
+import { Input } from '@/_shared/components/ui/input';
 
 export function InputEmail({ register, errors }: TInputEmail) {
    const t = useTranslations();

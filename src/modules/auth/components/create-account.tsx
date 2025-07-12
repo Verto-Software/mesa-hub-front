@@ -1,5 +1,4 @@
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { Button } from '@/_shared/components/ui/button';
 import { TCreateAccount } from './interface';
 import { useTranslations } from 'next-intl';
 
