@@ -46,10 +46,10 @@ export function Auth() {
       setRegister(!isRegister);
    }
 
-   function handleSubmitForm(data: FormAuthSchema) {
-      const register = isRegister ? data.firstname && data.lastname && data.email && data.password : data.email === 'teste@teste.com' && data.password === 'Coxinh@123';
+   function handleSubmitFormLogin(data: FormAuthSchema) {
+      const isValid = isRegister ? data.firstname && data.lastname && data.email && data.password : data.email === 'teste@teste.com' && data.password === 'Coxinh@123';
 
-      if (register) {
+      if (isValid) {
          isRegister && toast.success('Sua conta foi criada com sucesso!');
 
          push(Routes.Home);
@@ -66,7 +66,7 @@ export function Auth() {
          <div className='w-full max-w-md'>
             <Card className='w-full shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in'>
                <CardContent>
-                  <form onSubmit={handleSubmit(handleSubmitForm)}>
+                  <form onSubmit={handleSubmit(handleSubmitFormLogin)}>
                      <fieldset className='flex flex-col gap-6'>
                         <legend className='text-center text-gray-800 text-xl mb-6'>{isRegister ? t('Register') : t('Login')}</legend>
                         {isRegister ? (
