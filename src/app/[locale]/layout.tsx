@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import '../globals.css';
 import { Toaster } from 'sonner';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
-import { notFound } from 'next/navigation';
-import { getMessages } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
+import { SidebarInset, SidebarProvider } from '@/_shared/components/ui/sidebar';
+import { SidebarTemplate } from '@/modules/sidebar';
+import { Header } from '@/_shared/components/ui/header';
 import { Language } from '@/i18n/language';
+import { ButtonFullScreen } from '@/_shared/components/ui/button-full-screen';
 
 const poppins = Poppins({
    variable: '--font-poppins',
@@ -26,17 +28,11 @@ export default async function RootLayout({
    params: Promise<{ locale: string }>;
 }>) {
    const { locale } = await params;
-   const messages = await getMessages();
-
-   if (!messages) notFound();
 
    return (
       <html lang={locale}>
          <body className={`${poppins.variable}`}>
-            <NextIntlClientProvider
-               locale={locale}
-               messages={messages}
-            >
+            <NextIntlClientProvider>
                <Toaster
                   position='top-right'
                   theme='system'
@@ -46,7 +42,13 @@ export default async function RootLayout({
                   visibleToasts={1}
                />
                <Language />
-               <main>{children}</main>
+               <SidebarProvider>
+                  <SidebarTemplate />
+                  <SidebarInset>
+                     <Header />
+                     <main>{children}</main>
+                  </SidebarInset>
+               </SidebarProvider>
             </NextIntlClientProvider>
          </body>
       </html>

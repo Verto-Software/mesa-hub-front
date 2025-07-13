@@ -9,7 +9,7 @@ import Link from 'next/link';
 export default function Error() {
    const t = useTranslations();
    return (
-      <section className='min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-300 via-white to-purple-300 p-4'>
+      <section className='h-full flex flex-col items-center justify-center bg-gradient-to-br from-purple-300 via-white to-purple-300 p-4'>
          <Image
             src='/error.svg'
             alt='Página não encontrada'

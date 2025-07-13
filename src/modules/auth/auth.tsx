@@ -3,7 +3,7 @@
 import { Button } from '@/_shared/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/_shared/components/ui/card';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/_shared/components/ui/tooltip';
-import { useFullscreen } from '@/_shared/hooks/useFullScreen';
+import { useFullscreen } from '@/_shared/hooks/use-full-screen';
 import { Routes } from '@/_shared/routes/routes';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Expand, Shrink } from 'lucide-react';
@@ -36,7 +36,6 @@ export function Auth() {
    });
 
    const { push } = useRouter();
-   const { isFullscreen, toggleFullscreen } = useFullscreen();
 
    function toggleShowPassword() {
       setShowPassword(!showPassword);
@@ -52,7 +51,7 @@ export function Auth() {
       if (isValid) {
          isRegister && toast.success('Sua conta foi criada com sucesso!');
 
-         push(Routes.Home);
+         push(Routes.Order);
          reset();
       } else {
          if (!isRegister) {
@@ -114,19 +113,6 @@ export function Auth() {
                </CardFooter>
             </Card>
          </div>
-         <Tooltip>
-            <TooltipTrigger asChild>
-               <Button
-                  className='cursor-pointer w-fit'
-                  onClick={toggleFullscreen}
-               >
-                  {isFullscreen ? <Shrink /> : <Expand />}
-               </Button>
-            </TooltipTrigger>
-            <TooltipContent side='right'>
-               <p>{isFullscreen ? 'Sair do modo tela cheia' : 'Ativar modo tela cheia'}</p>
-            </TooltipContent>
-         </Tooltip>
       </section>
    );
 }
