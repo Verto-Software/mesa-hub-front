@@ -2,8 +2,8 @@
 
 import { cn } from '@/_lib/utils';
 import { Badge } from '@/_shared/components/ui/badge';
-import { Button } from '@/_shared/components/ui/button';
 import { Card, CardContent, CardDescription } from '@/_shared/components/ui/card';
+import { SquarePen } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 export function OrderItem() {
@@ -19,12 +19,18 @@ export function OrderItem() {
          tabIndex={0}
          onClick={() => alert('Clicou')}
       >
-         <CardContent className='flex flex-col gap-3'>
+         <CardContent>
             <div className='flex items-center justify-between'>
                <p className='text-xl font-medium'>105</p>
-               <Badge className={cn(ocupado ? 'bg-red-500' : 'bg-emerald-500')}>{ocupado ? t('Busy') : t('Free')}</Badge>
+               <div className='flex items-center gap-4'>
+                  <Badge className={cn(ocupado ? 'bg-red-500' : 'bg-emerald-500')}>{ocupado ? t('Busy') : t('Free')}</Badge>
+                  <SquarePen
+                     size={20}
+                     strokeWidth={2}
+                  />
+               </div>
             </div>
-            <p className='text-xl font-medium'>Marlon</p>
+            <p className='text-xl font-medium mt-3'>Marlon</p>
             <CardDescription>
                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </CardDescription>
