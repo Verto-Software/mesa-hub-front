@@ -1,5 +1,5 @@
 import { Menu } from '@/modules/menu/menu';
 
-export default function () {
+export default function MenuPage() {
    return <Menu />;
 }

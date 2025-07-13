@@ -51,7 +51,7 @@ export function Auth() {
       if (isValid) {
          isRegister && toast.success('Sua conta foi criada com sucesso!');
 
-         push(Routes.Home);
+         push(Routes.Order);
          reset();
       } else {
          if (!isRegister) {

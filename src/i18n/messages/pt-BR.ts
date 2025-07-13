@@ -37,4 +37,8 @@ export default {
    Order: 'Pedido',
    Home: 'Início',
    Menu: 'Cardápio',
+   Stock: 'Estoque',
+   Settings: 'Configurações',
+   ExitFullScreenMode: 'Sair do modo tela cheia [ESC]',
+   EnableFullScreenMode: 'Ativar modo tela cheia',
 } as const;

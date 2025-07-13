@@ -37,4 +37,8 @@ export default {
    Order: 'Order',
    Home: 'Home',
    Menu: 'Menu',
+   Stock: 'Stock',
+   Settings: 'Settings',
+   ExitFullScreenMode: 'Exit full screen mode [ESC]',
+   EnableFullScreenMode: 'Enable full screen mode',
 } as const;

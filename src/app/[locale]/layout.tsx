@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { SidebarInset, SidebarProvider } from '@/_shared/components/ui/sidebar';
 import { SidebarTemplate } from '@/modules/sidebar';
 import { Header } from '@/_shared/components/ui/header';
+import { Language } from '@/i18n/language';
 
 const poppins = Poppins({
    variable: '--font-poppins',
@@ -39,7 +40,7 @@ export default async function RootLayout({
                   duration={3000}
                   visibleToasts={1}
                />
-               {/* <Language /> */}
+               <Language />
                <SidebarProvider>
                   <SidebarTemplate />
                   <SidebarInset className='flex flex-col flex-1 overflow-hidden'>

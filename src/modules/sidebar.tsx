@@ -4,7 +4,7 @@ import { Button } from '@/_shared/components/ui/button';
 import { SidebarHeader, SidebarGroup, SidebarGroupLabel, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, useSidebar, Sidebar, SidebarFooter } from '@/_shared/components/ui/sidebar';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/_shared/components/ui/tooltip';
 import { useFullscreen } from '@/_shared/hooks/use-full-screen';
-import { Expand, Shrink, SquareMenu, StickyNote } from 'lucide-react';
+import { Expand, Package, Settings, Shrink, SquareMenu, StickyNote } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
@@ -31,6 +31,26 @@ export function SidebarTemplate() {
          url: '/menu',
          icon: (
             <SquareMenu
+               size={15}
+               strokeWidth={2}
+            />
+         ),
+      },
+      {
+         title: t('Stock'),
+         url: '/stock',
+         icon: (
+            <Package
+               size={15}
+               strokeWidth={2}
+            />
+         ),
+      },
+      {
+         title: t('Settings'),
+         url: '/settings',
+         icon: (
+            <Settings
                size={15}
                strokeWidth={2}
             />
@@ -82,7 +102,7 @@ export function SidebarTemplate() {
                   </Button>
                </TooltipTrigger>
                <TooltipContent side='right'>
-                  <p>{isFullscreen ? 'Sair do modo tela cheia [ESC]' : 'Ativar modo tela cheia'}</p>
+                  <p>{isFullscreen ? t('ExitFullScreenMode') : t('EnableFullScreenMode')}</p>
                </TooltipContent>
             </Tooltip>
          </SidebarFooter>

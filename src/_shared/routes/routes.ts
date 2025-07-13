@@ -3,4 +3,5 @@ export const Routes = {
    Auth: '/auth',
    ForgotPassword: '/forgot-password',
    Order: '/order',
+   Menu: '/menu',
 };
