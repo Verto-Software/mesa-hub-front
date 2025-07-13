@@ -7,6 +7,7 @@ import { SidebarInset, SidebarProvider } from '@/_shared/components/ui/sidebar';
 import { SidebarTemplate } from '@/modules/sidebar';
 import { Header } from '@/_shared/components/ui/header';
 import { Language } from '@/i18n/language';
+import { ButtonFullScreen } from '@/_shared/components/ui/button-full-screen';
 
 const poppins = Poppins({
    variable: '--font-poppins',

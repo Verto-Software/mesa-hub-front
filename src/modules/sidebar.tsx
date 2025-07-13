@@ -2,6 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/_shared/components/ui/avatar';
 import { Button } from '@/_shared/components/ui/button';
+import { ButtonFullScreen } from '@/_shared/components/ui/button-full-screen';
 import { SidebarHeader, SidebarGroup, SidebarGroupLabel, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, useSidebar, Sidebar, SidebarFooter } from '@/_shared/components/ui/sidebar';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/_shared/components/ui/tooltip';
 import { useFullscreen } from '@/_shared/hooks/use-full-screen';
@@ -14,8 +15,6 @@ export function SidebarTemplate() {
    const t = useTranslations();
    const { state } = useSidebar();
    const isCollapsed = state === 'collapsed';
-
-   const { isFullscreen, toggleFullscreen } = useFullscreen();
 
    const menuItems = [
       {
@@ -90,12 +89,13 @@ export function SidebarTemplate() {
                {!isCollapsed && (
                   <div>
                      <h2 className='text-lg font-bold text-sidebar-primary'>RestauranteApp</h2>
-                     <p className='text-xs text-sidebar-foreground/70'>Sistema de Gestão</p>
                   </div>
                )}
             </div>
          </SidebarHeader>
-         <SidebarGroupLabel className='px-4 mt-2'>Menu</SidebarGroupLabel>
+         <SidebarGroupLabel className='text-sm mt-2 justify-center'>
+            <p>Sistema de Gestão</p>
+         </SidebarGroupLabel>
          <SidebarContent>
             <SidebarGroup>
                <SidebarMenu className='flex gap-3'>
@@ -120,20 +120,6 @@ export function SidebarTemplate() {
             </SidebarGroup>
          </SidebarContent>
          <SidebarFooter>
-            <Tooltip>
-               <TooltipTrigger asChild>
-                  <Button
-                     className='cursor-pointer w-fit'
-                     onClick={toggleFullscreen}
-                  >
-                     {isFullscreen ? <Shrink /> : <Expand />}
-                  </Button>
-               </TooltipTrigger>
-               <TooltipContent side='right'>
-                  <p>{isFullscreen ? t('ExitFullScreenMode') : t('EnableFullScreenMode')}</p>
-               </TooltipContent>
-            </Tooltip>
-
             <SidebarGroup>
                <SidebarMenu>
                   {buttonMenuItems.map((buttonMenuItem) => {
@@ -158,7 +144,7 @@ export function SidebarTemplate() {
                               ) : (
                                  <Link
                                     href={buttonMenuItem.url}
-                                    className='flex items-center gap-2 border border-dashed border-gray-400 p-2'
+                                    className='flex items-center gap-2 border border-dashed border-gray-250 p-2'
                                  >
                                     <i>{buttonMenuItem.icon}</i>
                                     <p>{buttonMenuItem.title}</p>
