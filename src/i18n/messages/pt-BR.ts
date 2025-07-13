@@ -36,4 +36,5 @@ export default {
    Support: 'Suporte',
    Order: 'Pedido',
    Home: 'Início',
+   Menu: 'Cardápio',
 } as const;

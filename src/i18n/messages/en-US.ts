@@ -36,4 +36,5 @@ export default {
    Support: 'Support',
    Order: 'Order',
    Home: 'Home',
+   Menu: 'Menu',
 } as const;

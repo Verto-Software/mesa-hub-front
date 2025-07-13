@@ -36,7 +36,6 @@ export function Auth() {
    });
 
    const { push } = useRouter();
-   const { isFullscreen, toggleFullscreen } = useFullscreen();
 
    function toggleShowPassword() {
       setShowPassword(!showPassword);
@@ -114,19 +113,6 @@ export function Auth() {
                </CardFooter>
             </Card>
          </div>
-         <Tooltip>
-            <TooltipTrigger asChild>
-               <Button
-                  className='cursor-pointer w-fit'
-                  onClick={toggleFullscreen}
-               >
-                  {isFullscreen ? <Shrink /> : <Expand />}
-               </Button>
-            </TooltipTrigger>
-            <TooltipContent side='right'>
-               <p>{isFullscreen ? 'Sair do modo tela cheia' : 'Ativar modo tela cheia'}</p>
-            </TooltipContent>
-         </Tooltip>
       </section>
    );
 }
