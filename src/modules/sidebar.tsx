@@ -82,7 +82,7 @@ export function SidebarTemplate() {
                   </Button>
                </TooltipTrigger>
                <TooltipContent side='right'>
-                  <p>{isFullscreen ? 'Sair do modo tela cheia' : 'Ativar modo tela cheia'}</p>
+                  <p>{isFullscreen ? 'Sair do modo tela cheia [ESC]' : 'Ativar modo tela cheia'}</p>
                </TooltipContent>
             </Tooltip>
          </SidebarFooter>
