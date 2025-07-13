@@ -1,13 +1,9 @@
 'use client';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/_shared/components/ui/avatar';
-import { Button } from '@/_shared/components/ui/button';
-import { ButtonFullScreen } from '@/_shared/components/ui/button-full-screen';
 import { SidebarHeader, SidebarGroup, SidebarGroupLabel, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, useSidebar, Sidebar, SidebarFooter } from '@/_shared/components/ui/sidebar';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/_shared/components/ui/tooltip';
-import { useFullscreen } from '@/_shared/hooks/use-full-screen';
 import { Routes } from '@/_shared/routes/routes';
-import { CreditCard, Expand, MessageSquareMore, Package, Settings, Shrink, SquareMenu, StickyNote } from 'lucide-react';
+import { CreditCard, MessageSquareMore, Package, Settings, SquareMenu, StickyNote } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
@@ -94,7 +90,7 @@ export function SidebarTemplate() {
             </div>
          </SidebarHeader>
          <SidebarGroupLabel className='text-sm mt-2 justify-center'>
-            <p>Sistema de Gestão</p>
+            <p>Menu</p>
          </SidebarGroupLabel>
          <SidebarContent>
             <SidebarGroup>
