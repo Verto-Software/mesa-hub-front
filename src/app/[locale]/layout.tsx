@@ -43,9 +43,9 @@ export default async function RootLayout({
                <Language />
                <SidebarProvider>
                   <SidebarTemplate />
-                  <SidebarInset className='flex flex-col flex-1 overflow-hidden'>
+                  <SidebarInset>
                      <Header />
-                     <div className='h-[calc(100%-4rem)] overflow-auto'>{children}</div>
+                     <main>{children}</main>
                   </SidebarInset>
                </SidebarProvider>
             </NextIntlClientProvider>

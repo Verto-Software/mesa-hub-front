@@ -1,0 +1,34 @@
+'use client';
+
+import { cn } from '@/_lib/utils';
+import { Badge } from '@/_shared/components/ui/badge';
+import { Button } from '@/_shared/components/ui/button';
+import { Card, CardContent, CardDescription } from '@/_shared/components/ui/card';
+import { useTranslations } from 'next-intl';
+
+export function OrderItem() {
+   const t = useTranslations();
+
+   // Mockado
+   const ocupado = true;
+
+   return (
+      <Card
+         className={cn(ocupado ? 'bg-red-50' : 'bg-emerald-50', 'cursor-pointer select-none')}
+         role='button'
+         tabIndex={0}
+         onClick={() => alert('Clicou')}
+      >
+         <CardContent className='flex flex-col gap-3'>
+            <div className='flex items-center justify-between'>
+               <p className='text-xl font-medium'>105</p>
+               <Badge className={cn(ocupado ? 'bg-red-500' : 'bg-emerald-500')}>{ocupado ? t('Busy') : t('Free')}</Badge>
+            </div>
+            <p className='text-xl font-medium'>Marlon</p>
+            <CardDescription>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </CardDescription>
+         </CardContent>
+      </Card>
+   );
+}

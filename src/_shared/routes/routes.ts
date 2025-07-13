@@ -4,4 +4,5 @@ export const Routes = {
    ForgotPassword: '/forgot-password',
    Order: '/order',
    Menu: '/menu',
+   Plans: '/plans',
 };
