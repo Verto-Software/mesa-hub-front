@@ -3,7 +3,7 @@
 import { Button } from '@/_shared/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/_shared/components/ui/card';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/_shared/components/ui/tooltip';
-import { useFullscreen } from '@/_shared/hooks/useFullScreen';
+import { useFullscreen } from '@/_shared/hooks/use-full-screen';
 import { Routes } from '@/_shared/routes/routes';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Expand, Shrink } from 'lucide-react';
