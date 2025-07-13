@@ -10,7 +10,10 @@ export function Order() {
       <section className='flex flex-col select-none'>
          <div className='flex items-center justify-between sticky top-[61px] w-full p-6 bg-white'>
             <h1 className='text-2xl'>{t('Orders')}</h1>
-            <Button className='cursor-pointer'>
+            <Button
+               className='cursor-pointer'
+               animated
+            >
                <Plus
                   size={15}
                   strokeWidth={2}

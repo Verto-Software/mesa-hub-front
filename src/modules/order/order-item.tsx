@@ -2,7 +2,6 @@
 
 import { cn } from '@/_lib/utils';
 import { Badge } from '@/_shared/components/ui/badge';
-import { Button } from '@/_shared/components/ui/button';
 import { Card, CardContent, CardDescription } from '@/_shared/components/ui/card';
 import { useTranslations } from 'next-intl';
 
@@ -10,14 +9,14 @@ export function OrderItem() {
    const t = useTranslations();
 
    // Mockado
-   const ocupado = true;
+   const ocupado = false;
 
    return (
       <Card
-         className={cn(ocupado ? 'bg-red-50' : 'bg-emerald-50', 'cursor-pointer select-none')}
+         className={cn(ocupado ? 'bg-red-50' : 'bg-emerald-50', 'cursor-pointer select-none active:scale-[0.99] active:brightness-100')}
          role='button'
          tabIndex={0}
-         onClick={() => alert('Clicou')}
+         onClick={() => console.log('Clicou')}
       >
          <CardContent>
             <div className='flex items-center justify-between'>
