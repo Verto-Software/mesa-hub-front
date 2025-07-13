@@ -79,7 +79,7 @@ export function SidebarTemplate() {
    ];
 
    return (
-      <Sidebar className='border-r border-sidebar-border select-none'>
+      <Sidebar className='border-r border-sidebar-border select-none md:block hidden'>
          <SidebarHeader className='border-b'>
             <div className='flex items-center p-4'>
                {!isCollapsed && (

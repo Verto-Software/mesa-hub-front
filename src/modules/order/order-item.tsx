@@ -9,7 +9,7 @@ export function OrderItem() {
    const t = useTranslations();
 
    // Mockado
-   const ocupado = true;
+   const ocupado = false;
 
    return (
       <Card

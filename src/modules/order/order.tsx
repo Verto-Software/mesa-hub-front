@@ -13,7 +13,7 @@ export function Order() {
    return (
       <section className='flex flex-col select-none'>
          <div className='flex items-center justify-between sticky top-[61px] w-full p-6 bg-white'>
-            <div className='flex gap-6'>
+            <div className='flex gap-6 flex-col md:flex-row'>
                <h1 className='text-2xl'>{t('Orders')}</h1>
                <Dialog>
                   <form>
@@ -34,7 +34,7 @@ export function Order() {
                         <DialogHeader>
                            <DialogTitle>{t('AddNewOrder')}</DialogTitle>
                         </DialogHeader>
-                        <div className='flex gap-2'>
+                        <div className='flex gap-2 flex-col md:flex-row'>
                            <Input
                               type='number'
                               placeholder={t('OrderNumber')}
@@ -69,22 +69,22 @@ export function Order() {
                      </DialogContent>
                   </form>
                </Dialog>
-            </div>
-            <div className='relative w-96'>
-               <Input
-                  type='text'
-                  placeholder='Buscar comanda'
-                  className='pl-10'
-               />
-               <Search
-                  size={18}
-                  strokeWidth={2}
-                  className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400'
-               />
+               <div className='relative w-fit'>
+                  <Input
+                     type='text'
+                     placeholder='Buscar comanda'
+                     className='pl-10'
+                  />
+                  <Search
+                     size={18}
+                     strokeWidth={2}
+                     className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400'
+                  />
+               </div>
             </div>
          </div>
 
-         <div className='grid grid-cols-4 gap-6 px-6 pb-6'>
+         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 pb-6'>
             {Array.from({ length: 30 }).map((_, i) => (
                <OrderItem key={i} />
             ))}
