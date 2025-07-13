@@ -4,8 +4,7 @@ import { Button } from '@/_shared/components/ui/button';
 import { Plus } from 'lucide-react';
 import { OrderItem } from './order-item';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/_shared/components/ui/dialog';
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/_shared/components/ui/dialog';
 import { Input } from '@/_shared/components/ui/input';
 
 export function Order() {
@@ -27,7 +26,7 @@ export function Order() {
                            {t('NewOrder')}
                         </Button>
                      </DialogTrigger>
-                     <DialogContent>
+                     <DialogContent className='select-none'>
                         <DialogHeader>
                            <DialogTitle>{t('AddNewOrder')}</DialogTitle>
                         </DialogHeader>
@@ -35,6 +34,7 @@ export function Order() {
                            <Input
                               type='number'
                               placeholder={t('OrderNumber')}
+                              min={0}
                            />
                            <Input
                               type='text'
