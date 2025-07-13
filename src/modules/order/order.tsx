@@ -29,21 +29,21 @@ export function Order() {
                      </DialogTrigger>
                      <DialogContent>
                         <DialogHeader>
-                           <DialogTitle>Adicionar nova comanda</DialogTitle>
+                           <DialogTitle>{t('AddNewOrder')}</DialogTitle>
                         </DialogHeader>
                         <div className='flex gap-2'>
                            <Input
                               type='number'
-                              placeholder='Número da comanda'
+                              placeholder={t('OrderNumber')}
                            />
                            <Input
                               type='text'
-                              placeholder='Nome da comanda'
+                              placeholder={t('OrderName')}
                            />
                         </div>
                         <Input
                            type='text'
-                           placeholder='Observação da comanda'
+                           placeholder={t('ObservationOfTheOrder')}
                         />
                         <DialogFooter>
                            <DialogClose asChild>
@@ -51,7 +51,7 @@ export function Order() {
                                  className='cursor-pointer'
                                  variant='outline'
                               >
-                                 Cancelar
+                                 {t('Cancel')}
                               </Button>
                            </DialogClose>
                            <Button
@@ -59,7 +59,7 @@ export function Order() {
                               type='submit'
                               animated
                            >
-                              Criar comanda
+                              {t('CreateOrder')}
                            </Button>
                         </DialogFooter>
                      </DialogContent>

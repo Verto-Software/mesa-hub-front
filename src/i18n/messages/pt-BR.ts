@@ -46,4 +46,10 @@ export default {
    NewOrder: 'Nova comanda',
    Busy: 'Ocupado',
    Free: 'Livre',
+   OrderNumber: 'Número da comanda',
+   OrderName: 'Nome da comanda',
+   ObservationOfTheOrder: 'Observação da comanda',
+   Cancel: 'Cancelar',
+   CreateOrder: 'Criar comanda',
+   AddNewOrder: 'Adicionar nova comanda',
 } as const;

@@ -46,4 +46,10 @@ export default {
    NewOrder: 'New order',
    Busy: 'Busy',
    Free: 'Free',
+   OrderNumber: 'Order number',
+   OrderName: 'Order name',
+   ObservationOfTheOrder: 'Observation of the order',
+   Cancel: 'Cancel',
+   CreateOrder: 'Create Order',
+   AddNewOrder: 'Add new order',
 } as const;
