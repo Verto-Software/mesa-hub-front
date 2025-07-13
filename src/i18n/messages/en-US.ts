@@ -34,4 +34,6 @@ export default {
    ParagraphScreenError1: 'Sorry, we’re experiencing a technical issue.',
    ParagraphScreenError2: 'If the problem persists, please contact our support team.',
    Support: 'Support',
+   Order: 'Order',
+   Home: 'Home',
 } as const;

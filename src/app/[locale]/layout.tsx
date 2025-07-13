@@ -8,6 +8,8 @@ import { getMessages } from 'next-intl/server';
 import { Language } from '@/i18n/language';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/_shared/components/ui/sidebar';
 import { SidebarTemplate } from '@/modules/sidebar';
+import { Routes } from '@/_shared/routes/routes';
+import { Header } from '@/_shared/components/ui/header';
 
 const poppins = Poppins({
    variable: '--font-poppins',
@@ -28,17 +30,11 @@ export default async function RootLayout({
    params: Promise<{ locale: string }>;
 }>) {
    const { locale } = await params;
-   const messages = await getMessages();
-
-   if (!messages) notFound();
 
    return (
       <html lang={locale}>
          <body className={`${poppins.variable}`}>
-            <NextIntlClientProvider
-               locale={locale}
-               messages={messages}
-            >
+            <NextIntlClientProvider>
                <Toaster
                   position='top-right'
                   theme='system'
@@ -51,10 +47,7 @@ export default async function RootLayout({
                <SidebarProvider>
                   <SidebarTemplate />
                   <SidebarInset className='flex flex-col flex-1 overflow-hidden'>
-                     <header className='h-16 shrink-0 border-b flex items-center gap-2 px-4'>
-                        <SidebarTrigger className='cursor-pointer' />
-                        <h1 className='text-lg font-semibold'>RestauranteApp</h1>
-                     </header>
+                     <Header />
                      <div className='h-[calc(100%-4rem)] overflow-auto'>{children}</div>
                   </SidebarInset>
                </SidebarProvider>
