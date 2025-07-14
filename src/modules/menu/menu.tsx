@@ -14,17 +14,7 @@ import { useTranslations } from 'next-intl';
 import { Controller, useForm } from 'react-hook-form';
 import { OrderItem } from '../order/order-item';
 import { Label } from '@/_shared/components/ui/label';
-
-const itemSchema = z.object({
-   name: z.string().min(1, 'Nome é obrigatório'),
-   category: z.string().min(1, 'Categoria é obrigatória'),
-   description: z.string().max(200, 'Máximo 200 caracteres'),
-   purchasePrice: z.string().min(1, 'Preço de compra é obrigatório'),
-   salePrice: z.string().min(1, 'Preço de venda é obrigatório'),
-   image: z.any().optional(),
-});
-
-type ItemFormData = z.infer<typeof itemSchema>;
+import { FormItemSchema, ItemSchema } from './schema';
 
 export function Menu() {
    const t = useTranslations();
@@ -37,8 +27,8 @@ export function Menu() {
       formState: { errors },
       reset,
       control,
-   } = useForm<ItemFormData>({
-      resolver: zodResolver(itemSchema),
+   } = useForm<FormItemSchema>({
+      resolver: zodResolver(ItemSchema()),
       mode: 'all',
       defaultValues: {
          name: '',
@@ -58,7 +48,7 @@ export function Menu() {
       setValue(field, formatted);
    };
 
-   const handleAddItem = (data: ItemFormData) => {
+   const handleAddItem = (data: FormItemSchema) => {
       console.log('Dados do formulário:', data);
       reset();
    };
@@ -88,14 +78,14 @@ export function Menu() {
                         className='space-y-4'
                      >
                         <DialogHeader>
-                           <DialogTitle>Adicionar novo item</DialogTitle>
+                           <DialogTitle>{t('AddNewItem')}</DialogTitle>
                         </DialogHeader>
 
                         <div className='flex gap-2 flex-col md:flex-row'>
                            <div className='w-full'>
                               <Input
                                  className={errors.name?.message ? 'border-red-500' : ''}
-                                 placeholder='Nome do item'
+                                 placeholder={t('ItemName')}
                                  {...register('name')}
                               />
                               {errors.name?.message && <p className='text-red-500 text-xs mt-1'>{errors.name.message}</p>}
@@ -105,7 +95,7 @@ export function Menu() {
                               <Controller
                                  name='category'
                                  control={control}
-                                 rules={{ required: 'Categoria é obrigatória' }}
+                                 rules={{ required: t('CategoryIsMandatory') }}
                                  render={({ field, fieldState }) => (
                                     <>
                                        <Select
@@ -113,12 +103,12 @@ export function Menu() {
                                           value={field.value}
                                        >
                                           <SelectTrigger className={`w-full ${errors.category?.message ? 'border-red-500' : ''}`}>
-                                             <SelectValue placeholder='Categoria' />
+                                             <SelectValue placeholder={t('Category')} />
                                           </SelectTrigger>
                                           <SelectContent>
-                                             <SelectItem value='drink'>Bebida</SelectItem>
-                                             <SelectItem value='desserts'>Sobremesas</SelectItem>
-                                             <SelectItem value='food'>Comidas</SelectItem>
+                                             <SelectItem value='drink'>{t('Drink')}</SelectItem>
+                                             <SelectItem value='desserts'>{t('Desserts')}</SelectItem>
+                                             <SelectItem value='food'>{t('Food')}</SelectItem>
                                           </SelectContent>
                                        </Select>
                                        {fieldState.error?.message && <p className='text-red-500 text-xs mt-1'>{fieldState.error.message}</p>}
@@ -131,7 +121,7 @@ export function Menu() {
                         <div>
                            <Textarea
                               className='break-all'
-                              placeholder='Descrição do item'
+                              placeholder={t('ItemDescription')}
                               maxLength={200}
                               {...register('description')}
                            />
@@ -141,8 +131,8 @@ export function Menu() {
                         <div className='space-y-2'>
                            <div className='border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors border-gray-300 hover:border-gray-400'>
                               <Upload className='mx-auto h-8 w-8 text-gray-400 mb-2' />
-                              <p className='text-sm text-gray-600'>Clique para adicionar uma imagem</p>
-                              <p className='text-xs text-gray-400 mt-1'>PNG, JPG até 5MB</p>
+                              <p className='text-sm text-gray-600'>{t('ClickToAddAnImage')}</p>
+                              <p className='text-xs text-gray-400 mt-1'>PNG, JPG {t('until')} 5MB</p>
                            </div>
                            <input
                               className='hidden'
@@ -154,7 +144,7 @@ export function Menu() {
 
                         <div className='flex gap-2'>
                            <div className='flex w-full flex-col gap-1'>
-                              <Label htmlFor='purchasePrice'>Preço de compra</Label>
+                              <Label htmlFor='purchasePrice'>{t('PurchasePrice')}</Label>
                               <Input
                                  className={errors.purchasePrice?.message ? 'border-red-500' : ''}
                                  id='purchasePrice'
@@ -168,7 +158,7 @@ export function Menu() {
                            </div>
 
                            <div className='flex w-full flex-col gap-1'>
-                              <Label htmlFor='salePrice'>Preço de venda</Label>
+                              <Label htmlFor='salePrice'>{t('SellingPrice')}</Label>
                               <Input
                                  className={errors.salePrice?.message ? 'border-red-500' : ''}
                                  id='salePrice'
@@ -198,7 +188,7 @@ export function Menu() {
                               type='submit'
                               animated
                            >
-                              Adicionar novo item
+                              {t('AddNewItem')}
                            </Button>
                         </DialogFooter>
                      </form>
