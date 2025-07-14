@@ -7,7 +7,7 @@ import { SidebarInset, SidebarProvider } from '@/_shared/components/ui/sidebar';
 import { SidebarTemplate } from '@/modules/sidebar';
 import { Header } from '@/_shared/components/ui/header';
 import { Language } from '@/i18n/language';
-import { ButtonFullScreen } from '@/_shared/components/ui/button-full-screen';
+import { ReactQueryProvider } from './providers/react-query-provider';
 
 const poppins = Poppins({
    variable: '--font-poppins',
@@ -32,24 +32,26 @@ export default async function RootLayout({
    return (
       <html lang={locale}>
          <body className={`${poppins.variable}`}>
-            <NextIntlClientProvider>
-               <Toaster
-                  position='top-right'
-                  theme='system'
-                  richColors
-                  closeButton
-                  duration={3000}
-                  visibleToasts={1}
-               />
-               <Language />
-               <SidebarProvider>
-                  <SidebarTemplate />
-                  <SidebarInset>
-                     <Header />
-                     <main>{children}</main>
-                  </SidebarInset>
-               </SidebarProvider>
-            </NextIntlClientProvider>
+            <ReactQueryProvider>
+               <NextIntlClientProvider>
+                  <Toaster
+                     position='top-right'
+                     theme='system'
+                     richColors
+                     closeButton
+                     duration={3000}
+                     visibleToasts={1}
+                  />
+                  <Language />
+                  <SidebarProvider>
+                     <SidebarTemplate />
+                     <SidebarInset>
+                        <Header />
+                        <main>{children}</main>
+                     </SidebarInset>
+                  </SidebarProvider>
+               </NextIntlClientProvider>
+            </ReactQueryProvider>
          </body>
       </html>
    );
