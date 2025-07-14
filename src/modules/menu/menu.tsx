@@ -172,10 +172,10 @@ export function Menu() {
                            </div>
                         </div>
 
-                        <DialogFooter>
+                        <DialogFooter className='!flex lg!flex-col'>
                            <DialogClose asChild>
                               <Button
-                                 className='cursor-pointer'
+                                 className='cursor-pointer flex-1'
                                  type='button'
                                  variant='outline'
                                  onClick={() => reset()}
@@ -184,7 +184,7 @@ export function Menu() {
                               </Button>
                            </DialogClose>
                            <Button
-                              className='cursor-pointer'
+                              className='cursor-pointer flex-1'
                               type='submit'
                               animated
                            >

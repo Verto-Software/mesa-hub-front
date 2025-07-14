@@ -64,18 +64,18 @@ export function Order() {
                            </p>
                         </div>
 
-                        <DialogFooter>
+                        <DialogFooter className='!flex lg!flex-col'>
                            <DialogClose asChild>
                               <Button
+                                 className='cursor-pointer flex-1'
                                  type='button'
-                                 className='cursor-pointer'
                                  variant='outline'
                               >
                                  {t('Cancel')}
                               </Button>
                            </DialogClose>
                            <Button
-                              className='cursor-pointer'
+                              className='cursor-pointer flex-1'
                               type='submit'
                               animated
                            >
