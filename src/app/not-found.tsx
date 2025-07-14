@@ -8,7 +8,7 @@ export default function NotFoundPage() {
    const t = useTranslations();
 
    return (
-      <section className='h-full flex flex-col items-center justify-center bg-gradient-to-br from-purple-300 via-white to-purple-300 p-4'>
+      <section className='h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-300 via-white to-purple-300 p-4'>
          <Image
             src='/not-found.svg'
             alt='Página não encontrada'

@@ -1,12 +1,12 @@
-import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
-import '../../globals.css';
-import { Toaster } from 'sonner';
-import { NextIntlClientProvider } from 'next-intl';
-import { SidebarInset, SidebarProvider } from '@/_shared/components/ui/sidebar';
-import { SidebarTemplate } from '@/modules/sidebar';
 import { Header } from '@/_shared/components/ui/header';
+import { SidebarInset, SidebarProvider } from '@/_shared/components/ui/sidebar';
 import { Language } from '@/i18n/language';
+import { SidebarTemplate } from '@/modules/sidebar';
+import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
+import { Poppins } from 'next/font/google';
+import { Toaster } from 'sonner';
+import '../../globals.css';
 import { ReactQueryProvider } from './providers/react-query-provider';
 
 const poppins = Poppins({

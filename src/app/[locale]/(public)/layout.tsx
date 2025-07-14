@@ -1,10 +1,10 @@
 // src/app/[locale]/(public)/auth/layout.tsx
-import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
-import '../../globals.css';
-import { NextIntlClientProvider } from 'next-intl';
-import { Toaster } from 'sonner';
 import { Language } from '@/i18n/language';
+import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
+import { Poppins } from 'next/font/google';
+import { Toaster } from 'sonner';
+import '../../globals.css';
 
 const poppins = Poppins({
    variable: '--font-poppins',
