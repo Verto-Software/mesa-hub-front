@@ -50,11 +50,11 @@ const plansInfo = [
 
 export function Plans() {
    return (
-      <section className='flex flex-col items-center justify-center w-full py-6'>
-         <h1 className='text-3xl font-bold text-gray-800 mt-4'>Escolha seu plano ideal</h1>
-         <p className='text-lg text-gray-400'>Planos flexíveis para o seu restaurante crescer. Escolha o ideal para o seu momento.</p>
+      <section className='flex flex-col items-center justify-center w-full py-6 px-4'>
+         <h1 className='text-3xl font-bold text-gray-800 mt-4 text-center'>Escolha seu plano ideal</h1>
+         <p className='text-lg text-gray-400 text-center'>Planos flexíveis para o seu restaurante crescer. Escolha o ideal para o seu momento.</p>
 
-         <Card className='w-3/5 bg-emerald-50 broder border-emerald-200 mt-6'>
+         <Card className='w-full lg:w-3/5 bg-emerald-50 broder border-emerald-200 mt-6'>
             <CardHeader className='flex items-center gap-4'>
                <div className='flex items-center flex-col gap-3'>
                   <Clock
@@ -73,11 +73,11 @@ export function Plans() {
          </Card>
 
          <div className='flex items-center flex-col gap-2 mt-10'>
-            <h2 className='text-2xl font-bold text-gray-800'>Tudo o que seu restaurante precisa, em um só lugar.</h2>
-            <p className='text-gray-400'>Transforme a gestão do seu restaurante com tecnologia que funciona de verdade. Menos papel, mais lucro, mais controle.</p>
+            <h2 className='text-2xl font-bold text-gray-800 text-center'>Tudo o que seu restaurante precisa, em um só lugar.</h2>
+            <p className='text-gray-400 text-center'>Transforme a gestão do seu restaurante com tecnologia que funciona de verdade. Menos papel, mais lucro, mais controle.</p>
          </div>
 
-         <div className='flex gap-12'>
+         <div className='flex flex-col lg:flex-row lg:gap-12'>
             {plansInfo.map((planInfo, id) => (
                <PlansCard
                   key={id}
