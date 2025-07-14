@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import '../globals.css';
+import '../../globals.css';
 import { Toaster } from 'sonner';
 import { NextIntlClientProvider } from 'next-intl';
 import { SidebarInset, SidebarProvider } from '@/_shared/components/ui/sidebar';
