@@ -78,19 +78,19 @@ export function Menu() {
                         className='space-y-4'
                      >
                         <DialogHeader>
-                           <DialogTitle>{t('AddNewItem')}</DialogTitle>
+                           <DialogTitle>{t('AddItemToMenu')}</DialogTitle>
                         </DialogHeader>
 
+                        <div className='w-full'>
+                           <Input
+                              className={errors.name?.message ? 'border-red-500' : ''}
+                              type='text'
+                              placeholder={t('ItemName')}
+                              {...register('name')}
+                           />
+                           {errors.name?.message && <p className='text-red-500 text-xs mt-1'>{errors.name.message}</p>}
+                        </div>
                         <div className='flex gap-2 flex-col md:flex-row'>
-                           <div className='w-full'>
-                              <Input
-                                 className={errors.name?.message ? 'border-red-500' : ''}
-                                 placeholder={t('ItemName')}
-                                 {...register('name')}
-                              />
-                              {errors.name?.message && <p className='text-red-500 text-xs mt-1'>{errors.name.message}</p>}
-                           </div>
-
                            <div className='w-full'>
                               <Controller
                                  name='category'
@@ -115,6 +115,18 @@ export function Menu() {
                                     </>
                                  )}
                               />
+                           </div>
+                           <div className='flex w-full flex-col gap-1'>
+                              <Input
+                                 className={errors.salePrice?.message ? 'border-red-500' : ''}
+                                 id='salePrice'
+                                 type='text'
+                                 placeholder={t('SellingPrice')}
+                                 {...register('salePrice')}
+                                 value={salePrice}
+                                 onChange={(e) => handlePriceChange('salePrice', e.target.value)}
+                              />
+                              {errors.salePrice?.message && <p className='text-red-500 text-xs'>{errors.salePrice.message}</p>}
                            </div>
                         </div>
 
@@ -142,7 +154,7 @@ export function Menu() {
                            />
                         </div>
 
-                        <div className='flex gap-2'>
+                        {/* <div className='flex gap-2'>
                            <div className='flex w-full flex-col gap-1'>
                               <Label htmlFor='purchasePrice'>{t('PurchasePrice')}</Label>
                               <Input
@@ -156,21 +168,7 @@ export function Menu() {
                               />
                               {errors.purchasePrice?.message && <p className='text-red-500 text-xs'>{errors.purchasePrice.message}</p>}
                            </div>
-
-                           <div className='flex w-full flex-col gap-1'>
-                              <Label htmlFor='salePrice'>{t('SellingPrice')}</Label>
-                              <Input
-                                 className={errors.salePrice?.message ? 'border-red-500' : ''}
-                                 id='salePrice'
-                                 type='text'
-                                 placeholder='R$ 0,00'
-                                 {...register('salePrice')}
-                                 value={salePrice}
-                                 onChange={(e) => handlePriceChange('salePrice', e.target.value)}
-                              />
-                              {errors.salePrice?.message && <p className='text-red-500 text-xs'>{errors.salePrice.message}</p>}
-                           </div>
-                        </div>
+                        </div> */}
 
                         <DialogFooter className='!flex lg!flex-col'>
                            <DialogClose asChild>

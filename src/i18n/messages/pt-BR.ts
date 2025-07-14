@@ -56,7 +56,7 @@ export default {
    AddItem: 'Adicionar item',
    SearchItem: 'Buscar item',
    ItemDescription: 'Descrição do item',
-   AddNewItem: 'Adicionar novo item',
+   AddItemToMenu: 'Adicionar item no cardápio',
    ItemName: 'Nome do item',
    CategoryIsMandatory: 'Categoria é obrigatória',
    Category: 'Categoria',
@@ -71,4 +71,5 @@ export default {
    Maximum200Characters: 'Máximo 200 caracteres',
    PurchasePriceIsMandatory: 'Preço de compra é obrigatório',
    SellingPriceIsMandatory: 'Preço de venda é obrigatório',
+   AddItemToStock: 'Adicionar item no estoque',
 } as const;

@@ -45,8 +45,8 @@ export function Order() {
                               min={0}
                            />
                            <Input
-                              className='break-words'
                               type='text'
+                              className='break-words'
                               placeholder={t('OrderName')}
                            />
                         </div>
