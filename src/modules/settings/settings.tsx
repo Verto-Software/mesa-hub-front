@@ -15,8 +15,8 @@ export function Settings() {
             </CardHeader>
             <CardContent>
                <form>
-                  <div className='flex gap-3'>
-                     <div className='border-2 border-dashed rounded-lg p-4 text-center cursor-pointer transition-colors border-gray-300 hover:border-gray-400 w-56 space-y-2'>
+                  <div className='flex gap-3 flex-col sm:flex-row items-center'>
+                     <div className='border-2 border-dashed rounded-lg p-4 text-center cursor-pointer transition-colors border-gray-300 hover:border-gray-400 w-56 h-fit space-y-2'>
                         <Upload
                            className='mx-auto text-gray-400'
                            size={18}
@@ -30,8 +30,8 @@ export function Settings() {
                         accept='image/jpeg,image/jpg,image/png'
                      />
 
-                     <div className='flex flex-col gap-3 w-full'>
-                        <div className='flex gap-3 w-full'>
+                     <div className='flex flex-col gap-4 w-full'>
+                        <div className='flex flex-col md:flex-row gap-3 w-full'>
                            <Input
                               type='text'
                               placeholder='CNPJ'
@@ -46,7 +46,7 @@ export function Settings() {
                            />
                         </div>
 
-                        <div className='flex gap-3 w-full'>
+                        <div className='flex flex-col md:flex-row gap-3 w-full'>
                            <Input
                               type='text'
                               placeholder='CEP'
@@ -61,7 +61,7 @@ export function Settings() {
                            />
                         </div>
 
-                        <div className='flex gap-3 w-full'>
+                        <div className='flex flex-col md:flex-row gap-3 w-full'>
                            <Input
                               type='text'
                               placeholder='Bairro'
@@ -77,7 +77,7 @@ export function Settings() {
                         </div>
                      </div>
                   </div>
-                  <div className='text-right mt-3'>
+                  <div className='text-right mt-6'>
                      <Button className='w-32 cursor-pointer'>Salvar</Button>
                   </div>
                </form>

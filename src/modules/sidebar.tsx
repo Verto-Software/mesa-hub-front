@@ -81,13 +81,7 @@ export function SidebarTemplate() {
    return (
       <Sidebar className='border-r border-sidebar-border select-none md:block hidden'>
          <SidebarHeader className='border-b'>
-            <div className='flex items-center p-4'>
-               {!isCollapsed && (
-                  <div>
-                     <h2 className='text-lg font-bold text-sidebar-primary'>RestauranteApp</h2>
-                  </div>
-               )}
-            </div>
+            {!isCollapsed && <h2 className='text-lg font-bold text-sidebar-primary overflow-hidden text-ellipsis p-4'>RestauranteAppkkkkkkkkkkkkkkkk</h2>}
          </SidebarHeader>
          <SidebarGroupLabel className='text-sm mt-2 justify-center'>
             <p>Menu</p>
