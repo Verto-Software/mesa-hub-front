@@ -186,7 +186,7 @@ export function Menu() {
                               type='submit'
                               animated
                            >
-                              {t('AddNewItem')}
+                              {t('AddItem')}
                            </Button>
                         </DialogFooter>
                      </form>
