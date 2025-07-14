@@ -7,23 +7,23 @@ const plansInfo = [
       title: 'Básico',
       description: 'Ideal para pequenas empresas',
       price: 49,
-      put: 'mês',
-      benefits: ['Até 10 comandas simultâneas', 'Até 50 produtos no estoque', 'Cadastro de até 5 fornecedores', '2 subconta', 'Gestão de cardápio', 'Suporte via chat em horário comercial'],
+      period: 'mês',
+      benefits: ['Até 10 comandas simultâneas', 'Até 50 produtos no estoque', 'Cadastro de até 5 fornecedores', '2 subconta', 'Gestão de cardápio', 'Suporte via WhatsApp em horário comercial'],
       choose: 'Escolher plano',
    },
    {
       title: 'Profisional',
       description: 'Para restaurantes em expansão',
       price: 99,
-      put: 'mês',
+      period: 'mês',
       benefits: [
-         'Até 50 comandas simultâneas',
+         'Até 25 comandas simultâneas',
          'Até 100 produtos no estoque',
          'Cadastro de até 10 fornecedores',
          'Até 5 subcontas',
          'Gestão de cardápio',
-         'Relatórios detalhados de vendas, estoque e desempenho',
-         'Treinamentos online',
+         'Relatórios detalhados de vendas',
+         'Suporte via WhatsApp em horário comercial',
       ],
       choose: 'Escolher plano',
       popular: true,
@@ -32,16 +32,16 @@ const plansInfo = [
       title: 'Empresarial',
       description: 'Para grandes operações',
       price: 199,
-      put: 'mês',
+      period: 'mês',
       benefits: [
-         'Comandas ilimitadas',
-         'Produtos no estoque ilimitados',
-         'Fornecedores ilimitados',
-         'Subcontas ilimitadas',
+         'Até 150 comandas',
+         'Até 200 produtos no estoque',
+         'Cadastro de até 20 fornecedores',
+         'Até 15 subcontas',
          'Gestão de cardápio',
-         'Relatórios detalhados de vendas, estoque e desempenho',
+         'Relatórios detalhados de vendas',
          'Treinamentos online',
-         'Suporte VIP 24/7',
+         'Suporte via WhatsApp VIP 24/7',
       ],
       choose: 'Escolher plano',
       popular: false,
@@ -85,7 +85,7 @@ export function Plans() {
                   title={planInfo.title}
                   description={planInfo.description}
                   price={planInfo.price}
-                  put={planInfo.put}
+                  period={planInfo.period}
                   benefits={planInfo.benefits}
                   choose={planInfo.choose}
                />

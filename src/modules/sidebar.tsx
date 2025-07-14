@@ -92,6 +92,7 @@ export function SidebarTemplate() {
                   {menuItems.map((menuItem) => (
                      <SidebarMenuItem key={menuItem.title}>
                         <SidebarMenuButton
+                           className='text-gray-600 h-10'
                            variant='outline'
                            asChild
                            tooltip={isCollapsed ? menuItem.title : undefined}
