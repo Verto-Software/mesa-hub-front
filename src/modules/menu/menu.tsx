@@ -85,14 +85,14 @@ export function Menu() {
                   <DialogContent className='select-none'>
                      <form
                         onSubmit={handleSubmit(handleAddItem)}
-                        className='space-y-5'
+                        className='space-y-4'
                      >
                         <DialogHeader>
                            <DialogTitle>Adicionar novo item</DialogTitle>
                         </DialogHeader>
 
-                        <div className='flex gap-2'>
-                           <div>
+                        <div className='flex gap-2 flex-col md:flex-row'>
+                           <div className='w-full'>
                               <Input
                                  className={errors.name?.message ? 'border-red-500' : ''}
                                  placeholder='Nome do item'
@@ -101,7 +101,7 @@ export function Menu() {
                               {errors.name?.message && <p className='text-red-500 text-xs mt-1'>{errors.name.message}</p>}
                            </div>
 
-                           <div>
+                           <div className='w-full'>
                               <Controller
                                  name='category'
                                  control={control}
@@ -112,7 +112,7 @@ export function Menu() {
                                           onValueChange={field.onChange}
                                           value={field.value}
                                        >
-                                          <SelectTrigger className={errors.category?.message ? 'border-red-500' : ''}>
+                                          <SelectTrigger className={`w-full ${errors.category?.message ? 'border-red-500' : ''}`}>
                                              <SelectValue placeholder='Categoria' />
                                           </SelectTrigger>
                                           <SelectContent>
@@ -130,6 +130,7 @@ export function Menu() {
 
                         <div>
                            <Textarea
+                              className='break-all'
                               placeholder='Descrição do item'
                               maxLength={200}
                               {...register('description')}
@@ -189,7 +190,7 @@ export function Menu() {
                                  variant='outline'
                                  onClick={() => reset()}
                               >
-                                 Cancelar
+                                 {t('Cancel')}
                               </Button>
                            </DialogClose>
                            <Button

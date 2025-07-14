@@ -33,7 +33,7 @@ export function Order() {
                   </DialogTrigger>
 
                   <DialogContent className='select-none'>
-                     <form className='space-y-5'>
+                     <form className='space-y-4'>
                         <DialogHeader>
                            <DialogTitle>{t('AddNewOrder')}</DialogTitle>
                         </DialogHeader>
@@ -51,7 +51,7 @@ export function Order() {
                            />
                         </div>
 
-                        <>
+                        <div>
                            <Textarea
                               className='break-all'
                               placeholder={t('ObservationOfTheOrder')}
@@ -62,7 +62,7 @@ export function Order() {
                            <p className='text-right text-xs text-gray-400 mt-1'>
                               {typedLetters.length}/{200}
                            </p>
-                        </>
+                        </div>
 
                         <DialogFooter>
                            <DialogClose asChild>
