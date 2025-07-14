@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import z from 'zod';
 
-export const ItemSchema = () => {
+export function ItemSchema() {
    const t = useTranslations();
 
    return z.object({
@@ -12,6 +12,6 @@ export const ItemSchema = () => {
       salePrice: z.string().min(1, t('SellingPriceIsMandatory')),
       image: z.any().optional(),
    });
-};
+}
 
 export type FormItemSchema = z.infer<ReturnType<typeof ItemSchema>>;
