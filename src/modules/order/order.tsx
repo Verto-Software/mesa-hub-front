@@ -6,34 +6,38 @@ import { OrderItem } from './order-item';
 import { useTranslations } from 'next-intl';
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/_shared/components/ui/dialog';
 import { Input } from '@/_shared/components/ui/input';
+import { Textarea } from '@/_shared/components/ui/textarea';
+import { useState } from 'react';
 
 export function Order() {
    const t = useTranslations();
+   const [typedLetters, setTypedLetters] = useState('');
 
    return (
       <section className='flex flex-col select-none'>
          <div className='flex items-center justify-between sticky top-[61px] w-full p-6 bg-white'>
             <div className='flex gap-6 flex-col md:flex-row'>
-               <h1 className='text-2xl'>{t('Orders')}</h1>
                <Dialog>
-                  <form>
-                     <DialogTrigger asChild>
-                        <Button
-                           className='cursor-pointer'
-                           variant='secondary'
-                           animated
-                        >
-                           <Plus
-                              size={15}
-                              strokeWidth={2}
-                           />
-                           {t('NewOrder')}
-                        </Button>
-                     </DialogTrigger>
-                     <DialogContent className='select-none'>
+                  <DialogTrigger asChild>
+                     <Button
+                        className='cursor-pointer'
+                        variant='secondary'
+                        animated
+                     >
+                        <Plus
+                           size={15}
+                           strokeWidth={2}
+                        />
+                        {t('NewOrder')}
+                     </Button>
+                  </DialogTrigger>
+
+                  <DialogContent className='select-none'>
+                     <form className='space-y-5'>
                         <DialogHeader>
                            <DialogTitle>{t('AddNewOrder')}</DialogTitle>
                         </DialogHeader>
+
                         <div className='flex gap-2 flex-col md:flex-row'>
                            <Input
                               type='number'
@@ -41,17 +45,29 @@ export function Order() {
                               min={0}
                            />
                            <Input
+                              className='break-words'
                               type='text'
                               placeholder={t('OrderName')}
                            />
                         </div>
-                        <Input
-                           type='text'
-                           placeholder={t('ObservationOfTheOrder')}
-                        />
+
+                        <>
+                           <Textarea
+                              className='break-all'
+                              placeholder={t('ObservationOfTheOrder')}
+                              maxLength={200}
+                              value={typedLetters}
+                              onChange={(e) => setTypedLetters(e.target.value)}
+                           />
+                           <p className='text-right text-xs text-gray-400 mt-1'>
+                              {typedLetters.length}/{200}
+                           </p>
+                        </>
+
                         <DialogFooter>
                            <DialogClose asChild>
                               <Button
+                                 type='button'
                                  className='cursor-pointer'
                                  variant='outline'
                               >
@@ -66,13 +82,14 @@ export function Order() {
                               {t('CreateOrder')}
                            </Button>
                         </DialogFooter>
-                     </DialogContent>
-                  </form>
+                     </form>
+                  </DialogContent>
                </Dialog>
+
                <div className='relative w-fit'>
                   <Input
                      type='text'
-                     placeholder='Buscar comanda'
+                     placeholder={t('SearchOrder')}
                      className='pl-10'
                   />
                   <Search

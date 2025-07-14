@@ -52,4 +52,8 @@ export default {
    Cancel: 'Cancel',
    CreateOrder: 'Create Order',
    AddNewOrder: 'Add new order',
+   SearchOrder: 'Search order',
+   AddItem: 'Add item',
+   SearchItem: 'Search item',
+   ItemDescription: 'Item description',
 } as const;
