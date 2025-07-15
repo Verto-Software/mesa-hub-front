@@ -1,9 +1,8 @@
 import { Button } from '@/_shared/components/ui/button';
 import { DialogClose, DialogFooter } from '@/_shared/components/ui/dialog';
 import { useTranslations } from 'next-intl';
-import { TStockActions } from '../interface';
 
-export function StockActions({ isValid }: TStockActions) {
+export function StockActions() {
    const t = useTranslations();
    return (
       <DialogFooter className='!flex lg!flex-col'>
@@ -20,7 +19,6 @@ export function StockActions({ isValid }: TStockActions) {
             className='cursor-pointer flex-1'
             type='submit'
             animated
-            disabled={!isValid}
          >
             {t('AddItem')}
          </Button>

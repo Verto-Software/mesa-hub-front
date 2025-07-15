@@ -5,9 +5,6 @@ export interface TInputField {
    register: UseFormRegister<FormStockSchema>;
    errors: FieldErrors<FormStockSchema>;
 }
-export interface TStockActions {
-   isValid: boolean;
-}
 export interface TInputTextarea extends TInputField {
    watch: UseFormWatch<FormStockSchema>;
 }

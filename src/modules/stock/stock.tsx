@@ -25,7 +25,7 @@ export function Stock() {
       handleSubmit,
       watch,
       reset,
-      formState: { errors, isValid },
+      formState: { errors },
    } = useForm<FormStockSchema>({
       resolver: zodResolver(StockSchema()),
    });
@@ -83,7 +83,7 @@ export function Stock() {
                               register={register}
                               watch={watch}
                            />
-                           <StockActions isValid={isValid} />
+                           <StockActions />
                         </fieldset>
                      </form>
                   </DialogContent>
