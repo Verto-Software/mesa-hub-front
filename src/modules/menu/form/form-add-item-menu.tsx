@@ -6,13 +6,13 @@ import { formatPrice } from '@/_shared/utils/formatters-price';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
+import { TFormAddItemMenu } from '../interface';
 import { ButtonAddItemMenu } from './components/button-add-item-menu';
-import { InputSalePrice } from './components/input-sale-price';
 import { InputItemDescription } from './components/input-item-description';
+import { InputSalePrice } from './components/input-sale-price';
 import { SelectCategory } from './components/select-category';
 import { UploadImage } from './components/upload-image';
-import { FormItemSchema, ItemSchema } from './schema';
-import { TFormAddItemMenu } from '../interface';
+import { FormItemMenuSchema, ItemMenuSchema } from './schema';
 
 export function FormAddItemMenu({ handleCloseDialog }: TFormAddItemMenu) {
    const t = useTranslations();
@@ -25,8 +25,8 @@ export function FormAddItemMenu({ handleCloseDialog }: TFormAddItemMenu) {
       formState: { errors },
       reset,
       control,
-   } = useForm<FormItemSchema>({
-      resolver: zodResolver(ItemSchema()),
+   } = useForm<FormItemMenuSchema>({
+      resolver: zodResolver(ItemMenuSchema()),
       mode: 'all',
       defaultValues: {
          itemname: '',
@@ -43,7 +43,7 @@ export function FormAddItemMenu({ handleCloseDialog }: TFormAddItemMenu) {
       setValue(field, formatted);
    };
 
-   function handleAddItemMenu(data: FormItemSchema) {
+   function handleAddItemMenu(data: FormItemMenuSchema) {
       console.log('Dados do formulário:', data);
       reset();
       handleCloseDialog();
@@ -51,46 +51,47 @@ export function FormAddItemMenu({ handleCloseDialog }: TFormAddItemMenu) {
 
    return (
       <DialogContent className='select-none'>
-         <form
-            onSubmit={handleSubmit(handleAddItemMenu)}
-            className='space-y-4'
-         >
-            <DialogHeader>
-               <DialogTitle>{t('AddItemToMenu')}</DialogTitle>
-            </DialogHeader>
+         <form onSubmit={handleSubmit(handleAddItemMenu)}>
+            <fieldset className='space-y-3'>
+               <DialogHeader>
+                  <DialogTitle>
+                     <legend>{t('AddItemToMenu')}</legend>
+                  </DialogTitle>
+               </DialogHeader>
 
-            <div className='w-full'>
-               <Input
-                  className={errors.itemname?.message ? 'border-red-500' : ''}
-                  type='text'
-                  placeholder={t('ItemName')}
-                  {...register('itemname')}
-               />
-               {errors.itemname?.message && <p className='text-red-500 text-xs mt-1'>{errors.itemname.message}</p>}
-            </div>
-            <div className='flex gap-2 flex-col md:flex-row'>
-               <SelectCategory
-                  control={control}
+               <div className='w-full'>
+                  <Input
+                     className={errors.itemname?.message ? 'border-red-500' : ''}
+                     type='text'
+                     placeholder={t('ItemName')}
+                     {...register('itemname')}
+                  />
+                  {errors.itemname?.message && <p className='text-red-500 text-xs mt-1'>{errors.itemname.message}</p>}
+               </div>
+               <div className='flex gap-2 flex-col md:flex-row'>
+                  <SelectCategory
+                     control={control}
+                     errors={errors}
+                  />
+
+                  <InputSalePrice
+                     register={register}
+                     errors={errors}
+                     saleprice={saleprice}
+                     handlePriceChange={handlePriceChange}
+                  />
+               </div>
+
+               <InputItemDescription
                   errors={errors}
-               />
-
-               <InputSalePrice
                   register={register}
-                  errors={errors}
-                  saleprice={saleprice}
-                  handlePriceChange={handlePriceChange}
+                  watch={watch}
                />
-            </div>
 
-            <InputItemDescription
-               errors={errors}
-               register={register}
-               watch={watch}
-            />
+               <UploadImage register={register} />
 
-            <UploadImage register={register} />
-
-            <ButtonAddItemMenu reset={reset} />
+               <ButtonAddItemMenu reset={reset} />
+            </fieldset>
          </form>
       </DialogContent>
    );
