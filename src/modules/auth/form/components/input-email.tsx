@@ -2,7 +2,7 @@ import { Input } from '@/_shared/components/ui/input';
 import { Label } from '@/_shared/components/ui/label';
 import { Mail } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { TInputEmail } from '../interface';
+import { TInputEmail } from '../../interface';
 
 export function InputEmail({ register, errors }: TInputEmail) {
    const t = useTranslations();
