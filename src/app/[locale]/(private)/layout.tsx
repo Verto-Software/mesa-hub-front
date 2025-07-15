@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { Toaster } from 'sonner';
 import '../../globals.css';
-import { ReactQueryProvider } from './providers/react-query-provider';
+import { Providers } from './providers/providers';
 
 export const metadata: Metadata = {
    title: 'MesaHub',
@@ -19,7 +19,7 @@ export default async function RootLayout({
    children: React.ReactNode;
 }>) {
    return (
-      <ReactQueryProvider>
+      <Providers>
          <NextIntlClientProvider>
             <Toaster
                position='top-right'
@@ -38,6 +38,6 @@ export default async function RootLayout({
                </SidebarInset>
             </SidebarProvider>
          </NextIntlClientProvider>
-      </ReactQueryProvider>
+      </Providers>
    );
 }

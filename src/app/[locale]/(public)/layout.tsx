@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { Toaster } from 'sonner';
 import '../../globals.css';
-import { ReactQueryProvider } from '../(private)/providers/react-query-provider';
+import { Providers } from '../(private)/providers/providers';
 
 export const metadata: Metadata = {
    title: 'MesaHub - Login',
@@ -16,7 +16,7 @@ export default async function AuthLayout({
    children: React.ReactNode;
 }>) {
    return (
-      <ReactQueryProvider>
+      <Providers>
          <NextIntlClientProvider>
             <Toaster
                position='top-right'
@@ -29,6 +29,6 @@ export default async function AuthLayout({
             <Language />
             {children}
          </NextIntlClientProvider>
-      </ReactQueryProvider>
+      </Providers>
    );
 }
