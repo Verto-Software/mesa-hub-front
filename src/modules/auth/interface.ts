@@ -1,5 +1,5 @@
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
-import { FormAuthSchema } from './components/schema';
+import { FieldErrors, SubmitHandler, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form';
+import { FormAuthSchema } from './form/components/schema';
 
 export interface TInputField {
    register: UseFormRegister<FormAuthSchema>;
@@ -21,4 +21,10 @@ export interface TInputEmail extends TInputField {}
 export interface TCreateAccount extends Pick<TInputPassword, 'isRegister'> {
    handleCreateAccount: () => void;
    isRegister: boolean;
+}
+
+export interface TFormAuth extends TInputField, TInputPassword {
+   handleSubmit: UseFormHandleSubmit<FormAuthSchema>;
+   isValid: boolean;
+   handleSubmitFormLogin: SubmitHandler<FormAuthSchema>;
 }

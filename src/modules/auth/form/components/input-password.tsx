@@ -1,11 +1,11 @@
 import { Eye, EyeOff, Lock } from 'lucide-react';
 import Link from 'next/link';
-import { TInputPassword } from '../interface';
 import { useTranslations } from 'next-intl';
 import { Label } from '@/_shared/components/ui/label';
 import { Input } from '@/_shared/components/ui/input';
 import { Button } from '@/_shared/components/ui/button';
 import { Routes } from '@/_shared/routes/routes';
+import { TInputPassword } from '../../interface';
 
 export function InputPassword({ register, errors, showPassword, toggleShowPassword, isRegister }: TInputPassword) {
    const t = useTranslations();

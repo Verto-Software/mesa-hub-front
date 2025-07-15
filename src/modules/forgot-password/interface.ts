@@ -1,4 +1,4 @@
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
+import { FieldErrors, SubmitHandler, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form';
 import { FormResetPasswordSchema } from './schema';
 
 export interface FormField {
@@ -14,4 +14,10 @@ export interface TInputNewPassword extends FormField {
 export interface TInputConfirmNewPassword extends FormField {
    toggleShowConfirmPassword: () => void;
    showConfirmPassword: boolean;
+}
+
+export interface TFormForgotPassword extends FormField, TInputNewPassword, TInputConfirmNewPassword {
+   handleSubmit: UseFormHandleSubmit<FormResetPasswordSchema>;
+   handleSubmitResetPassword: SubmitHandler<FormResetPasswordSchema>;
+   isValid: boolean;
 }

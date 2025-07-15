@@ -1,24 +1,18 @@
 'use client';
 
-import { Button } from '@/_shared/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/_shared/components/ui/card';
 import { Routes } from '@/_shared/routes/routes';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import { CreateAccount } from './components/create-account';
-import { InputEmail } from './components/input-email';
-import { InputFirstName } from './components/input-first-name';
-import { InputLastName } from './components/input-last-name';
-import { InputPassword } from './components/input-password';
-import { LoginWithGoogle } from './components/login-with-google';
-import { AuthSchema, FormAuthSchema } from './components/schema';
+import { CreateAccount } from './form/components/create-account';
+import { LoginWithGoogle } from './form/components/login-with-google';
+import { AuthSchema, FormAuthSchema } from './form/components/schema';
+import { FormAuth } from './form/form-auth';
 
 export function Auth() {
-   const t = useTranslations();
    const [showPassword, setShowPassword] = useState(false);
    const [isRegister, setRegister] = useState(false);
 
@@ -43,7 +37,9 @@ export function Auth() {
    }
 
    function handleSubmitFormLogin(data: FormAuthSchema) {
-      const isValid = isRegister ? data.firstname && data.lastname && data.email && data.password : data.email === 'teste@teste.com' && data.password === 'Coxinh@123';
+      const isValid = isRegister
+         ? data.firstname && data.lastname && data.email && data.password
+         : data.email === 'teste@teste.com' && data.password === 'Coxinh@123';
 
       if (isValid) {
          isRegister && toast.success('Sua conta foi criada com sucesso!');
@@ -62,42 +58,16 @@ export function Auth() {
          <div className='w-full max-w-md'>
             <Card className='w-full shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in'>
                <CardContent>
-                  <form onSubmit={handleSubmit(handleSubmitFormLogin)}>
-                     <fieldset className='flex flex-col gap-6'>
-                        <legend className='text-center text-gray-800 text-xl mb-6'>{isRegister ? t('Register') : t('Login')}</legend>
-                        {isRegister ? (
-                           <>
-                              <InputFirstName
-                                 register={register}
-                                 errors={errors}
-                              />
-                              <InputLastName
-                                 register={register}
-                                 errors={errors}
-                              />
-                           </>
-                        ) : null}
-                        <InputEmail
-                           register={register}
-                           errors={errors}
-                        />
-                        <InputPassword
-                           register={register}
-                           errors={errors}
-                           showPassword={showPassword}
-                           toggleShowPassword={toggleShowPassword}
-                           isRegister={isRegister}
-                        />
-                        <Button
-                           className='cursor-pointer'
-                           type='submit'
-                           animated
-                           disabled={!isValid}
-                        >
-                           {isRegister ? t('Register') : t('Login')}
-                        </Button>
-                     </fieldset>
-                  </form>
+                  <FormAuth
+                     errors={errors}
+                     handleSubmit={handleSubmit}
+                     handleSubmitFormLogin={handleSubmitFormLogin}
+                     isValid={isValid}
+                     register={register}
+                     toggleShowPassword={toggleShowPassword}
+                     isRegister={isRegister}
+                     showPassword={showPassword}
+                  />
                </CardContent>
                <CardFooter>
                   <div className='flex flex-col w-full gap-2'>

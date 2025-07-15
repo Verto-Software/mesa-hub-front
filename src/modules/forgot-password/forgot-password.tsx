@@ -10,8 +10,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import { InputConfirmNewPassword } from './components/input-confirm-password';
-import { InputNewPassword } from './components/input-new-password';
+import { FormForgotPassword } from './form/form-forgot-password';
 import { FormResetPasswordSchema, resetPasswordSchema } from './schema';
 
 export function ForgotPassword() {
@@ -51,33 +50,17 @@ export function ForgotPassword() {
          <div className='w-full max-w-md'>
             <Card className='shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-fade-in'>
                <CardContent>
-                  <form
-                     className='flex flex-col gap-6'
-                     onSubmit={handleSubmit(handleSubmitResetPassword)}
-                  >
-                     <fieldset className='flex flex-col gap-6'>
-                        <legend className='text-center text-gray-800 text-xl mb-6'>{t('ResetPassword')}</legend>
-                        <InputNewPassword
-                           toggleShowNewPassword={toggleShowNewPassword}
-                           showNewPassword={showNewPassword}
-                           register={register}
-                           errors={errors}
-                        />
-                        <InputConfirmNewPassword
-                           toggleShowConfirmPassword={toggleShowConfirmPassword}
-                           showConfirmPassword={showConfirmPassword}
-                           register={register}
-                           errors={errors}
-                        />
-                        <Button
-                           className='cursor-pointer'
-                           type='submit'
-                           disabled={!isValid}
-                        >
-                           {t('ResetPassword')}
-                        </Button>
-                     </fieldset>
-                  </form>
+                  <FormForgotPassword
+                     errors={errors}
+                     handleSubmit={handleSubmit}
+                     handleSubmitResetPassword={handleSubmitResetPassword}
+                     isValid={isValid}
+                     register={register}
+                     showConfirmPassword={showConfirmPassword}
+                     showNewPassword={showNewPassword}
+                     toggleShowConfirmPassword={toggleShowConfirmPassword}
+                     toggleShowNewPassword={toggleShowNewPassword}
+                  />
                </CardContent>
                <CardFooter className='w-full flex items-center justify-center gap-2 text-gray-800'>
                   <p className='text-sm'>{t('DidYouRememberPassword')}</p>
