@@ -1,10 +1,9 @@
 import { Eye, EyeOff, Lock } from 'lucide-react';
-
-import { TInputConfirmNewPassword } from './interface';
 import { useTranslations } from 'next-intl';
 import { Label } from '@/_shared/components/ui/label';
 import { Input } from '@/_shared/components/ui/input';
 import { Button } from '@/_shared/components/ui/button';
+import { TInputConfirmNewPassword } from '../interface';
 
 export function InputConfirmNewPassword({ toggleShowConfirmPassword, showConfirmPassword, register, errors }: TInputConfirmNewPassword) {
    const t = useTranslations();

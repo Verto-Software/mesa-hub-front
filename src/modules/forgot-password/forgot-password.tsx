@@ -1,18 +1,18 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { Button } from '@/_shared/components/ui/button';
+import { Card, CardContent, CardFooter } from '@/_shared/components/ui/card';
+import { Routes } from '@/_shared/routes/routes';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { resetPasswordSchema, FormResetPasswordSchema } from './components/schema';
-import { InputNewPassword } from './components/input-new-password';
-import { InputConfirmNewPassword } from './components/input-confirm-password';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import { useTranslations } from 'next-intl';
-import { Routes } from '@/_shared/routes/routes';
-import { Card, CardContent, CardFooter } from '@/_shared/components/ui/card';
-import { Button } from '@/_shared/components/ui/button';
+import { InputConfirmNewPassword } from './components/input-confirm-password';
+import { InputNewPassword } from './components/input-new-password';
+import { FormResetPasswordSchema, resetPasswordSchema } from './schema';
 
 export function ForgotPassword() {
    const t = useTranslations();

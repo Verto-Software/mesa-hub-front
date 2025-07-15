@@ -1,6 +1,6 @@
 import { Eye, EyeOff, Lock } from 'lucide-react';
 import Link from 'next/link';
-import { TInputPassword } from './interface';
+import { TInputPassword } from '../interface';
 import { useTranslations } from 'next-intl';
 import { Label } from '@/_shared/components/ui/label';
 import { Input } from '@/_shared/components/ui/input';

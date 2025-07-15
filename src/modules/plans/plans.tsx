@@ -1,7 +1,5 @@
-import { Card, CardDescription, CardHeader, CardTitle } from '@/_shared/components/ui/card';
-import { Clock, Sparkles } from 'lucide-react';
-import { PlansCard } from './components/plans-card';
 import { FreeCard } from './components/free-card';
+import { PlansCard } from './components/plans-card';
 
 const benefitPlans = [
    {

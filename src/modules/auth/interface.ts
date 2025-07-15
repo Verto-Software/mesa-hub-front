@@ -1,5 +1,5 @@
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
-import { FormAuthSchema } from './schema';
+import { FormAuthSchema } from './components/schema';
 
 export interface TInputPassword {
    register: UseFormRegister<FormAuthSchema>;

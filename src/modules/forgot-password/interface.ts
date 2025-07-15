@@ -1,5 +1,5 @@
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
-import { FormResetPasswordSchema } from './schema';
+import { FormResetPasswordSchema } from '../schema';
 
 export interface TInputNewPassword {
    toggleShowNewPassword: () => void;

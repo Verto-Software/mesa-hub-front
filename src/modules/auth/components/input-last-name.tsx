@@ -1,5 +1,5 @@
 import { User } from 'lucide-react';
-import { TInputLastName } from './interface';
+import { TInputLastName } from '../interface';
 import { useTranslations } from 'next-intl';
 import { Label } from '@/_shared/components/ui/label';
 import { Input } from '@/_shared/components/ui/input';

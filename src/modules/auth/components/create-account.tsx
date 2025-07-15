@@ -1,6 +1,6 @@
 import { Button } from '@/_shared/components/ui/button';
-import { TCreateAccount } from './interface';
 import { useTranslations } from 'next-intl';
+import { TCreateAccount } from '../interface';
 
 export function CreateAccount({ handleCreateAccount, isRegister }: TCreateAccount) {
    const t = useTranslations();

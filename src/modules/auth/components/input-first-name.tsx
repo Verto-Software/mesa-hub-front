@@ -1,5 +1,5 @@
-import { Mail, User } from 'lucide-react';
-import { TInputFirstName } from './interface';
+import { User } from 'lucide-react';
+import { TInputFirstName } from '../interface';
 import { useTranslations } from 'next-intl';
 import { Label } from '@/_shared/components/ui/label';
 import { Input } from '@/_shared/components/ui/input';
