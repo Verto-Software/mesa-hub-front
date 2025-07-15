@@ -1,4 +1,4 @@
-import { Sidebar, SidebarFooter, SidebarGroupLabel, SidebarHeader, useSidebar } from '@/_shared/components/ui/sidebar';
+import { Sidebar, SidebarFooter, SidebarGroupLabel } from '@/_shared/components/ui/sidebar';
 import { SidebarActionsFooter } from './components/sidebar-actions-footer';
 import { SidebarCardProfile } from './components/sidebar-card-profile';
 import { SidebarContentActions } from './components/sidebar-content-actions';
