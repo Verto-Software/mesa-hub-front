@@ -10,7 +10,7 @@ export function SidebarCardProfile() {
             />
             <AvatarFallback>CN</AvatarFallback>
          </Avatar>
-         <div className='text-xs text-gray-800 '>
+         <div className='text-sm text-gray-500 font-medium'>
             <p>ferreira.marlon@live.com</p>
             <p>Principal</p>
          </div>
