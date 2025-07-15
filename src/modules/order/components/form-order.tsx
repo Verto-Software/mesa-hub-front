@@ -22,7 +22,7 @@ export function FormOrder() {
       resolver: zodResolver(OrderSchema()),
    });
 
-   function handleSubmitNewOrder() {
+   function handleSubmitNewOrder(data: FormOrderSchema) {
       console.log('Comanda criada');
    }
 
