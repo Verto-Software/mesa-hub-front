@@ -1,6 +1,6 @@
 import { Dialog } from '@/_shared/components/ui/dialog';
 import { ButtonOpenDialogAddStock } from './form/components/button-open-dialog-add-stock';
-import { InputSearchItem } from './form/components/input-search-item';
+import { InputSearchItem } from './input-search-item';
 import { FormAddItemStock } from './form/form-add-item-stock';
 
 export function Stock() {
