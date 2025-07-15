@@ -1,6 +1,6 @@
 'use client';
 
-import { DialogContent } from '@/_shared/components/ui/dialog';
+import { DialogContent, DialogTitle } from '@/_shared/components/ui/dialog';
 import { formatPrice } from '@/_shared/utils/formatters-price';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
@@ -15,8 +15,9 @@ import { InputMinimumStock } from './components/input-minimum-stock';
 import { InputPrices } from './components/input-prices';
 import { InputSupplier } from './components/input-supplier';
 import { FormStockSchema, StockSchema } from './schema';
+import { TFormAddItemStock } from '../interface';
 
-export function FormAddItemStock() {
+export function FormAddItemStock({ handleCloseDialog }: TFormAddItemStock) {
    const t = useTranslations();
 
    const {
@@ -54,13 +55,16 @@ export function FormAddItemStock() {
    function handleSendFormStock(data: FormStockSchema) {
       console.log('Form enviado!', data);
       reset();
+      handleCloseDialog();
    }
 
    return (
       <DialogContent className='select-none'>
          <form onSubmit={handleSubmit(handleSendFormStock)}>
             <fieldset className='space-y-3'>
-               <legend className='font-medium text-xl'>{t('AddItemToStock')}</legend>
+               <DialogTitle>
+                  <legend>{t('AddItemToStock')}</legend>
+               </DialogTitle>
                <InputItemName
                   errors={errors}
                   register={register}

@@ -20,3 +20,6 @@ export interface TInputSupplier extends TInputField {}
 export interface TInputMaximumStock extends TInputField {}
 export interface TInputMinimumStock extends TInputField {}
 export interface TInputCurrentStock extends TInputField {}
+export interface TFormAddItemStock {
+   handleCloseDialog: () => void;
+}
