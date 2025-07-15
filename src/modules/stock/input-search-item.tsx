@@ -6,7 +6,7 @@ export function InputSearchItem() {
    const t = useTranslations();
 
    return (
-      <div className='relative w-fit'>
+      <div className='relative w-72'>
          <Input
             type='text'
             placeholder={t('SearchOrder')}

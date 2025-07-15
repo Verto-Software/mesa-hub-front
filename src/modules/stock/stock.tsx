@@ -24,8 +24,8 @@ export function Stock() {
                   <ButtonOpenDialogAddStock />
                   <FormAddItemStock handleCloseDialog={handleCloseDialog} />
                </Dialog>
-               <InputSearchItem />
             </div>
+            <InputSearchItem />
          </div>
       </section>
    );

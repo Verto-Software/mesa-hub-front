@@ -24,9 +24,8 @@ export function Menu() {
                   <ButtonOpenDialogAddItem />
                   <FormAddItemMenu handleCloseDialog={handleCloseDialog} />
                </Dialog>
-
-               <InputSearch />
             </div>
+            <InputSearch />
          </div>
       </section>
    );
