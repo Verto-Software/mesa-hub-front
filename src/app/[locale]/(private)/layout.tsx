@@ -1,12 +1,11 @@
+import { SidebarTemplate } from '@/_shared/components/sidebar/sidebar';
 import { Header } from '@/_shared/components/ui/header';
 import { SidebarInset, SidebarProvider } from '@/_shared/components/ui/sidebar';
-import { Language } from '@/i18n/language';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { Toaster } from 'sonner';
 import '../../globals.css';
 import { Providers } from './providers/providers';
-import { SidebarTemplate } from '@/_shared/components/sidebar/sidebar';
 
 export const metadata: Metadata = {
    title: 'MesaHub',
@@ -29,7 +28,7 @@ export default async function RootLayout({
                duration={3000}
                visibleToasts={1}
             />
-            <Language />
+            {/* <Language /> */}
             <SidebarProvider>
                <SidebarTemplate />
                <SidebarInset>
