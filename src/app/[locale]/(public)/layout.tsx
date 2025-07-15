@@ -1,16 +1,9 @@
-// src/app/[locale]/(public)/auth/layout.tsx
 import { Language } from '@/i18n/language';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
-import { Poppins } from 'next/font/google';
 import { Toaster } from 'sonner';
 import '../../globals.css';
-
-const poppins = Poppins({
-   variable: '--font-poppins',
-   subsets: ['latin'],
-   weight: ['400', '500', '600', '700'],
-});
+import { ReactQueryProvider } from '../(private)/providers/react-query-provider';
 
 export const metadata: Metadata = {
    title: 'MesaHub - Login',
@@ -19,29 +12,23 @@ export const metadata: Metadata = {
 
 export default async function AuthLayout({
    children,
-   params,
 }: Readonly<{
    children: React.ReactNode;
-   params: Promise<{ locale: string }>;
 }>) {
-   const { locale } = await params;
-
    return (
-      <html lang={locale}>
-         <body className={poppins.variable}>
-            <NextIntlClientProvider>
-               <Toaster
-                  position='top-right'
-                  theme='system'
-                  richColors
-                  closeButton
-                  duration={3000}
-                  visibleToasts={1}
-               />
-               <Language />
-               <main>{children}</main>
-            </NextIntlClientProvider>
-         </body>
-      </html>
+      <ReactQueryProvider>
+         <NextIntlClientProvider>
+            <Toaster
+               position='top-right'
+               theme='system'
+               richColors
+               closeButton
+               duration={3000}
+               visibleToasts={1}
+            />
+            <Language />
+            {children}
+         </NextIntlClientProvider>
+      </ReactQueryProvider>
    );
 }
