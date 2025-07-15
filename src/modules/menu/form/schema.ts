@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import z from 'zod';
 
-export function ItemSchema() {
+export function ItemMenuSchema() {
    const t = useTranslations();
 
    return z.object({
@@ -13,4 +13,4 @@ export function ItemSchema() {
    });
 }
 
-export type FormItemSchema = z.infer<ReturnType<typeof ItemSchema>>;
+export type FormItemMenuSchema = z.infer<ReturnType<typeof ItemMenuSchema>>;

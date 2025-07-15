@@ -1,15 +1,12 @@
 'use client';
 
 import { Dialog } from '@/_shared/components/ui/dialog';
-import { Input } from '@/_shared/components/ui/input';
-import { Search } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 import { ButtonOpenDialogAddItem } from './form/components/button-open-dialog-add-item';
 import { FormAddItemMenu } from './form/form-add-item-menu';
-import { useState } from 'react';
+import { InputSearch } from './input-search-item';
 
 export function Menu() {
-   const t = useTranslations();
    const [open, setOpen] = useState(false);
 
    function handleCloseDialog() {
@@ -28,18 +25,7 @@ export function Menu() {
                   <FormAddItemMenu handleCloseDialog={handleCloseDialog} />
                </Dialog>
 
-               <div className='relative w-fit'>
-                  <Input
-                     type='text'
-                     placeholder={t('SearchOrder')}
-                     className='pl-10'
-                  />
-                  <Search
-                     size={18}
-                     strokeWidth={2}
-                     className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400'
-                  />
-               </div>
+               <InputSearch />
             </div>
          </div>
       </section>
