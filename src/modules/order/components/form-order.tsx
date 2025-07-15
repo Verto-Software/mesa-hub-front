@@ -23,7 +23,7 @@ export function FormOrder() {
    });
 
    function handleSubmitNewOrder(data: FormOrderSchema) {
-      console.log('Comanda criada');
+      console.log('Comanda criada', data);
    }
 
    return (
