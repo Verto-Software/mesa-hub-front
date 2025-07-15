@@ -2,7 +2,7 @@ import { Input } from '@/_shared/components/ui/input';
 import { Search } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-export function InputSearch() {
+export function InputOrderSearch() {
    const t = useTranslations();
 
    return (

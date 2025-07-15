@@ -1,11 +1,11 @@
 'use client';
 
-import { Dialog, DialogContent } from '@/_shared/components/ui/dialog';
+import { Dialog } from '@/_shared/components/ui/dialog';
 import { useState } from 'react';
-import { NewOrderAction } from './form/components/new-order-action';
+import { ButtonOpenDialogAddNewOrder } from './form/components/button-open-dialog-add-new-order';
+import { InputOrderSearch } from './form/components/input-order-search';
 import { FormOrder } from './form/form-order';
-import { InputSearch } from './form/components/input-search';
-import { OrderCardItem } from './form/components/order-card-item';
+import { OrderCardItem } from './order-card-item';
 
 export function Order() {
    const [open, setOpen] = useState(false);
@@ -18,10 +18,10 @@ export function Order() {
                   open={open}
                   onOpenChange={setOpen}
                >
-                  <NewOrderAction />
+                  <ButtonOpenDialogAddNewOrder />
                   <FormOrder onSuccess={() => setOpen(false)} />
                </Dialog>
-               <InputSearch />
+               <InputOrderSearch />
             </div>
          </div>
 

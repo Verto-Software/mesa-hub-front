@@ -1,6 +1,6 @@
 import { Input } from '@/_shared/components/ui/input';
 import { useTranslations } from 'next-intl';
-import { TOrderNumber } from './interface';
+import { TOrderNumber } from '../../interface';
 
 export function OrderNumber({ register, errors }: TOrderNumber) {
    const t = useTranslations();

@@ -4,15 +4,12 @@ import { DialogContent, DialogHeader, DialogTitle } from '@/_shared/components/u
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
-import { FormOrderSchema, OrderSchema } from './schema';
-import { FooterOrderAction } from './components/footer-order-action';
+import { ButtonCreateOrder } from './components/button-create-order';
+import { InputOrderDescription } from './components/input-order-description';
 import { InputOrderName } from './components/input-order-name';
 import { OrderNumber } from './components/input-order-number';
-import { InputTextarea } from './components/input-textarea';
-
-interface TFormOrder {
-   onSuccess: () => void;
-}
+import { FormOrderSchema, OrderSchema } from './schema';
+import { TFormOrder } from '../interface';
 
 export function FormOrder({ onSuccess }: TFormOrder) {
    const t = useTranslations();
@@ -29,7 +26,6 @@ export function FormOrder({ onSuccess }: TFormOrder) {
 
    function handleSubmitNewOrder(data: FormOrderSchema) {
       console.log('Comanda criada', data);
-      onSuccess();
       reset();
    }
 
@@ -42,7 +38,6 @@ export function FormOrder({ onSuccess }: TFormOrder) {
             <DialogHeader>
                <DialogTitle>{t('AddNewOrder')}</DialogTitle>
             </DialogHeader>
-
             <div className='flex gap-2 flex-col md:flex-row'>
                <OrderNumber
                   register={register}
@@ -53,14 +48,12 @@ export function FormOrder({ onSuccess }: TFormOrder) {
                   errors={errors}
                />
             </div>
-
-            <InputTextarea
+            <InputOrderDescription
                register={register}
                errors={errors}
                watch={watch}
             />
-
-            <FooterOrderAction reset={reset} />
+            <ButtonCreateOrder reset={reset} />
          </form>
       </DialogContent>
    );

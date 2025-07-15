@@ -1,6 +1,6 @@
 import { Input } from '@/_shared/components/ui/input';
 import { useTranslations } from 'next-intl';
-import { TInputOrderName } from './interface';
+import { TInputOrderName } from '../../interface';
 
 export function InputOrderName({ register, errors }: TInputOrderName) {
    const t = useTranslations();

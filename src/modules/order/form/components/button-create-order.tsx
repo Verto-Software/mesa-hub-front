@@ -1,9 +1,9 @@
 import { Button } from '@/_shared/components/ui/button';
 import { DialogClose, DialogFooter } from '@/_shared/components/ui/dialog';
 import { useTranslations } from 'next-intl';
-import { TFooterOrdeActions } from './interface';
+import { TButtonCreateOrder } from '../../interface';
 
-export function FooterOrderAction({ reset }: TFooterOrdeActions) {
+export function ButtonCreateOrder({ reset }: TButtonCreateOrder) {
    const t = useTranslations();
 
    return (
