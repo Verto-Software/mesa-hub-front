@@ -42,49 +42,49 @@ export function Stock() {
                <Dialog>
                   <AddItemAction />
                   <DialogContent className='select-none'>
-                     <form
-                        className='space-y-4'
-                        onSubmit={handleSubmit(handleSendFormStock)}
-                     >
-                        <DialogHeader>
-                           <DialogTitle>{t('AddItemToStock')}</DialogTitle>
-                        </DialogHeader>
-                        <InputItemName
-                           errors={errors}
-                           register={register}
-                        />
-                        <InputItemQuantity
-                           errors={errors}
-                           register={register}
-                        />
-                        <InputPrices
-                           errors={errors}
-                           register={register}
-                        />
-                        <div className='flex gap-2'>
-                           <InputCurrentStock
+                     <form onSubmit={handleSubmit(handleSendFormStock)}>
+                        <fieldset className='space-y-3'>
+                           <legend className='sr-only'>{t('AddItemToStock')}</legend>
+                           <DialogHeader>
+                              <DialogTitle>{t('AddItemToStock')}</DialogTitle>
+                           </DialogHeader>
+                           <InputItemName
                               errors={errors}
                               register={register}
                            />
-                           <InputMinimumStock
+                           <InputItemQuantity
                               errors={errors}
                               register={register}
                            />
-                           <InputMaximumStock
+                           <InputPrices
                               errors={errors}
                               register={register}
                            />
-                        </div>
-                        <InputSupplier
-                           errors={errors}
-                           register={register}
-                        />
-                        <InputTextarea
-                           errors={errors}
-                           register={register}
-                           watch={watch}
-                        />
-                        <StockActions isValid={isValid} />
+                           <div className='flex gap-2'>
+                              <InputCurrentStock
+                                 errors={errors}
+                                 register={register}
+                              />
+                              <InputMinimumStock
+                                 errors={errors}
+                                 register={register}
+                              />
+                              <InputMaximumStock
+                                 errors={errors}
+                                 register={register}
+                              />
+                           </div>
+                           <InputSupplier
+                              errors={errors}
+                              register={register}
+                           />
+                           <InputTextarea
+                              errors={errors}
+                              register={register}
+                              watch={watch}
+                           />
+                           <StockActions isValid={isValid} />
+                        </fieldset>
                      </form>
                   </DialogContent>
                </Dialog>
