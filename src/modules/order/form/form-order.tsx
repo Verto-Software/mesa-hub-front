@@ -26,6 +26,7 @@ export function FormOrder({ onSuccess }: TFormOrder) {
 
    function handleSubmitNewOrder(data: FormOrderSchema) {
       console.log('Comanda criada', data);
+      onSuccess();
       reset();
    }
 
