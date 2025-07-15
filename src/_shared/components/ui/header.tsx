@@ -15,9 +15,9 @@ export function Header() {
    const translateTitle = t(firstCapitalLetter) || t('Home');
 
    return (
-      <header className='shrink-0 border-b flex items-center gap-3 p-4 select-none sticky top-0 bg-white'>
+      <header className='flex items-center gap-4 border-b p-5 select-none sticky top-0 bg-white'>
          <SidebarTrigger className='cursor-pointer' />
-         <h1 className='text-3xl font-semibold'>{translateTitle}</h1>
+         <h1 className='text-2xl font-semibold mb-1'>{translateTitle}</h1>
       </header>
    );
 }
