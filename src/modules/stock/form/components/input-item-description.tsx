@@ -1,8 +1,8 @@
 import { Textarea } from '@/_shared/components/ui/textarea';
-import { TInputTextarea } from '../../interface';
 import { useTranslations } from 'next-intl';
+import { TItemDescription } from '../../interface';
 
-export function InputTextarea({ register, errors, watch }: TInputTextarea) {
+export function InputItemDescription({ register, errors, watch }: TItemDescription) {
    const t = useTranslations();
    const itemdescription = watch('itemdescription');
 

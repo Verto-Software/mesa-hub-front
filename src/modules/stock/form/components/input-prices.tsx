@@ -1,8 +1,8 @@
 import { Input } from '@/_shared/components/ui/input';
-import { TInputPrice } from '../../interface';
 import { useTranslations } from 'next-intl';
+import { TInputPrices } from '../../interface';
 
-export function InputPrices({ register, errors, sellingprice, purchaseprice, handlePriceChange }: TInputPrice) {
+export function InputPrices({ register, errors, sellingprice, purchaseprice, handlePriceChange }: TInputPrices) {
    const t = useTranslations();
 
    return (

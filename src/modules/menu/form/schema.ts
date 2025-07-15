@@ -8,9 +8,8 @@ export function ItemSchema() {
       itemname: z.string().min(1, t('NameIsRequired')),
       category: z.string().min(1, t('CategoryIsMandatory')),
       itemdescription: z.string().optional(),
-      purchasePrice: z.string().min(1, t('PurchasePriceIsMandatory')),
-      salePrice: z.string().min(1, t('SellingPriceIsMandatory')),
-      image: z.any().optional(),
+      saleprice: z.string().min(1, t('SellingPriceIsMandatory')),
+      image: z.string().optional(),
    });
 }
 

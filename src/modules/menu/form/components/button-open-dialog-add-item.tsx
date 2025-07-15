@@ -3,7 +3,7 @@ import { DialogTrigger } from '@/_shared/components/ui/dialog';
 import { Plus } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-export function AddItemAction() {
+export function ButtonOpenDialogAddItem() {
    const t = useTranslations();
 
    return (

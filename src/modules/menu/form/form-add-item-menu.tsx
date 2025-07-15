@@ -6,14 +6,15 @@ import { formatPrice } from '@/_shared/utils/formatters-price';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
-import { FooterAction } from './components/footer-action';
+import { ButtonAddItemMenu } from './components/button-add-item-menu';
 import { InputSalePrice } from './components/input-sale-price';
-import { InputTextArea } from './components/input-textarea';
+import { InputItemDescription } from './components/input-item-description';
 import { SelectCategory } from './components/select-category';
 import { UploadImage } from './components/upload-image';
 import { FormItemSchema, ItemSchema } from './schema';
+import { TFormAddItemMenu } from '../interface';
 
-export function FormAddItem() {
+export function FormAddItemMenu({ handleCloseDialog }: TFormAddItemMenu) {
    const t = useTranslations();
 
    const {
@@ -31,27 +32,27 @@ export function FormAddItem() {
          itemname: '',
          category: '',
          itemdescription: '',
-         purchasePrice: '',
-         salePrice: '',
+         saleprice: '',
       },
    });
 
-   const salePrice = watch('salePrice');
+   const saleprice = watch('saleprice');
 
-   const handlePriceChange = (field: 'purchasePrice' | 'salePrice', value: string) => {
+   const handlePriceChange = (field: 'saleprice', value: string) => {
       const formatted = formatPrice(value);
       setValue(field, formatted);
    };
 
-   function handleAddItem(data: FormItemSchema) {
+   function handleAddItemMenu(data: FormItemSchema) {
       console.log('Dados do formulário:', data);
       reset();
+      handleCloseDialog();
    }
 
    return (
       <DialogContent className='select-none'>
          <form
-            onSubmit={handleSubmit(handleAddItem)}
+            onSubmit={handleSubmit(handleAddItemMenu)}
             className='space-y-4'
          >
             <DialogHeader>
@@ -76,12 +77,12 @@ export function FormAddItem() {
                <InputSalePrice
                   register={register}
                   errors={errors}
-                  salePrice={salePrice}
+                  saleprice={saleprice}
                   handlePriceChange={handlePriceChange}
                />
             </div>
 
-            <InputTextArea
+            <InputItemDescription
                errors={errors}
                register={register}
                watch={watch}
@@ -89,7 +90,7 @@ export function FormAddItem() {
 
             <UploadImage register={register} />
 
-            <FooterAction reset={reset} />
+            <ButtonAddItemMenu reset={reset} />
          </form>
       </DialogContent>
    );

@@ -11,7 +11,7 @@ import { OrderNumber } from './components/input-order-number';
 import { FormOrderSchema, OrderSchema } from './schema';
 import { TFormOrder } from '../interface';
 
-export function FormOrder({ handleCloseDialog }: TFormOrder) {
+export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
    const t = useTranslations();
 
    const {
@@ -22,6 +22,7 @@ export function FormOrder({ handleCloseDialog }: TFormOrder) {
       reset,
    } = useForm<FormOrderSchema>({
       resolver: zodResolver(OrderSchema()),
+      mode: 'all',
    });
 
    function handleSubmitNewOrder(data: FormOrderSchema) {

@@ -6,18 +6,18 @@ export interface TInputFields {
    errors: FieldErrors<FormItemSchema>;
 }
 
-export interface TFooterAction {
+export interface TButtonAddItemMenu {
    reset: UseFormReset<FormItemSchema>;
 }
 
 export interface TUploadImage extends Pick<TInputFields, 'register'> {}
 
 export interface TInputSalePrice extends TInputFields {
-   salePrice: string | undefined;
-   handlePriceChange: (field: 'salePrice', value: string) => void;
+   saleprice: string | undefined;
+   handlePriceChange: (field: 'saleprice', value: string) => void;
 }
 
-export interface TInputTextArea extends TInputFields {
+export interface TInputItemDescription extends TInputFields {
    watch: UseFormWatch<FormItemSchema>;
 }
 
@@ -26,3 +26,7 @@ export interface TSelectCategory extends Pick<TInputFields, 'errors'> {
 }
 
 export interface TInputItemName extends TInputFields {}
+
+export interface TFormAddItemMenu {
+   handleCloseDialog: () => void;
+}

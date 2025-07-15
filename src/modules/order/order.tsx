@@ -4,7 +4,7 @@ import { Dialog } from '@/_shared/components/ui/dialog';
 import { useState } from 'react';
 import { ButtonOpenDialogAddNewOrder } from './form/components/button-open-dialog-add-new-order';
 import { InputOrderSearch } from './form/components/input-order-search';
-import { FormOrder } from './form/form-order';
+import { FormCreateNewOrder } from './form/form-create-new-order';
 import { OrderCardItem } from './order-card-item';
 
 export function Order() {
@@ -23,7 +23,7 @@ export function Order() {
                   onOpenChange={setOpen}
                >
                   <ButtonOpenDialogAddNewOrder />
-                  <FormOrder handleCloseDialog={handleCloseDialog} />
+                  <FormCreateNewOrder handleCloseDialog={handleCloseDialog} />
                </Dialog>
                <InputOrderSearch />
             </div>
