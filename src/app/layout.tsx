@@ -7,9 +7,10 @@ export const metadata: Metadata = {
    description: 'Sistema de gestão para restaurantes.',
 };
 
-export default function LocaleLayout({ children }: { children: ReactNode }) {
+export default async function LocaleLayout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
+   const { locale } = await params;
    return (
-      <html lang='pt-BR'>
+      <html lang={locale}>
          <body>{children}</body>
       </html>
    );

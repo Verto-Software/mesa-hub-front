@@ -1,19 +1,16 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { Button } from '@/_shared/components/ui/button';
-import { DialogHeader, DialogFooter } from '@/_shared/components/ui/dialog';
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/_shared/components/ui/dialog';
 import { Input } from '@/_shared/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/_shared/components/ui/select';
 import { Textarea } from '@/_shared/components/ui/textarea';
-import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogClose } from '@/_shared/components/ui/dialog';
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/_shared/components/ui/select';
-import { Plus, Search, Upload } from 'lucide-react';
 import { formatPrice } from '@/_shared/utils/formatters-price';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Plus, Search, Upload } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Controller, useForm } from 'react-hook-form';
 import { OrderItem } from '../order/order-item';
-import { Label } from '@/_shared/components/ui/label';
 import { FormItemSchema, ItemSchema } from './schema';
 
 export function Menu() {
