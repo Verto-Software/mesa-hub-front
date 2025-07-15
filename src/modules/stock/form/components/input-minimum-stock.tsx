@@ -1,5 +1,5 @@
 import { Input } from '@/_shared/components/ui/input';
-import { TInputMinimumStock } from '../interface';
+import { TInputMinimumStock } from '../../interface';
 
 export function InputMinimumStock({ register, errors }: TInputMinimumStock) {
    return (

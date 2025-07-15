@@ -1,13 +1,14 @@
 import { Input } from '@/_shared/components/ui/input';
+import { TInputItemName } from '../interface';
 import { useTranslations } from 'next-intl';
-import { TInputName } from '../interface';
 
-export function InputItemName({ register, errors }: TInputName) {
+export function InputItemName({ errors, register }: TInputItemName) {
    const t = useTranslations();
 
    return (
-      <div>
+      <div className='w-full'>
          <Input
+            className={errors.itemname?.message ? 'border-red-500' : ''}
             type='text'
             placeholder={t('ItemName')}
             {...register('itemname')}

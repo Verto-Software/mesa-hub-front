@@ -1,17 +1,25 @@
+'use client';
+
 import { Dialog, DialogContent } from '@/_shared/components/ui/dialog';
 import { FormOrder } from './components/form-order';
 import { InputSearch } from './components/input-search';
 import { NewOrderAction } from './components/new-order-action';
 import { OrderCardItem } from './components/order-card-item';
+import { useState } from 'react';
 
 export function Order() {
+   const [open, setOpen] = useState(false);
+
    return (
       <section className='flex flex-col select-none'>
          <div className='flex items-center justify-between sticky top-[61px] w-full p-6 bg-white'>
             <div className='flex gap-6 flex-col md:flex-row'>
-               <Dialog>
+               <Dialog
+                  open={open}
+                  onOpenChange={setOpen}
+               >
                   <NewOrderAction />
-                  <FormOrder />
+                  <FormOrder onSuccess={() => setOpen(false)} />
                </Dialog>
                <InputSearch />
             </div>

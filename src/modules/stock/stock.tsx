@@ -1,7 +1,7 @@
 import { Dialog, DialogContent } from '@/_shared/components/ui/dialog';
-import { AddItemAction } from './components/add-item-action';
-import { FormAddStock } from './components/form-add-stock';
-import { InputSearch } from './components/input-search';
+import { AddItemAction } from './form/components/add-item-action';
+import { InputSearch } from './form/components/input-search';
+import { FormAddStock } from './form/form-add-stock';
 
 export function Stock() {
    return (

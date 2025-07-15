@@ -10,7 +10,7 @@ export function StockSchema() {
       minimumstock: z.string().optional(),
       maximumstock: z.string().optional(),
       supplier: z.string().optional(),
-      itemdescription: z.string().min(1, 'Descrição do item é obrigatório'),
+      itemdescription: z.string().optional(),
    });
 }
 

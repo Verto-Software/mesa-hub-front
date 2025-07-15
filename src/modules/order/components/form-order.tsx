@@ -10,7 +10,11 @@ import { InputOrderName } from './input-order-name';
 import { OrderNumber } from './input-order-number';
 import { InputTextarea } from './input-textarea';
 
-export function FormOrder() {
+interface TFormOrder {
+   onSuccess: () => void;
+}
+
+export function FormOrder({ onSuccess }: TFormOrder) {
    const t = useTranslations();
 
    const {
@@ -18,12 +22,15 @@ export function FormOrder() {
       handleSubmit,
       formState: { errors },
       watch,
+      reset,
    } = useForm<FormOrderSchema>({
       resolver: zodResolver(OrderSchema()),
    });
 
    function handleSubmitNewOrder(data: FormOrderSchema) {
       console.log('Comanda criada', data);
+      onSuccess();
+      reset();
    }
 
    return (
@@ -53,7 +60,7 @@ export function FormOrder() {
                watch={watch}
             />
 
-            <FooterOrderAction />
+            <FooterOrderAction reset={reset} />
          </form>
       </DialogContent>
    );

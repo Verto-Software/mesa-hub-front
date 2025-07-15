@@ -1,5 +1,5 @@
 import { Input } from '@/_shared/components/ui/input';
-import { TInputSupplier } from '../interface';
+import { TInputSupplier } from '../../interface';
 
 export function InputSupplier({ register, errors }: TInputSupplier) {
    return (

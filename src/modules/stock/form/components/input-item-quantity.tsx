@@ -1,5 +1,5 @@
 import { Input } from '@/_shared/components/ui/input';
-import { TInputQuantity } from '../interface';
+import { TInputQuantity } from '../../interface';
 
 export function InputItemQuantity({ register, errors }: TInputQuantity) {
    return (

@@ -1,5 +1,5 @@
 import { Input } from '@/_shared/components/ui/input';
-import { TInputCurrentStock } from '../interface';
+import { TInputCurrentStock } from '../../interface';
 
 export function InputCurrentStock({ register, errors }: TInputCurrentStock) {
    return (

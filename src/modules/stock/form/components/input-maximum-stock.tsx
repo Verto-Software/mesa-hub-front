@@ -1,5 +1,5 @@
 import { Input } from '@/_shared/components/ui/input';
-import { TInputMaximumStock } from '../interface';
+import { TInputMaximumStock } from '../../interface';
 
 export function InputMaximumStock({ register, errors }: TInputMaximumStock) {
    return (

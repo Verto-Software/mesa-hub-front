@@ -1,9 +1,9 @@
 import { Button } from '@/_shared/components/ui/button';
 import { DialogClose, DialogFooter } from '@/_shared/components/ui/dialog';
 import { useTranslations } from 'next-intl';
-import { TFooterOrdeActions } from './interface';
+import { TFooterAction } from '../interface';
 
-export function FooterOrderAction({ reset }: TFooterOrdeActions) {
+export function FooterAction({ reset }: TFooterAction) {
    const t = useTranslations();
 
    return (
@@ -23,7 +23,7 @@ export function FooterOrderAction({ reset }: TFooterOrdeActions) {
             type='submit'
             animated
          >
-            {t('CreateOrder')}
+            {t('AddItem')}
          </Button>
       </DialogFooter>
    );

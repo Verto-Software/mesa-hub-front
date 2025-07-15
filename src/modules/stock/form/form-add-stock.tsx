@@ -3,16 +3,17 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
-import { FormStockSchema, StockSchema } from '../schema';
-import { InputCurrentStock } from './input-current-stock';
-import { InputItemName } from './input-item-name';
-import { InputItemQuantity } from './input-item-quantity';
-import { InputMaximumStock } from './input-maximum-stock';
-import { InputMinimumStock } from './input-minimum-stock';
-import { InputPrices } from './input-prices';
-import { InputSupplier } from './input-supplier';
-import { InputTextarea } from './input-textarea';
-import { StockActions } from './stock-action';
+import { FormStockSchema, StockSchema } from './schema';
+import { InputCurrentStock } from './components/input-current-stock';
+import { InputItemName } from './components/input-item-name';
+import { InputItemQuantity } from './components/input-item-quantity';
+import { InputMaximumStock } from './components/input-maximum-stock';
+import { InputMinimumStock } from './components/input-minimum-stock';
+import { InputPrices } from './components/input-prices';
+import { InputSupplier } from './components/input-supplier';
+import { InputTextarea } from './components/input-textarea';
+import { StockActions } from './components/stock-action';
+import { formatPrice } from '@/_shared/utils/formatters-price';
 
 export function FormAddStock() {
    const t = useTranslations();
@@ -22,15 +23,26 @@ export function FormAddStock() {
       handleSubmit,
       watch,
       reset,
+      setValue,
       formState: { errors },
    } = useForm<FormStockSchema>({
       resolver: zodResolver(StockSchema()),
+      mode: 'all',
    });
+
+   const sellingprice = watch('sellingprice');
+   const purchaseprice = watch('purchaseprice');
+
+   const handlePriceChange = (field: 'purchaseprice' | 'sellingprice', value: string) => {
+      const formatted = formatPrice(value);
+      setValue(field, formatted);
+   };
 
    function handleSendFormStock(data: FormStockSchema) {
       console.log('Form enviado!', data);
       reset();
    }
+
    return (
       <form onSubmit={handleSubmit(handleSendFormStock)}>
          <fieldset className='space-y-3'>
@@ -46,6 +58,9 @@ export function FormAddStock() {
             <InputPrices
                errors={errors}
                register={register}
+               handlePriceChange={handlePriceChange}
+               purchaseprice={purchaseprice}
+               sellingprice={sellingprice}
             />
             <div className='flex gap-2'>
                <InputCurrentStock

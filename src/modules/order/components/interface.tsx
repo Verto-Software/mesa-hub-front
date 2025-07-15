@@ -1,4 +1,4 @@
-import { FieldErrors, UseFormRegister, UseFormWatch } from 'react-hook-form';
+import { FieldErrors, UseFormRegister, UseFormReset, UseFormWatch } from 'react-hook-form';
 import { FormOrderSchema } from '../schema';
 
 interface TInputField {
@@ -10,4 +10,7 @@ export interface TOrderNumber extends TInputField {}
 export interface TInputOrderName extends TInputField {}
 export interface TInputTextarea extends TInputField {
    watch: UseFormWatch<FormOrderSchema>;
+}
+export interface TFooterOrdeActions {
+   reset: UseFormReset<FormOrderSchema>;
 }

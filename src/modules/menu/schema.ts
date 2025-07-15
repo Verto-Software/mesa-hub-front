@@ -5,9 +5,9 @@ export function ItemSchema() {
    const t = useTranslations();
 
    return z.object({
-      name: z.string().min(1, t('NameIsRequired')),
+      itemname: z.string().min(1, t('NameIsRequired')),
       category: z.string().min(1, t('CategoryIsMandatory')),
-      description: z.string().max(200, t('Maximum200Characters')),
+      itemdescription: z.string().optional(),
       purchasePrice: z.string().min(1, t('PurchasePriceIsMandatory')),
       salePrice: z.string().min(1, t('SellingPriceIsMandatory')),
       image: z.any().optional(),
