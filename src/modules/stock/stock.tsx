@@ -169,13 +169,11 @@ export function Stock() {
                </Dialog>
 
                <div className='relative w-fit'>
-                  <div>
-                     <Input
-                        type='text'
-                        placeholder={t('SearchOrder')}
-                        className='pl-10'
-                     />
-                  </div>
+                  <Input
+                     type='text'
+                     placeholder={t('SearchOrder')}
+                     className='pl-10'
+                  />
                   <Search
                      size={18}
                      strokeWidth={2}
