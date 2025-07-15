@@ -19,5 +19,5 @@ export interface TOrderNumber extends TInputField {}
 export interface TInputOrderName extends TInputField {}
 
 export interface TFormOrder {
-   onSuccess: () => void;
+   handleCloseDialog: () => void;
 }

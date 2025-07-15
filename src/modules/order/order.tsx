@@ -10,6 +10,10 @@ import { OrderCardItem } from './order-card-item';
 export function Order() {
    const [open, setOpen] = useState(false);
 
+   function handleCloseDialog() {
+      setOpen(false);
+   }
+
    return (
       <section className='flex flex-col select-none'>
          <div className='flex items-center justify-between sticky top-[61px] w-full p-6 bg-white'>
@@ -19,7 +23,7 @@ export function Order() {
                   onOpenChange={setOpen}
                >
                   <ButtonOpenDialogAddNewOrder />
-                  <FormOrder onSuccess={() => setOpen(false)} />
+                  <FormOrder handleCloseDialog={handleCloseDialog} />
                </Dialog>
                <InputOrderSearch />
             </div>

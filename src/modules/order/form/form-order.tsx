@@ -11,7 +11,7 @@ import { OrderNumber } from './components/input-order-number';
 import { FormOrderSchema, OrderSchema } from './schema';
 import { TFormOrder } from '../interface';
 
-export function FormOrder({ onSuccess }: TFormOrder) {
+export function FormOrder({ handleCloseDialog }: TFormOrder) {
    const t = useTranslations();
 
    const {
@@ -26,7 +26,7 @@ export function FormOrder({ onSuccess }: TFormOrder) {
 
    function handleSubmitNewOrder(data: FormOrderSchema) {
       console.log('Comanda criada', data);
-      onSuccess();
+      handleCloseDialog();
       reset();
    }
 
