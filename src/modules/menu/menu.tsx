@@ -37,7 +37,7 @@ export function Menu() {
    });
 
    const description = watch('description');
-   const purchasePrice = watch('purchasePrice');
+   // const purchasePrice = watch('purchasePrice');
    const salePrice = watch('salePrice');
 
    const handlePriceChange = (field: 'purchasePrice' | 'salePrice', value: string) => {

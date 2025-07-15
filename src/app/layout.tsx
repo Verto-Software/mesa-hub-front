@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
 import './globals.css';
+import { NextIntlClientProvider } from 'next-intl';
 
 export const metadata: Metadata = {
    title: 'Not found 404',
@@ -11,7 +12,9 @@ export default async function LocaleLayout({ children, params }: { children: Rea
    const { locale } = await params;
    return (
       <html lang={locale}>
-         <body>{children}</body>
+         <body className='h-screen'>
+            <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
+         </body>
       </html>
    );
 }
