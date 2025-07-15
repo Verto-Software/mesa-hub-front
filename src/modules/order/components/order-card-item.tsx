@@ -5,10 +5,8 @@ import { Badge } from '@/_shared/components/ui/badge';
 import { Card, CardContent, CardDescription } from '@/_shared/components/ui/card';
 import { useTranslations } from 'next-intl';
 
-export function OrderItem() {
+export function OrderCardItem() {
    const t = useTranslations();
-
-   // Mockado
    const ocupado = false;
 
    return (

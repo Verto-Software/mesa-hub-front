@@ -10,7 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Plus, Search, Upload } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Controller, useForm } from 'react-hook-form';
-import { OrderItem } from '../order/order-item';
+import { OrderItem } from '../order/components/order-card-item';
 import { FormItemSchema, ItemSchema } from './schema';
 
 export function Menu() {
