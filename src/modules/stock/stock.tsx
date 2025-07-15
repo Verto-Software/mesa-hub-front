@@ -44,10 +44,7 @@ export function Stock() {
                   <DialogContent className='select-none'>
                      <form onSubmit={handleSubmit(handleSendFormStock)}>
                         <fieldset className='space-y-3'>
-                           <legend className='sr-only'>{t('AddItemToStock')}</legend>
-                           <DialogHeader>
-                              <DialogTitle>{t('AddItemToStock')}</DialogTitle>
-                           </DialogHeader>
+                           <legend className='font-medium text-xl'>{t('AddItemToStock')}</legend>
                            <InputItemName
                               errors={errors}
                               register={register}
