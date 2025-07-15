@@ -92,7 +92,7 @@ export function SidebarTemplate() {
                   {menuItems.map((menuItem) => (
                      <SidebarMenuItem key={menuItem.title}>
                         <SidebarMenuButton
-                           className='text-gray-600 h-10'
+                           className='text-gray-600 h-10 font-medium'
                            variant='outline'
                            asChild
                            tooltip={isCollapsed ? menuItem.title : undefined}
@@ -120,7 +120,7 @@ export function SidebarTemplate() {
                         <SidebarMenuItem key={buttonMenuItem.title}>
                            <SidebarMenuButton
                               asChild
-                              className='text-gray-800'
+                              className='text-gray-500 font-medium'
                            >
                               {isExternal ? (
                                  <Link
