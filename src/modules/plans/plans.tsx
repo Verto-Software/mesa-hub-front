@@ -1,8 +1,9 @@
 import { Card, CardDescription, CardHeader, CardTitle } from '@/_shared/components/ui/card';
 import { Clock, Sparkles } from 'lucide-react';
-import { PlansCard } from './plans-card';
+import { PlansCard } from './components/plans-card';
+import { FreeCard } from './components/free-card';
 
-const plansInfo = [
+const benefitPlans = [
    {
       title: 'Básico',
       description: 'Ideal para pequenas empresas',
@@ -54,23 +55,7 @@ export function Plans() {
          <h1 className='text-3xl font-bold text-gray-800 mt-4 text-center'>Escolha seu plano ideal</h1>
          <p className='text-lg text-gray-400 text-center'>Planos flexíveis para o seu restaurante crescer. Escolha o ideal para o seu momento.</p>
 
-         <Card className='w-full lg:w-3/5 bg-emerald-50 broder border-emerald-200 mt-6'>
-            <CardHeader className='flex items-center gap-4'>
-               <div className='flex items-center flex-col gap-3'>
-                  <Clock
-                     size={16}
-                     className='text-gray-500'
-                  />
-                  <Sparkles className='text-emerald-500' />
-               </div>
-               <div className='flex flex-col gap-3'>
-                  <CardTitle className='flex items-center gap-4.5 text-gray-700'>Teste grátis por 7 dias!</CardTitle>
-                  <CardDescription className='flex items-center gap-3 text-gray-700'>
-                     Explore todas as funcionalidades sem compromisso. No final, escolha o plano perfeito pra sua operação.
-                  </CardDescription>
-               </div>
-            </CardHeader>
-         </Card>
+         <FreeCard />
 
          <div className='flex items-center flex-col gap-2 mt-10'>
             <h2 className='text-2xl font-bold text-gray-800 text-center'>Tudo o que seu restaurante precisa, em um só lugar.</h2>
@@ -78,7 +63,7 @@ export function Plans() {
          </div>
 
          <div className='flex flex-col lg:flex-row lg:gap-12'>
-            {plansInfo.map((planInfo, id) => (
+            {benefitPlans.map((planInfo, id) => (
                <PlansCard
                   key={id}
                   popular={planInfo.popular}
