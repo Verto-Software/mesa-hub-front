@@ -1,7 +1,7 @@
-import { Button } from '@/_shared/components/ui/button';
-import { DialogClose, DialogFooter } from '@/_shared/components/ui/dialog';
 import { useTranslations } from 'next-intl';
 import { TButtonAddItemMenu } from '../../interface';
+import { DialogClose, DialogFooter } from '@/_shared/components/ui/dialog';
+import { Button } from '@/_shared/components/ui/button';
 
 export function ButtonAddItemMenu({ reset }: TButtonAddItemMenu) {
    const t = useTranslations();

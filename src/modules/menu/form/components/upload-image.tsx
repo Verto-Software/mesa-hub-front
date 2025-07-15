@@ -1,6 +1,6 @@
-import { Upload } from 'lucide-react';
-import { TUploadImage } from '../../interface';
 import { useTranslations } from 'next-intl';
+import { TUploadImage } from '../../interface';
+import { Upload } from 'lucide-react';
 
 export function UploadImage({ register }: TUploadImage) {
    const t = useTranslations();

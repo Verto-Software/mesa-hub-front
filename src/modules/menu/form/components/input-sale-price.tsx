@@ -1,6 +1,6 @@
-import { Input } from '@/_shared/components/ui/input';
-import { TInputSalePrice } from '../../interface';
 import { useTranslations } from 'next-intl';
+import { TInputSalePrice } from '../../interface';
+import { Input } from '@/_shared/components/ui/input';
 
 export function InputSalePrice({ errors, register, saleprice, handlePriceChange }: TInputSalePrice) {
    const t = useTranslations();
@@ -12,7 +12,7 @@ export function InputSalePrice({ errors, register, saleprice, handlePriceChange 
             type='text'
             placeholder={t('SellingPrice')}
             {...register('saleprice')}
-            value={saleprice}
+            value={saleprice || ''}
             onChange={(e) => handlePriceChange('saleprice', e.target.value)}
          />
          {errors.saleprice?.message && <p className='text-red-500 text-xs'>{errors.saleprice.message}</p>}

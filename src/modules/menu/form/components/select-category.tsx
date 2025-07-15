@@ -1,7 +1,7 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/_shared/components/ui/select';
 import { useTranslations } from 'next-intl';
-import { Controller } from 'react-hook-form';
 import { TSelectCategory } from '../../interface';
+import { Controller } from 'react-hook-form';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/_shared/components/ui/select';
 
 export function SelectCategory({ control, errors }: TSelectCategory) {
    const t = useTranslations();

@@ -1,4 +1,4 @@
-import { Control, FieldErrors, UseControllerProps, UseFormRegister, UseFormReset, UseFormWatch } from 'react-hook-form';
+import { Control, FieldErrors, UseFormRegister, UseFormReset, UseFormWatch } from 'react-hook-form';
 import { FormItemMenuSchema } from './form/schema';
 
 export interface TInputFields {
@@ -12,10 +12,10 @@ export interface TButtonAddItemMenu {
 
 export interface TUploadImage extends Pick<TInputFields, 'register'> {}
 
-// export interface TInputSalePrice extends TInputFields {
-//    saleprice: string;
-//    handlePriceChange: (field: 'saleprice', value: string) => void;
-// }
+export interface TInputSalePrice extends TInputFields {
+   saleprice: string | undefined;
+   handlePriceChange: (field: 'saleprice', value: string) => void;
+}
 
 export interface TInputItemDescription extends TInputFields {
    watch: UseFormWatch<FormItemMenuSchema>;
