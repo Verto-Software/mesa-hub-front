@@ -1,5 +1,5 @@
 import { Input } from '@/_shared/components/ui/input';
-import { TInputItemName } from '../interface';
+import { TInputItemName } from '../../interface';
 import { useTranslations } from 'next-intl';
 
 export function InputItemName({ errors, register }: TInputItemName) {

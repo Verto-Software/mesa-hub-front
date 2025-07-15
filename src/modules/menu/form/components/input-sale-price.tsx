@@ -1,5 +1,5 @@
 import { Input } from '@/_shared/components/ui/input';
-import { TInputSalePrice } from '../interface';
+import { TInputSalePrice } from '../../interface';
 import { useTranslations } from 'next-intl';
 
 export function InputSalePrice({ errors, register, salePrice, handlePriceChange }: TInputSalePrice) {

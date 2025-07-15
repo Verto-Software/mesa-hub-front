@@ -1,11 +1,11 @@
 'use client';
 
 import { Dialog, DialogContent } from '@/_shared/components/ui/dialog';
-import { FormOrder } from './components/form-order';
-import { InputSearch } from './components/input-search';
-import { NewOrderAction } from './components/new-order-action';
-import { OrderCardItem } from './components/order-card-item';
 import { useState } from 'react';
+import { NewOrderAction } from './form/components/new-order-action';
+import { FormOrder } from './form/form-order';
+import { InputSearch } from './form/components/input-search';
+import { OrderCardItem } from './form/components/order-card-item';
 
 export function Order() {
    const [open, setOpen] = useState(false);

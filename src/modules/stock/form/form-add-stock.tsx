@@ -28,6 +28,17 @@ export function FormAddStock() {
    } = useForm<FormStockSchema>({
       resolver: zodResolver(StockSchema()),
       mode: 'all',
+      defaultValues: {
+         currentstock: '',
+         itemdescription: '',
+         itemname: '',
+         itemquantity: '',
+         maximumstock: '',
+         minimumstock: '',
+         purchaseprice: '',
+         sellingprice: '',
+         supplier: '',
+      },
    });
 
    const sellingprice = watch('sellingprice');

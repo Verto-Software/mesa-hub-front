@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 
 export function StockActions() {
    const t = useTranslations();
+
    return (
       <DialogFooter className='!flex lg!flex-col'>
          <DialogClose asChild>

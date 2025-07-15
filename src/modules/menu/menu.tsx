@@ -2,8 +2,8 @@ import { Dialog } from '@/_shared/components/ui/dialog';
 import { Input } from '@/_shared/components/ui/input';
 import { Search } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { AddItemAction } from './components/add-item-action';
-import { FormAddItem } from './form-add-item';
+import { AddItemAction } from './form/components/add-item-action';
+import { FormAddItem } from './form/form-add-item';
 
 export function Menu() {
    const t = useTranslations();

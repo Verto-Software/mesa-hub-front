@@ -1,5 +1,5 @@
 import { Textarea } from '@/_shared/components/ui/textarea';
-import { TInputTextArea } from '../interface';
+import { TInputTextArea } from '../../interface';
 import { useTranslations } from 'next-intl';
 
 export function InputTextArea({ register, errors, watch }: TInputTextArea) {

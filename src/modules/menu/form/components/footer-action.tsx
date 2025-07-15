@@ -1,7 +1,7 @@
 import { Button } from '@/_shared/components/ui/button';
 import { DialogClose, DialogFooter } from '@/_shared/components/ui/dialog';
 import { useTranslations } from 'next-intl';
-import { TFooterAction } from '../interface';
+import { TFooterAction } from '../../interface';
 
 export function FooterAction({ reset }: TFooterAction) {
    const t = useTranslations();

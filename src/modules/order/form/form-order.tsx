@@ -4,11 +4,11 @@ import { DialogContent, DialogHeader, DialogTitle } from '@/_shared/components/u
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
-import { FormOrderSchema, OrderSchema } from '../schema';
-import { FooterOrderAction } from './footer-order-action';
-import { InputOrderName } from './input-order-name';
-import { OrderNumber } from './input-order-number';
-import { InputTextarea } from './input-textarea';
+import { FormOrderSchema, OrderSchema } from './schema';
+import { FooterOrderAction } from './components/footer-order-action';
+import { InputOrderName } from './components/input-order-name';
+import { OrderNumber } from './components/input-order-number';
+import { InputTextarea } from './components/input-textarea';
 
 interface TFormOrder {
    onSuccess: () => void;

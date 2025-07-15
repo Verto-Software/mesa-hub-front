@@ -1,5 +1,5 @@
 import { Control, FieldErrors, UseControllerProps, UseFormRegister, UseFormReset, UseFormWatch } from 'react-hook-form';
-import { FormItemSchema } from './schema';
+import { FormItemSchema } from './form/schema';
 
 export interface TInputFields {
    register: UseFormRegister<FormItemSchema>;
