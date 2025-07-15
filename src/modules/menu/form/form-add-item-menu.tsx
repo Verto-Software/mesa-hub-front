@@ -27,7 +27,7 @@ export function FormAddItemMenu({ handleCloseDialog }: TFormAddItemMenu) {
       control,
    } = useForm<FormItemMenuSchema>({
       resolver: zodResolver(ItemMenuSchema()),
-      mode: 'all',
+      mode: 'onBlur',
       defaultValues: {
          category: '',
          image: '',

@@ -30,7 +30,7 @@ export function FormAddItemStock({ handleCloseDialog }: TFormAddItemStock) {
       formState: { errors },
    } = useForm<FormStockSchema>({
       resolver: zodResolver(StockSchema()),
-      mode: 'all',
+      mode: 'onBlur',
       defaultValues: {
          currentstock: '',
          itemdescription: '',

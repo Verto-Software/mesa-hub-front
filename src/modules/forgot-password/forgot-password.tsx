@@ -27,7 +27,7 @@ export function ForgotPassword() {
       reset,
    } = useForm<FormResetPasswordSchema>({
       resolver: zodResolver(resetPasswordSchema),
-      mode: 'all',
+      mode: 'onBlur',
    });
 
    function toggleShowNewPassword() {

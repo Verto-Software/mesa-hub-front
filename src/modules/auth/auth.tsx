@@ -29,7 +29,7 @@ export function Auth() {
       reset,
    } = useForm<FormAuthSchema>({
       resolver: zodResolver(AuthSchema()),
-      mode: 'all',
+      mode: 'onBlur',
    });
 
    const { push } = useRouter();

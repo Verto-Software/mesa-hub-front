@@ -22,7 +22,7 @@ export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
       reset,
    } = useForm<FormOrderSchema>({
       resolver: zodResolver(OrderSchema()),
-      mode: 'all',
+      mode: 'onBlur',
    });
 
    function handleSubmitNewOrder(data: FormOrderSchema) {

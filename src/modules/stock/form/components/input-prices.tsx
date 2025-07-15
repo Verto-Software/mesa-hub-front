@@ -12,7 +12,7 @@ export function InputPrices({ register, errors, sellingprice, purchaseprice, han
                type='text'
                placeholder={t('PurchasePrice')}
                {...register('purchaseprice')}
-               value={purchaseprice}
+               value={purchaseprice || ''}
                onChange={(e) => handlePriceChange('purchaseprice', e.target.value)}
             />
             {errors.purchaseprice?.message && <p className='text-red-500 text-xs mt-1'>{errors.purchaseprice.message}</p>}
@@ -22,7 +22,7 @@ export function InputPrices({ register, errors, sellingprice, purchaseprice, han
                type='text'
                placeholder={t('SellingPrice')}
                {...register('sellingprice')}
-               value={sellingprice}
+               value={sellingprice || ''}
                onChange={(e) => handlePriceChange('sellingprice', e.target.value)}
             />
             {errors.sellingprice?.message && <p className='text-red-500 text-xs mt-1'>{errors.sellingprice.message}</p>}
