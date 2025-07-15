@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import { Label } from '@/_shared/components/ui/label';
 import { Input } from '@/_shared/components/ui/input';
 import { Button } from '@/_shared/components/ui/button';
-import { TInputNewPassword } from '../interface';
+import { TInputNewPassword } from '../../interface';
 
 export function InputNewPassword({ toggleShowNewPassword, showNewPassword, register, errors }: TInputNewPassword) {
    const t = useTranslations();
@@ -28,7 +28,9 @@ export function InputNewPassword({ toggleShowNewPassword, showNewPassword, regis
                placeholder={t('EnterANewPassword')}
                {...register('newpassword')}
             />
-            {errors.newpassword?.message && <p className='text-xs text-red-500 mt-0.5'>{errors.newpassword?.message}</p>}
+            {errors.newpassword?.message && (
+               <p className='text-xs text-red-500 mt-0.5'>{errors.newpassword?.message}</p>
+            )}
             <Button
                className='absolute top-0 right-0 text-gray-400 cursor-pointer hover:bg-transparent'
                variant='ghost'

@@ -1,7 +1,6 @@
-import { useTranslations } from "next-intl";
-import { TInputItemName } from "../../interface";
-import { Input } from "@/_shared/components/ui/input";
-
+import { useTranslations } from 'next-intl';
+import { TInputItemName } from '../../interface';
+import { Input } from '@/_shared/components/ui/input';
 
 export function InputItemName({ errors, register }: TInputItemName) {
    const t = useTranslations();

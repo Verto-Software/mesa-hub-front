@@ -14,7 +14,9 @@ export function InputItemDescription({ register, errors, watch }: TInputItemDesc
             maxLength={200}
             {...register('itemdescription')}
          />
-         {errors.itemdescription?.message && <p className='text-red-500 text-xs mt-1'>{errors.itemdescription.message}</p>}
+         {errors.itemdescription?.message && (
+            <p className='text-red-500 text-xs mt-1'>{errors.itemdescription.message}</p>
+         )}
          <p className='text-right text-xs text-gray-400 mt-1'>{description?.length || 0}/200</p>
       </div>
    );

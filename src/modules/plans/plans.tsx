@@ -7,7 +7,14 @@ const benefitPlans = [
       description: 'Ideal para pequenas empresas',
       price: 49,
       period: 'mês',
-      benefits: ['Até 10 comandas simultâneas', 'Até 50 produtos no estoque', 'Cadastro de até 5 fornecedores', '2 subconta', 'Gestão de cardápio', 'Suporte via WhatsApp em horário comercial'],
+      benefits: [
+         'Até 10 comandas simultâneas',
+         'Até 50 produtos no estoque',
+         'Cadastro de até 5 fornecedores',
+         '2 subconta',
+         'Gestão de cardápio',
+         'Suporte via WhatsApp em horário comercial',
+      ],
       choose: 'Escolher plano',
    },
    {
@@ -51,13 +58,20 @@ export function Plans() {
    return (
       <section className='flex flex-col items-center justify-center w-full py-6 px-4'>
          <h1 className='text-3xl font-bold text-gray-800 mt-4 text-center'>Escolha seu plano ideal</h1>
-         <p className='text-lg text-gray-400 text-center'>Planos flexíveis para o seu restaurante crescer. Escolha o ideal para o seu momento.</p>
+         <p className='text-lg text-gray-400 text-center'>
+            Planos flexíveis para o seu restaurante crescer. Escolha o ideal para o seu momento.
+         </p>
 
          <FreeCard />
 
          <div className='flex items-center flex-col gap-2 mt-10'>
-            <h2 className='text-2xl font-bold text-gray-800 text-center'>Tudo o que seu restaurante precisa, em um só lugar.</h2>
-            <p className='text-gray-400 text-center'>Transforme a gestão do seu restaurante com tecnologia que funciona de verdade. Menos papel, mais lucro, mais controle.</p>
+            <h2 className='text-2xl font-bold text-gray-800 text-center'>
+               Tudo o que seu restaurante precisa, em um só lugar.
+            </h2>
+            <p className='text-gray-400 text-center'>
+               Transforme a gestão do seu restaurante com tecnologia que funciona de verdade. Menos papel, mais lucro,
+               mais controle.
+            </p>
          </div>
 
          <div className='flex flex-col lg:flex-row lg:gap-12'>

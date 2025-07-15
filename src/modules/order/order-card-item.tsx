@@ -11,7 +11,10 @@ export function OrderCardItem() {
 
    return (
       <Card
-         className={cn(ocupado ? 'bg-red-50' : 'bg-emerald-50', 'cursor-pointer select-none active:scale-[0.99] active:brightness-100 hover:scale-105 transition-transform duration-300')}
+         className={cn(
+            ocupado ? 'bg-red-50' : 'bg-emerald-50',
+            'cursor-pointer select-none active:scale-[0.99] active:brightness-100 hover:scale-105 transition-transform duration-300'
+         )}
          role='button'
          tabIndex={0}
          onClick={() => console.log('Clicou')}
@@ -19,7 +22,9 @@ export function OrderCardItem() {
          <CardContent>
             <div className='flex items-center justify-between'>
                <p className='text-xl font-medium'>105</p>
-               <Badge className={cn(ocupado ? 'bg-red-500' : 'bg-emerald-500')}>{ocupado ? t('Busy') : t('Free')}</Badge>
+               <Badge className={cn(ocupado ? 'bg-red-500' : 'bg-emerald-500')}>
+                  {ocupado ? t('Busy') : t('Free')}
+               </Badge>
             </div>
             <p className='text-xl font-medium mt-3'>Marlon</p>
             <CardDescription>

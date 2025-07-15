@@ -15,7 +15,9 @@ export function InputPrices({ register, errors, sellingprice, purchaseprice, han
                value={purchaseprice || ''}
                onChange={(e) => handlePriceChange('purchaseprice', e.target.value)}
             />
-            {errors.purchaseprice?.message && <p className='text-red-500 text-xs mt-1'>{errors.purchaseprice.message}</p>}
+            {errors.purchaseprice?.message && (
+               <p className='text-red-500 text-xs mt-1'>{errors.purchaseprice.message}</p>
+            )}
          </div>
          <div className='w-full'>
             <Input
