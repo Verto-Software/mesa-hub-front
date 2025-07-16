@@ -46,8 +46,8 @@ export function TableItems() {
                               className='object-contain'
                               src={itemMenu.image}
                               alt={itemMenu.name}
-                              height={50}
-                              width={50}
+                              height={60}
+                              width={60}
                            />
                         </TableCell>
                         <TableCell className='px-6 py-4 text-base font-medium'>{itemMenu.name}</TableCell>

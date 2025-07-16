@@ -1,6 +1,13 @@
 'use client';
 
-import { SidebarContent, SidebarGroup, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from '@/_shared/components/ui/sidebar';
+import {
+   SidebarContent,
+   SidebarGroup,
+   SidebarMenu,
+   SidebarMenuButton,
+   SidebarMenuItem,
+   useSidebar,
+} from '@/_shared/components/ui/sidebar';
 import { Package, Settings, SquareMenu, StickyNote } from 'lucide-react';
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
@@ -72,7 +79,7 @@ export function SidebarContentActions() {
                {menuItems.map((menuItem) => (
                   <SidebarMenuItem key={menuItem.title}>
                      <SidebarMenuButton
-                        className='text-gray-600 h-10 font-medium'
+                        className='text-gray-600 h-10 font-medium text-base'
                         variant='outline'
                         asChild
                         tooltip={isCollapsed ? menuItem.title : undefined}

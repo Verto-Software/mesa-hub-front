@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { SidebarTrigger } from './sidebar';
 import { useTranslations } from 'next-intl';
 import { Separator } from './separator';
+import { ButtonFullScreen } from './button-full-screen';
 
 export function Header() {
    const pathname = usePathname();
@@ -20,6 +21,7 @@ export function Header() {
          <SidebarTrigger className='cursor-pointer' />
          <Separator orientation='vertical' />
          <h1 className='text-2xl font-semibold mb-1'>{translateTitle}</h1>
+         <ButtonFullScreen className='cursor-pointer w-8 h-8 ml-auto' />
       </header>
    );
 }

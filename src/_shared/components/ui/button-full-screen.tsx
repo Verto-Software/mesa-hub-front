@@ -4,7 +4,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
 import { useFullscreen } from '@/_shared/hooks/use-full-screen';
 import { useTranslations } from 'next-intl';
 
-export function ButtonFullScreen() {
+export function ButtonFullScreen({ className }: any) {
    const t = useTranslations();
    const { isFullscreen, toggleFullscreen } = useFullscreen();
 
@@ -12,7 +12,8 @@ export function ButtonFullScreen() {
       <Tooltip>
          <TooltipTrigger asChild>
             <Button
-               className='cursor-pointer w-6 h-6'
+               className={className}
+               variant='secondary'
                onClick={toggleFullscreen}
             >
                {isFullscreen ? <Shrink /> : <Expand />}
