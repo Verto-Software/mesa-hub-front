@@ -91,12 +91,9 @@ export function MenuView() {
                                  className='object-cover rounded-lg print:w-12 print:h-12'
                               />
                               <div className='flex-1 min-w-0'>
-                                 <div className='flex justify-between items-start'>
-                                    <div>
-                                       <h3 className='font-semibold text-lg print:text-base'>{item.name}</h3>
-                                       <p className='text-gray-500 print:text-gray-600 text-sm'>{item.description}</p>
-                                    </div>
-                                    <span className='font-bold text-base text-primary print:text-black'>
+                                 <div className='flex items-center justify-between'>
+                                    <h3 className='font-semibold text-lg print:text-base'>{item.name}</h3>
+                                    <span className='font-semibold text-sm text-primary print:text-black mt-1'>
                                        R${' '}
                                        {item.price.toLocaleString('pt-BR', {
                                           minimumFractionDigits: 2,
@@ -104,6 +101,7 @@ export function MenuView() {
                                        })}
                                     </span>
                                  </div>
+                                 <p className='text-gray-500 print:text-gray-600 text-sm mb-1'>{item.description}</p>
                               </div>
                            </div>
                         ))}
