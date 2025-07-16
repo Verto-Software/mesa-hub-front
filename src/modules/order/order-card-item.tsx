@@ -69,8 +69,7 @@ export function OrderCardItem() {
          id: '9',
          name: 'Flash',
          number: '156',
-         description:
-            'Perferendis adipisci rem ipsam nesciunt facilis iste aliquid, hic obcaecati accusamus officia, necessitatibus reprehenderit delectus incidunt quod, soluta molestias commodi? ',
+         description: '',
          status: 'free',
       },
       {
@@ -153,7 +152,7 @@ export function OrderCardItem() {
    ];
 
    return (
-      <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-4 p-6'>
+      <div className='grid md:grid-cols-3 lg:grid-cols-5 gap-4 p-6'>
          {cards.map((card) => (
             <Card
                className={cn(
