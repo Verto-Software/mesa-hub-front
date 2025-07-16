@@ -13,7 +13,7 @@ export function OrderCardItem() {
       <Card
          className={cn(
             ocupado ? 'bg-red-50' : 'bg-emerald-50',
-            'cursor-pointer select-none active:scale-[0.99] active:brightness-100 hover:scale-105 transition-transform duration-300'
+            'cursor-pointer select-none active:scale-[0.99] active:brightness-100 hover:scale-105 transition-transform duration-300 mt-1'
          )}
          role='button'
          tabIndex={0}

@@ -5,4 +5,5 @@ export const Routes = {
    Order: '/order',
    Menu: '/menu',
    Plans: '/plans',
+   MenuView: '/menu-view',
 };

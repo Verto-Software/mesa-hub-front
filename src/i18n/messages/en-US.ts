@@ -38,6 +38,7 @@ export default {
    Orders: 'Orders',
    Home: 'Home',
    Menu: 'Menu',
+   'Menu-view': 'Menu',
    Stock: 'Stock',
    Settings: 'Settings',
    ExitFullScreenMode: 'Exit full screen mode [ESC]',
@@ -72,4 +73,6 @@ export default {
    PurchasePriceIsMandatory: 'Purchase price is mandatory',
    SellingPriceIsMandatory: 'Selling price is mandatory',
    AddItemToStock: 'Add item to stock',
+   SearchMenu: 'Search for item in menu',
+   SearchStock: 'Search for item in stock',
 } as const;

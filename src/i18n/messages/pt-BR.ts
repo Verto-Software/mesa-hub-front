@@ -38,6 +38,7 @@ export default {
    Orders: 'Comandas',
    Home: 'Início',
    Menu: 'Cardápio',
+   'Menu-view': 'Cardápio',
    Stock: 'Estoque',
    Settings: 'Configurações',
    ExitFullScreenMode: 'Sair do modo tela cheia [ESC]',
@@ -72,4 +73,6 @@ export default {
    PurchasePriceIsMandatory: 'Preço de compra é obrigatório',
    SellingPriceIsMandatory: 'Preço de venda é obrigatório',
    AddItemToStock: 'Adicionar item no estoque',
+   SearchMenu: 'Buscar item no cardápio',
+   SearchStock: 'Buscar item no estoque',
 } as const;

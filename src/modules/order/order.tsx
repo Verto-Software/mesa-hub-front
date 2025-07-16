@@ -16,7 +16,7 @@ export function Order() {
 
    return (
       <section className='flex flex-col select-none'>
-         <div className='flex items-center justify-between sticky top-[61px] w-full p-6 bg-white'>
+         <div className='flex items-center justify-between sticky top-[77px] w-full p-6 bg-white z-10'>
             <div className='flex gap-6 flex-col md:flex-row'>
                <Dialog
                   open={open}

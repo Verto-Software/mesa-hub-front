@@ -1,19 +1,18 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { TFormAddItemMenu } from '../interface';
-import { FormItemMenuSchema, ItemMenuSchema } from './schema';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
 import { DialogContent, DialogHeader, DialogTitle } from '@/_shared/components/ui/dialog';
-import { Input } from '@/_shared/components/ui/input';
-import { SelectCategory } from './components/select-category';
-import { InputSalePrice } from './components/input-sale-price';
-import { InputItemDescription } from './components/input-item-description';
-import { UploadImage } from './components/upload-image';
-import { ButtonAddItemMenu } from './components/button-add-item-menu';
 import { formatPrice } from '@/_shared/utils/formatters-price';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'next-intl';
+import { useForm } from 'react-hook-form';
+import { TFormAddItemMenu } from '../interface';
+import { ButtonAddItemMenu } from './components/button-add-item-menu';
+import { InputItemDescription } from './components/input-item-description';
 import { InputItemName } from './components/input-item-name';
+import { InputSalePrice } from './components/input-sale-price';
+import { SelectCategory } from './components/select-category';
+import { UploadImage } from './components/upload-image';
+import { FormItemMenuSchema, ItemMenuSchema } from './schema';
 
 export function FormAddItemMenu({ handleCloseDialog }: TFormAddItemMenu) {
    const t = useTranslations();

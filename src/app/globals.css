@@ -144,3 +144,35 @@ input:-webkit-autofill:active {
    -webkit-text-fill-color: var(--foreground) !important;
    transition: background-color 5000s ease-in-out 0s;
 }
+
+@media print {
+   @page {
+      margin: 0;
+   }
+
+   body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+   }
+
+   /* Remove headers e footers do navegador */
+   header,
+   footer {
+      display: none !important;
+   }
+
+   /* Remove a data/hora e URL que aparecem automaticamente */
+   html {
+      -webkit-print-color-adjust: exact;
+   }
+
+   .category-section {
+      page-break-inside: avoid;
+      break-inside: avoid;
+   }
+
+   .menu-item {
+      page-break-inside: avoid;
+      break-inside: avoid;
+   }
+}

@@ -1,9 +1,8 @@
-import { Language } from '@/i18n/language';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { Toaster } from 'sonner';
-import '../../globals.css';
 import { Providers } from '../(private)/providers/providers';
+import '../../globals.css';
 
 export const metadata: Metadata = {
    title: 'MesaHub - Login',
@@ -26,7 +25,7 @@ export default async function AuthLayout({
                duration={3000}
                visibleToasts={1}
             />
-            <Language />
+            {/* <Language /> */}
             {children}
          </NextIntlClientProvider>
       </Providers>

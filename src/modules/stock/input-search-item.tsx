@@ -9,7 +9,7 @@ export function InputSearchItem() {
       <div className='relative w-72'>
          <Input
             type='text'
-            placeholder={t('SearchOrder')}
+            placeholder={t('SearchStock')}
             className='pl-10'
          />
          <Search

@@ -16,7 +16,7 @@ export function Header() {
    const translateTitle = t(firstCapitalLetter) || t('Home');
 
    return (
-      <header className='flex items-center gap-4 border-b p-5 select-none sticky top-0 bg-white'>
+      <header className='flex items-center gap-4 border-b p-5 select-none sticky top-0 bg-white z-10 print:hidden'>
          <SidebarTrigger className='cursor-pointer' />
          <Separator orientation='vertical' />
          <h1 className='text-2xl font-semibold mb-1'>{translateTitle}</h1>
