@@ -1,6 +1,7 @@
 'use client';
 
 import { Dialog } from '@/_shared/components/ui/dialog';
+import { Routes } from '@/_shared/routes/routes';
 import { useState } from 'react';
 import QRCodeModal from '../menu-view/menu-qr-code';
 import { ButtonViewMenu } from './button-view-menu';
@@ -11,7 +12,6 @@ import { TableItems } from './table/table-items';
 
 export function Menu() {
    const [open, setOpen] = useState(false);
-   const cardapioUrl = window.location.origin;
 
    function handleCloseDialog() {
       setOpen(false);
@@ -32,7 +32,7 @@ export function Menu() {
             <div className='flex gap-3'>
                <InputSearch />
                <ButtonViewMenu />
-               <QRCodeModal cardapioUrl={cardapioUrl} />
+               <QRCodeModal cardapioUrl={Routes.MenuView} />
             </div>
          </div>
          <TableItems />
