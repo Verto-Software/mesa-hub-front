@@ -1,11 +1,9 @@
+import { Badge } from '@/_shared/components/ui/badge';
 import { Button } from '@/_shared/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/_shared/components/ui/table';
 import { Edit, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 import { TItemsMenu } from '../interface';
-import { Badge } from '@/_shared/components/ui/badge';
-import Link from 'next/link';
-import { Routes } from '@/_shared/routes/routes';
 
 export function TableItems() {
    const itemsHead = ['Imagem', 'Nome', 'Categoria', 'Preço', 'Descrição', 'Ações'];

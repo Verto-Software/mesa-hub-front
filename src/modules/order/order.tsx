@@ -30,7 +30,7 @@ export function Order() {
          </div>
 
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 pb-6'>
-            {Array.from({ length: 20 }).map((_, i) => (
+            {Array.from({ length: 10 }).map((_, i) => (
                <OrderCardItem key={i} />
             ))}
          </div>

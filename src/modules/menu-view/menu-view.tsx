@@ -25,7 +25,7 @@ const cardapioItems: MenuItem[] = [
       image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=80&h=80&fit=crop&crop=center',
    },
    {
-      id: '1',
+      id: '2',
       name: 'Hambúrguer Artesanal',
       category: 'Bebida',
       price: 32,
@@ -43,9 +43,9 @@ export function MenuView() {
       return acc;
    }, {} as Record<string, MenuItem[]>);
 
-   const handlePrint = () => {
+   function handlePrint() {
       window.print();
-   };
+   }
 
    return (
       <div className='min-h-screen bg-background w-full'>
@@ -72,12 +72,12 @@ export function MenuView() {
                      className='category-section border-none hover:bg-gray-50 p-3 !rounded-md print:gap-2'
                   >
                      <CardHeader className='!p-0'>
-                        <Badge className='bg-gray-100 print:bg-white text-gray-800 text-base print:text-xl'>
+                        <Badge className='bg-gray-100 !rounded-sm print:bg-white text-gray-800 text-base print:text-xl'>
                            {category}
                         </Badge>
                      </CardHeader>
 
-                     <CardContent className='flex flex-col gap-8 !p-0'>
+                     <CardContent className='flex flex-col gap-6 !p-0'>
                         {items.map((item) => (
                            <div
                               key={item.id}
@@ -92,7 +92,7 @@ export function MenuView() {
                               />
                               <div className='flex-1 min-w-0'>
                                  <div className='flex items-center justify-between'>
-                                    <h3 className='font-semibold text-lg print:text-base'>{item.name}</h3>
+                                    <h3 className='font-semibold text-lg print:text-base text-gray-700'>{item.name}</h3>
                                     <span className='font-semibold text-sm text-primary print:text-black mt-1'>
                                        R${' '}
                                        {item.price.toLocaleString('pt-BR', {
