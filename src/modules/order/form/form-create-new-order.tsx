@@ -33,29 +33,30 @@ export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
 
    return (
       <DialogContent className='select-none'>
-         <form
-            className='space-y-4'
-            onSubmit={handleSubmit(handleSubmitNewOrder)}
-         >
-            <DialogHeader>
-               <DialogTitle>{t('AddNewOrder')}</DialogTitle>
-            </DialogHeader>
-            <div className='flex gap-2 flex-col md:flex-row'>
-               <OrderNumber
+         <form onSubmit={handleSubmit(handleSubmitNewOrder)}>
+            <fieldset className='space-y-4'>
+               <DialogHeader>
+                  <DialogTitle>
+                     <legend>{t('AddNewOrder')}</legend>
+                  </DialogTitle>
+               </DialogHeader>
+               <div className='flex gap-2 flex-col md:flex-row'>
+                  <OrderNumber
+                     register={register}
+                     errors={errors}
+                  />
+                  <InputOrderName
+                     register={register}
+                     errors={errors}
+                  />
+               </div>
+               <InputOrderDescription
                   register={register}
                   errors={errors}
+                  watch={watch}
                />
-               <InputOrderName
-                  register={register}
-                  errors={errors}
-               />
-            </div>
-            <InputOrderDescription
-               register={register}
-               errors={errors}
-               watch={watch}
-            />
-            <ButtonCreateOrder reset={reset} />
+               <ButtonCreateOrder reset={reset} />
+            </fieldset>
          </form>
       </DialogContent>
    );

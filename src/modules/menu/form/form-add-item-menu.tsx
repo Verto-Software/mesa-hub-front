@@ -13,6 +13,7 @@ import { InputItemDescription } from './components/input-item-description';
 import { UploadImage } from './components/upload-image';
 import { ButtonAddItemMenu } from './components/button-add-item-menu';
 import { formatPrice } from '@/_shared/utils/formatters-price';
+import { InputItemName } from './components/input-item-name';
 
 export function FormAddItemMenu({ handleCloseDialog }: TFormAddItemMenu) {
    const t = useTranslations();
@@ -53,22 +54,18 @@ export function FormAddItemMenu({ handleCloseDialog }: TFormAddItemMenu) {
    return (
       <DialogContent className='select-none'>
          <form onSubmit={handleSubmit(handleAddItemMenu)}>
-            <fieldset className='space-y-3'>
+            <fieldset className='space-y-4'>
                <DialogHeader>
                   <DialogTitle>
                      <legend>{t('AddItemToMenu')}</legend>
                   </DialogTitle>
                </DialogHeader>
 
-               <div className='w-full'>
-                  <Input
-                     className={errors.itemname?.message ? 'border-red-500' : ''}
-                     type='text'
-                     placeholder={t('ItemName')}
-                     {...register('itemname')}
-                  />
-                  {errors.itemname?.message && <p className='text-red-500 text-xs mt-1'>{errors.itemname.message}</p>}
-               </div>
+               <InputItemName
+                  errors={errors}
+                  register={register}
+               />
+
                <div className='flex gap-2 flex-col md:flex-row'>
                   <SelectCategory
                      control={control}
