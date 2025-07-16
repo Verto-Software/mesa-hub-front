@@ -400,22 +400,20 @@ export function TableItems() {
                            </Badge>
                         </TableCell>
                         <TableCell className='px-6 py-4 text-base'>
-                           <div className='flex gap-2'>
-                              <Button
-                                 className='cursor-pointer'
-                                 variant='ghost'
-                                 size='sm'
-                              >
-                                 <Edit size={16} />
-                              </Button>
-                              <Button
-                                 className='cursor-pointer'
-                                 variant='ghost'
-                                 size='sm'
-                              >
-                                 <Trash2 size={16} />
-                              </Button>
-                           </div>
+                           <Button
+                              className='cursor-pointer'
+                              variant='ghost'
+                              size='sm'
+                           >
+                              <Edit size={16} />
+                           </Button>
+                           <Button
+                              className='cursor-pointer'
+                              variant='ghost'
+                              size='sm'
+                           >
+                              <Trash2 size={16} />
+                           </Button>
                         </TableCell>
                      </TableRow>
                   ))}
