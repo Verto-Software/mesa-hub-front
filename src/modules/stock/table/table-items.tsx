@@ -7,7 +7,7 @@ import { Edit, Trash2 } from 'lucide-react';
 export function TableItems() {
    const itemsHead = [
       'Nome',
-      'Quantidade',
+      'Quant.',
       'Min / Max',
       'Estoque Atual',
       'Preço de Compra',
@@ -25,307 +25,7 @@ export function TableItems() {
          itemquantity: '10',
          purchaseprice: 10,
          sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '2',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '3',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '4',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '5',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '6',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '7',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '8',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '9',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '10',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '11',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '12',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '13',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '14',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '15',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
-         minimumstock: '10',
-         maximumstock: '50',
-         supplier: 'Fulano Ciclano Beltrano',
-         category: 'Lanche',
-         itemdescription: 'Pão macio, carne suculenta e queijo derretido.',
-         get status() {
-            const current = parseInt(this.currentstock);
-            const min = parseInt(this.minimumstock);
-
-            if (current <= min) return 'Baixo';
-            return 'Normal';
-         },
-      },
-      {
-         id: '16',
-         itemname: 'Original',
-         itemquantity: '10',
-         purchaseprice: 10,
-         sellingprice: 15,
-         currentstock: '11',
+         currentstock: '10',
          minimumstock: '10',
          maximumstock: '50',
          supplier: 'Fulano Ciclano Beltrano',
@@ -342,7 +42,7 @@ export function TableItems() {
    ];
 
    return (
-      <div className='px-6 pb-6'>
+      <div className='px-5 pb-6'>
          <div className='border border-gray-200 rounded-md'>
             <Table>
                <TableHeader>
@@ -363,33 +63,33 @@ export function TableItems() {
                         key={itemMenu.id}
                         className='hover:bg-muted/50 border-b border-gray-200'
                      >
-                        <TableCell className='px-6 py-4 text-base'>{itemMenu.itemname}</TableCell>
-                        <TableCell className='px-6 py-4 text-base'>{itemMenu.itemquantity}</TableCell>
-                        <TableCell className='px-6 py-4 text-base'>
+                        <TableCell className='px-5 py-4 text-base'>{itemMenu.itemname}</TableCell>
+                        <TableCell className='px-5 py-4 text-base'>{itemMenu.itemquantity}</TableCell>
+                        <TableCell className='px-5 py-4 text-base'>
                            {itemMenu.minimumstock} / {itemMenu.maximumstock}
                         </TableCell>
-                        <TableCell className='px-6 py-4 text-base'>{itemMenu.currentstock}</TableCell>
-                        <TableCell className='px-6 py-4 text-base'>
+                        <TableCell className='px-5 py-4 text-base'>{itemMenu.currentstock}</TableCell>
+                        <TableCell className='px-5 py-4 text-base'>
                            R${' '}
                            {itemMenu.purchaseprice.toLocaleString('pt-BR', {
                               minimumFractionDigits: 2,
                               maximumFractionDigits: 2,
                            })}
                         </TableCell>
-                        <TableCell className='px-6 py-4 text-base'>
+                        <TableCell className='px-5 py-4 text-base'>
                            R${' '}
                            {itemMenu.sellingprice.toLocaleString('pt-BR', {
                               minimumFractionDigits: 2,
                               maximumFractionDigits: 2,
                            })}
                         </TableCell>
-                        <TableCell className='px-6 py-4 text-base'>
+                        <TableCell className='px-5 py-4 text-base'>
                            <p className='max-w-96 overflow-hidden line-clamp-2 text-ellipsis whitespace-normal text-gray-500'>
                               {itemMenu.itemdescription}
                            </p>
                         </TableCell>
-                        <TableCell className='px-6 py-4 text-base'>{itemMenu.supplier}</TableCell>
-                        <TableCell className='px-6 py-4 text-base'>
+                        <TableCell className='px-5 py-4 text-base'>{itemMenu.supplier}</TableCell>
+                        <TableCell className='px-5 py-4 text-base'>
                            <Badge
                               className={cn(
                                  itemMenu.status === 'Normal' ? 'bg-emerald-500 text-white' : 'bg-red-500 text-white',
@@ -399,7 +99,7 @@ export function TableItems() {
                               {itemMenu.status}
                            </Badge>
                         </TableCell>
-                        <TableCell className='px-6 py-4 text-base'>
+                        <TableCell className='px-5 py-4 text-base'>
                            <Button
                               className='cursor-pointer'
                               variant='ghost'

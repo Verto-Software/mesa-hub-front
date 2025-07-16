@@ -152,7 +152,7 @@ export function OrderCardItem() {
    ];
 
    return (
-      <div className='grid md:grid-cols-3 lg:grid-cols-5 gap-4 p-6'>
+      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6'>
          {cards.map((card) => (
             <Card
                className={cn(
