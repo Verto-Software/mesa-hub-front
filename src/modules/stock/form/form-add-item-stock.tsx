@@ -61,7 +61,7 @@ export function FormAddItemStock({ handleCloseDialog }: TFormAddItemStock) {
    return (
       <DialogContent className='select-none'>
          <form onSubmit={handleSubmit(handleSendFormStock)}>
-            <fieldset className='space-y-3'>
+            <fieldset className='space-y-5'>
                <DialogTitle>
                   <legend>{t('AddItemToStock')}</legend>
                </DialogTitle>

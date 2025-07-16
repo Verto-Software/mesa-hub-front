@@ -70,14 +70,14 @@ export function TableItems() {
                            <div className='flex gap-2'>
                               <Button
                                  className='cursor-pointer'
-                                 variant='outline'
+                                 variant='ghost'
                                  size='sm'
                               >
                                  <Edit size={16} />
                               </Button>
                               <Button
                                  className='cursor-pointer'
-                                 variant='destructive'
+                                 variant='ghost'
                                  size='sm'
                               >
                                  <Trash2 size={16} />

@@ -5,6 +5,7 @@ import { ButtonOpenDialogAddStock } from './form/components/button-open-dialog-a
 import { InputSearchItem } from './input-search-item';
 import { FormAddItemStock } from './form/form-add-item-stock';
 import { useState } from 'react';
+import { TableItems } from './table/table-items';
 
 export function Stock() {
    const [open, setOpen] = useState(false);
@@ -15,7 +16,7 @@ export function Stock() {
 
    return (
       <section className='flex flex-col select-none'>
-         <div className='flex items-center justify-between sticky top-[77px] w-full p-6 bg-white'>
+         <div className='flex items-center justify-between sticky top-[77px] w-full p-6 bg-white z-10'>
             <div className='flex gap-6 flex-col md:flex-row'>
                <Dialog
                   open={open}
@@ -27,6 +28,7 @@ export function Stock() {
             </div>
             <InputSearchItem />
          </div>
+         <TableItems />
       </section>
    );
 }

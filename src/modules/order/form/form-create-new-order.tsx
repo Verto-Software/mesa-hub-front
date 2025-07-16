@@ -34,7 +34,7 @@ export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
    return (
       <DialogContent className='select-none'>
          <form onSubmit={handleSubmit(handleSubmitNewOrder)}>
-            <fieldset className='space-y-4'>
+            <fieldset className='space-y-5'>
                <DialogHeader>
                   <DialogTitle>
                      <legend>{t('AddNewOrder')}</legend>

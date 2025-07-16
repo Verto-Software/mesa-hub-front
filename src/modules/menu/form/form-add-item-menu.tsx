@@ -53,7 +53,7 @@ export function FormAddItemMenu({ handleCloseDialog }: TFormAddItemMenu) {
    return (
       <DialogContent className='select-none'>
          <form onSubmit={handleSubmit(handleAddItemMenu)}>
-            <fieldset className='space-y-4'>
+            <fieldset className='space-y-5'>
                <DialogHeader>
                   <DialogTitle>
                      <legend>{t('AddItemToMenu')}</legend>
