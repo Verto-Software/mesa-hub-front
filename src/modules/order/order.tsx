@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { ButtonOpenDialogAddNewOrder } from './form/components/button-open-dialog-add-new-order';
 import { InputSearchOrder } from './input-search-order';
 import { FormCreateNewOrder } from './form/form-create-new-order';
-import { OrderCardItem } from './order-card-item';
+import { OrderCardItem } from './order-card/order-card-item';
 
 export function Order() {
    const [open, setOpen] = useState(false);
