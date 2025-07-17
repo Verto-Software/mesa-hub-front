@@ -1,4 +1,4 @@
-import { OrderCardDetail } from '@/modules/order/order-card/order-card-detail';
+import { OrderCardDetail } from '@/modules/order/order-card/order-card-detail/order-card-detail';
 
 interface TPageProps {
    params: { id: string };
