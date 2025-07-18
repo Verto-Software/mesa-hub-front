@@ -3,10 +3,13 @@
 import { cn } from '@/_lib/utils';
 import { Badge } from '@/_shared/components/ui/badge';
 import { Button } from '@/_shared/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/_shared/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/_shared/components/ui/card';
 import { Separator } from '@/_shared/components/ui/separator';
-import { Minus, Plus, Trash2 } from 'lucide-react';
+import { Routes } from '@/_shared/routes/routes';
+import { InputSearch } from '@/modules/menu/input-search-item';
+import { Minus, Plus, SquareArrowLeft, Trash2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
 
@@ -17,9 +20,16 @@ interface TOrderItems {
    quantity: number;
 }
 
+interface TMenuItems {
+   id: string;
+   item: string;
+   price: number;
+}
+
 export function OrderCardDetail() {
+   const [orderItems, setOrderItems] = useState<TOrderItems[]>([]);
    const params = useParams();
-   const id = params?.id as string;
+   const id = params?.order;
    const t = useTranslations();
 
    const orders = [
@@ -32,27 +42,17 @@ export function OrderCardDetail() {
       },
       {
          id: '2',
-         name: 'Homem Aranha',
+         name: 'Fulano',
          number: '75',
          status: 'busy',
          description: '',
       },
    ];
 
-   const [orderItems, setOrderItems] = useState<TOrderItems[]>([
-      {
-         id: '1',
-         item: 'Batata frita',
-         price: 10,
-         quantity: 2,
-      },
-      {
-         id: '2',
-         item: 'Hamburguer',
-         price: 25,
-         quantity: 10,
-      },
-   ]);
+   const menuItems = [
+      { id: '1', item: 'Batata frita', price: 15 },
+      { id: '2', item: 'Hamburguer', price: 25 },
+   ];
 
    const order = orders.find((order) => order.id === id);
 
@@ -76,24 +76,38 @@ export function OrderCardDetail() {
       setOrderItems((prev) => prev.filter((item) => item.id !== itemId));
    }
 
-   if (!order) {
-      return <p className='text-red-500'>Pedido não encontrado para ID: {id}</p>;
+   function addToPedido(menuItems: TMenuItems) {
+      setOrderItems((prev) => {
+         const existingItem = prev.find((item) => item.id === menuItems.id);
+         if (existingItem) {
+            return prev.map((item) => (item.id === menuItems.id ? { ...item, quantity: item.quantity + 1 } : item));
+         } else {
+            return [...prev, { ...menuItems, quantity: 1 }];
+         }
+      });
    }
 
    return (
-      <section className='p-6 w-full h-full'>
+      <section className='p-6 w-full h-full flex gap-6'>
          {orderItems.length === 0 ? null : (
-            <Card className='w-1/2 flex flex-col h-[84vh]'>
-               <CardHeader className='flex items-center justify-between'>
-                  <div className='flex flex-col items-start'>
-                     <p>Cliente: {order?.name}</p>
-                     <p>Comanda: {order?.number}</p>
+            <Card className='w-full flex flex-col h-[84vh]'>
+               <CardHeader className='flex items-center justify-between h-6'>
+                  <div className='flex items-start gap-5'>
+                     <Link href={Routes.Order}>
+                        <SquareArrowLeft className='text-gray-500' />
+                     </Link>
+                     <p className='font-medium text-gray-400'>
+                        Cliente: <span className='font-bold text-gray-700'>{order?.name}</span>
+                     </p>
+                     <p className='font-medium text-gray-400'>
+                        Comanda: <span className='font-bold text-gray-700'>{order?.number}</span>
+                     </p>
                   </div>
                   <Badge className={cn(order?.status === 'busy' ? 'bg-red-500' : 'bg-emerald-500')}>
                      {order?.status === 'busy' ? t('Busy') : t('Free')}
                   </Badge>
                </CardHeader>
-               <Separator className='-mb-6 -mt-2' />
+               <Separator className='-mb-6' />
                <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden py-5'>
                   {orderItems.map((orderItem) => (
                      <div
@@ -145,7 +159,7 @@ export function OrderCardDetail() {
                <Separator className='-mt-6 -mb-6' />
                <CardFooter className='w-full'>
                   <div className='flex flex-col gap-3 mt-3 w-full'>
-                     <div className='flex items-center justify-between'>
+                     <div className='flex items-center justify-between text-xl font-medium text-gray-700'>
                         <span>Subtotal:</span>
                         <span>R$ {subtotal}</span>
                      </div>
@@ -159,6 +173,37 @@ export function OrderCardDetail() {
                </CardFooter>
             </Card>
          )}
+         <Card className='w-full flex flex-col h-[84vh] pb-0'>
+            <CardHeader className='flex items-center justify-between h-6'>
+               <CardTitle>Cardápio</CardTitle>
+               <InputSearch />
+            </CardHeader>
+            <Separator className='-mb-6' />
+            <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1'>
+               {menuItems.map((menuItem) => (
+                  <div
+                     className='flex items-center justify-between border p-2 px-4 rounded-md mt-2'
+                     key={menuItem.id}
+                  >
+                     <div>
+                        <p>{menuItem.item}</p>
+                        <span>R$ {menuItem.price}</span>
+                     </div>
+                     <div className='flex items-center gap-2'>
+                        <Button
+                           animated
+                           className='cursor-pointer'
+                           size='icon'
+                           variant='default'
+                           onClick={() => addToPedido(menuItem)}
+                        >
+                           <Plus />
+                        </Button>
+                     </div>
+                  </div>
+               ))}
+            </CardContent>
+         </Card>
       </section>
    );
 }
