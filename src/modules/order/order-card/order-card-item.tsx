@@ -25,20 +25,6 @@ export function OrderCardItem() {
          status: 'busy',
          description: '',
       },
-      {
-         id: '3',
-         name: 'Pantera',
-         number: '10',
-         status: 'free',
-         description: '',
-      },
-      {
-         id: '4',
-         name: 'Elvis',
-         number: 'Superman',
-         status: 'busy',
-         description: '',
-      },
    ];
 
    function handleCardDetail(id: string) {
