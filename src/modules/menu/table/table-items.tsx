@@ -41,7 +41,7 @@ export function TableItems() {
                         key={itemMenu.id}
                         className='hover:bg-muted/50 border-b border-gray-200'
                      >
-                        <TableCell className='px-6 py-4 text-base'>
+                        <TableCell className='px-6 py-4'>
                            <Image
                               className='object-contain'
                               src={itemMenu.image}
@@ -50,23 +50,23 @@ export function TableItems() {
                               width={60}
                            />
                         </TableCell>
-                        <TableCell className='px-6 py-4 text-base font-medium'>{itemMenu.name}</TableCell>
-                        <TableCell className='px-6 py-4 text-base'>
+                        <TableCell className='px-6 py-4 font-medium'>{itemMenu.name}</TableCell>
+                        <TableCell className='px-6 py-4'>
                            <Badge className='bg-gray-100 text-gray-800'>{itemMenu.category}</Badge>
                         </TableCell>
-                        <TableCell className='px-6 py-4 text-base font-semibold text-green-600'>
+                        <TableCell className='px-6 py-4 font-semibold text-green-600'>
                            R${' '}
                            {itemMenu.price.toLocaleString('pt-BR', {
                               minimumFractionDigits: 2,
                               maximumFractionDigits: 2,
                            })}
                         </TableCell>
-                        <TableCell className='px-6 py-4 text-base'>
+                        <TableCell className='px-6 py-4'>
                            <p className='max-w-96 overflow-hidden line-clamp-2 text-ellipsis whitespace-normal text-gray-500'>
                               {itemMenu.description}
                            </p>
                         </TableCell>
-                        <TableCell className='px-6 py-4 text-base'>
+                        <TableCell className='px-6 py-4'>
                            <Button
                               className='cursor-pointer'
                               variant='ghost'
