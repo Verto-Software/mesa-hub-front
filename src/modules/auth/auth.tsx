@@ -9,8 +9,8 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { CreateAccount } from './form/components/create-account';
 import { LoginWithGoogle } from './form/components/login-with-google';
-import { AuthSchema, FormAuthSchema } from './form/schema';
 import { FormAuth } from './form/form-auth';
+import { AuthSchema, FormAuthSchema } from './form/schema';
 
 export function Auth() {
    const [showPassword, setShowPassword] = useState(false);

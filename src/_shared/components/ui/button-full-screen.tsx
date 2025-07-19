@@ -4,7 +4,11 @@ import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
 import { useFullscreen } from '@/_shared/hooks/use-full-screen';
 import { useTranslations } from 'next-intl';
 
-export function ButtonFullScreen({ className }: any) {
+interface TButtonFullScreenProps {
+   className?: string;
+}
+
+export function ButtonFullScreen({ className }: TButtonFullScreenProps) {
    const t = useTranslations();
    const { isFullscreen, toggleFullscreen } = useFullscreen();
 

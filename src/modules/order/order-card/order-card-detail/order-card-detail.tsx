@@ -1,10 +1,5 @@
 'use client';
 
-import { Button } from '@/_shared/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/_shared/components/ui/card';
-import { Separator } from '@/_shared/components/ui/separator';
-import { InputSearch } from '@/modules/menu/input-search-item';
-import { Plus } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
 import { TMenuItems, TOrder, TOrderItems } from '../../interface';
