@@ -1,3 +1,4 @@
+import { TOrderItems } from '../../interface';
 import { TMenuItems, TOrder } from '../../interface';
 
 export const orders: TOrder[] = [
