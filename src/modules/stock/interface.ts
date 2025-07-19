@@ -25,3 +25,18 @@ export type TInputCurrentStock = TInputField;
 export interface TFormAddItemStock {
    handleCloseDialog: () => void;
 }
+
+export interface TItemMenu {
+   id: string;
+   itemname: string;
+   itemquantity: string;
+   purchaseprice: number;
+   sellingprice: number;
+   currentstock: string;
+   minimumstock: string;
+   maximumstock: string;
+   supplier: string;
+   category: string;
+   itemdescription: string;
+   readonly status: 'Low' | 'Normal';
+}

@@ -3,6 +3,8 @@ import { Badge } from '@/_shared/components/ui/badge';
 import { Button } from '@/_shared/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/_shared/components/ui/table';
 import { Edit, Trash2 } from 'lucide-react';
+import { TItemMenu } from '../interface';
+import { THeader } from './table-header';
 
 export function TableItems() {
    const itemsHead = [
@@ -17,7 +19,7 @@ export function TableItems() {
       'Ação',
    ];
 
-   const itemsMenu = [
+   const itemsMenu: TItemMenu[] = [
       {
          id: '1',
          itemname: 'Original',
@@ -33,7 +35,7 @@ export function TableItems() {
          get status() {
             const current = parseInt(this.currentstock);
             const min = parseInt(this.minimumstock);
-            if (current <= min) return 'Baixo';
+            if (current <= min) return 'Low';
             return 'Normal';
          },
       },
@@ -46,18 +48,7 @@ export function TableItems() {
                <p className='text-gray-500 p-6 text-center'>Você não possui item no estoque.</p>
             ) : (
                <Table>
-                  <TableHeader>
-                     <TableRow>
-                        {itemsHead.map((itemHead) => (
-                           <TableHead
-                              key={itemHead}
-                              className='text-gray-500 pl-4'
-                           >
-                              {itemHead}
-                           </TableHead>
-                        ))}
-                     </TableRow>
-                  </TableHeader>
+                  <THeader itemsHead={itemsHead} />
 
                   <TableBody>
                      {itemsMenu?.map((itemMenu) => (
