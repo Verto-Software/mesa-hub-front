@@ -29,14 +29,9 @@ export interface TOrderItems {
    quantity: number;
 }
 
-export interface TMenuItems {
-   id: string;
-   item: string;
-   price: number;
-}
+export interface TMenuItems extends Pick<TOrderItems, 'item' | 'price'>, Pick<TOrder, 'id'> {}
 
-export interface TOrder {
-   id: string;
+export interface TOrder extends Pick<TOrderItems, 'id'> {
    name: string;
    number: string;
    status: 'busy' | 'free';
