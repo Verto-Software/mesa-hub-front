@@ -1,0 +1,42 @@
+import { Card, CardContent, CardHeader, CardTitle } from '@/_shared/components/ui/card';
+import { InputSearchOrder } from '../../input-search-order';
+import { Separator } from '@/_shared/components/ui/separator';
+import { Button } from '@/_shared/components/ui/button';
+import { Plus } from 'lucide-react';
+import { TOrderCardMenu } from '../../interface';
+
+export function OrderCardMenu({ menuItems, handleAddOrder }: TOrderCardMenu) {
+   return (
+      <Card className='w-full flex flex-col h-[84vh] pb-0 '>
+         <CardHeader className='flex items-center justify-between h-6'>
+            <CardTitle className='text-gray-500'>Cardápio</CardTitle>
+            <InputSearchOrder />
+         </CardHeader>
+         <Separator className='-mb-6' />
+         <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1'>
+            {menuItems.map((menuItem) => (
+               <div
+                  className='flex items-center justify-between border p-2 px-4 rounded-md mt-2 hover:bg-gray-50'
+                  key={menuItem.id}
+               >
+                  <div>
+                     <p>{menuItem.item}</p>
+                     <span>R$ {menuItem.price}</span>
+                  </div>
+                  <div className='flex items-center gap-2'>
+                     <Button
+                        animated
+                        className='cursor-pointer'
+                        size='icon'
+                        variant='default'
+                        onClick={() => handleAddOrder(menuItem)}
+                     >
+                        <Plus />
+                     </Button>
+                  </div>
+               </div>
+            ))}
+         </CardContent>
+      </Card>
+   );
+}

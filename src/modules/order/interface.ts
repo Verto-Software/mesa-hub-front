@@ -51,3 +51,8 @@ export interface TOrderCard {
    subtotal: number;
    order?: TOrder;
 }
+
+export interface TOrderCardMenu {
+   menuItems: TMenuItems[];
+   handleAddOrder: (item: TMenuItems) => void;
+}

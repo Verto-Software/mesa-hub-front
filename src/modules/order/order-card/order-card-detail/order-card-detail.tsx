@@ -5,11 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/_shared/components/u
 import { Separator } from '@/_shared/components/ui/separator';
 import { InputSearch } from '@/modules/menu/input-search-item';
 import { Plus } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
 import { TMenuItems, TOrder, TOrderItems } from '../../interface';
 import { OrderCard } from './order-card';
+import { OrderCardMenu } from './order-card-menu';
 
 export function OrderCardDetail() {
    const [orderItems, setOrderItems] = useState<TOrderItems[]>([]);
@@ -73,7 +73,7 @@ export function OrderCardDetail() {
       setOrderItems((prev) => prev.filter((item) => item.id !== itemId));
    }
 
-   function addToPedido(menuItems: TMenuItems) {
+   function handleAddOrder(menuItems: TMenuItems) {
       setOrderItems((prev) => {
          const existingItem = prev.find((item) => item.id === menuItems.id);
          if (existingItem) {
@@ -94,37 +94,10 @@ export function OrderCardDetail() {
             decrement={decrement}
             removeItem={removeItem}
          />
-         <Card className='w-full flex flex-col h-[84vh] pb-0 '>
-            <CardHeader className='flex items-center justify-between h-6'>
-               <CardTitle className='text-gray-500'>Cardápio</CardTitle>
-               <InputSearch />
-            </CardHeader>
-            <Separator className='-mb-6' />
-            <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1'>
-               {menuItems.map((menuItem) => (
-                  <div
-                     className='flex items-center justify-between border p-2 px-4 rounded-md mt-2 hover:bg-gray-50'
-                     key={menuItem.id}
-                  >
-                     <div>
-                        <p>{menuItem.item}</p>
-                        <span>R$ {menuItem.price}</span>
-                     </div>
-                     <div className='flex items-center gap-2'>
-                        <Button
-                           animated
-                           className='cursor-pointer'
-                           size='icon'
-                           variant='default'
-                           onClick={() => addToPedido(menuItem)}
-                        >
-                           <Plus />
-                        </Button>
-                     </div>
-                  </div>
-               ))}
-            </CardContent>
-         </Card>
+         <OrderCardMenu
+            handleAddOrder={handleAddOrder}
+            menuItems={menuItems}
+         />
       </section>
    );
 }

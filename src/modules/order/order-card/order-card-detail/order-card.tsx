@@ -19,7 +19,7 @@ export function OrderCard({ orderItems, order, decrement, increment, removeItem,
                <CardHeader className='flex items-center justify-between h-6 w-full'>
                   <Link
                      href={Routes.Order}
-                     className='text-gray-500 flex gap-1'
+                     className='text-gray-500 f lex gap-1'
                   >
                      <SquareArrowLeft className='text-gray-500' />
                      Voltar
