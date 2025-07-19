@@ -8,18 +8,20 @@ export interface TInputField {
 export interface TItemDescription extends TInputField {
    watch: UseFormWatch<FormStockSchema>;
 }
-export interface TInputQuantity extends TInputField {}
-export interface TInputName extends TInputField {}
 export interface TInputPrices extends TInputField {
    sellingprice: string | undefined;
    purchaseprice: string | undefined;
    handlePriceChange: (field: 'sellingprice' | 'purchaseprice', value: string) => void;
    control: Control<FormStockSchema>;
 }
-export interface TInputSupplier extends TInputField {}
-export interface TInputMaximumStock extends TInputField {}
-export interface TInputMinimumStock extends TInputField {}
-export interface TInputCurrentStock extends TInputField {}
+
+export type TInputQuantity = TInputField;
+export type TInputName = TInputField;
+export type TInputSupplier = TInputField;
+export type TInputMaximumStock = TInputField;
+export type TInputMinimumStock = TInputField;
+export type TInputCurrentStock = TInputField;
+
 export interface TFormAddItemStock {
    handleCloseDialog: () => void;
 }
