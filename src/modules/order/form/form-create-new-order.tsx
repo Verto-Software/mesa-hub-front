@@ -40,7 +40,7 @@ export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
                      <legend>{t('AddNewOrder')}</legend>
                   </DialogTitle>
                </DialogHeader>
-               <div className='flex gap-2 flex-col md:flex-row'>
+               <div className='flex gap-2 flex-col md:flex-row w-full'>
                   <OrderNumber
                      register={register}
                      errors={errors}

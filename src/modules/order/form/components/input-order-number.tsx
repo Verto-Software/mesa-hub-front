@@ -6,7 +6,7 @@ export function OrderNumber({ register, errors }: TOrderNumber) {
    const t = useTranslations();
 
    return (
-      <div>
+      <div className='w-full'>
          <Input
             type='number'
             placeholder={t('OrderNumber')}

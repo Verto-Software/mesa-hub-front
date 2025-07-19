@@ -6,7 +6,7 @@ export function InputOrderName({ register, errors }: TInputOrderName) {
    const t = useTranslations();
 
    return (
-      <div>
+      <div className='w-full'>
          <Input
             type='text'
             className='break-words'
