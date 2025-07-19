@@ -17,7 +17,7 @@ export function OrderCardDetail({ orderItems, order, decrement, increment, remov
          <CardHeader className='flex items-center justify-between h-6 w-full'>
             <Link
                href={Routes.Order}
-               className='text-gray-500 flex gap-3'
+               className='text-gray-500 flex gap-3 border rounded-sm p-2 hover:bg-gray-50 font-bold'
             >
                <SquareArrowLeft className='text-gray-500' />
                Voltar
@@ -36,7 +36,7 @@ export function OrderCardDetail({ orderItems, order, decrement, increment, remov
          </CardHeader>
          <Separator className='-mb-6' />
          {orderItems?.length === 0 ? (
-            <div className='flex items-center justify-center flex-1 text-gray-500 text-lg'>Não possui pedido</div>
+            <p className='flex items-center justify-center flex-1 text-gray-500 text-lg'>Não possui pedido</p>
          ) : (
             <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1'>
                {orderItems?.map((orderItem) => (
