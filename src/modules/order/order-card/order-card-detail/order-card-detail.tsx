@@ -13,7 +13,7 @@ export function OrderCardDetail({ orderItems, order, decrement, increment, remov
    const t = useTranslations();
 
    return (
-      <Card className='w-full flex flex-col h-[84vh]'>
+      <Card className='w-full flex flex-col md:h-[84vh] h-[50vh]'>
          <CardHeader className='flex items-center justify-between h-6 w-full'>
             <Link
                href={Routes.Order}
@@ -38,10 +38,10 @@ export function OrderCardDetail({ orderItems, order, decrement, increment, remov
          {orderItems?.length === 0 ? (
             <p className='flex items-center justify-center flex-1 text-gray-500 text-lg'>Não possui pedido</p>
          ) : (
-            <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1'>
+            <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1 px-2'>
                {orderItems?.map((orderItem) => (
                   <div
-                     className='flex items-center justify-between border p-2 px-4 rounded-md mt-2 hover:bg-gray-50'
+                     className='flex items-center justify-between border p-2 px-3 rounded-md mt-2 hover:bg-gray-50'
                      key={orderItem.id}
                   >
                      <div>

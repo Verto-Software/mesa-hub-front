@@ -13,10 +13,10 @@ export function OrderCardMenu({ menuItems, handleAddOrder }: TOrderCardMenu) {
             <InputSearchOrder />
          </CardHeader>
          <Separator className='-mb-6' />
-         <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1'>
+         <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1 px-2'>
             {menuItems.map((menuItem) => (
                <div
-                  className='flex items-center justify-between border p-2 px-4 rounded-md mt-2 hover:bg-gray-50'
+                  className='flex items-center justify-between border p-2 px-3 rounded-md mt-2 hover:bg-gray-50'
                   key={menuItem.id}
                >
                   <div>

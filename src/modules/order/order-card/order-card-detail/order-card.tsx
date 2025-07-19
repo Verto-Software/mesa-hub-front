@@ -46,7 +46,7 @@ export function OrderCard() {
    }
 
    return (
-      <section className='p-6 w-full h-full flex gap-6 select-none'>
+      <section className='md:p-6 p-2 w-full h-full flex gap-6 select-none flex-col md:flex-row'>
          <OrderCardDetail
             order={order}
             orderItems={orderItems}
