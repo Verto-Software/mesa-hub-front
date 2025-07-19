@@ -34,7 +34,7 @@ export function OrderCardItem() {
                      <div className='flex items-center justify-between'>
                         <p className='text-xl font-medium'>{order.number}</p>
                         <Badge className={cn(order ? 'bg-emerald-500' : 'bg-red-500')}>
-                           {order ? t('Busy') : t('Free')}
+                           {order ? t('Free') : t('Busy')}
                         </Badge>
                      </div>
                      <p className='text-xl font-medium mt-3'>{order.name}</p>

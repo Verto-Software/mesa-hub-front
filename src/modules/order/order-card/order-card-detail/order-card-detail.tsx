@@ -17,7 +17,7 @@ export function OrderCardDetail({ orderItems, order, decrement, increment, remov
          <CardHeader className='flex items-center justify-between h-6 w-full'>
             <Link
                href={Routes.Order}
-               className='text-gray-500 flex gap-1'
+               className='text-gray-500 flex gap-3'
             >
                <SquareArrowLeft className='text-gray-500' />
                Voltar
@@ -35,59 +35,63 @@ export function OrderCardDetail({ orderItems, order, decrement, increment, remov
             </div>
          </CardHeader>
          <Separator className='-mb-6' />
-         <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1'>
-            {orderItems?.map((orderItem) => (
-               <div
-                  className='flex items-center justify-between border p-2 px-4 rounded-md mt-2 hover:bg-gray-50'
-                  key={orderItem.id}
-               >
-                  <div>
-                     <p>{orderItem.item}</p>
-                     <span>
-                        {orderItem.price.toLocaleString('pt-BR', {
-                           style: 'currency',
-                           currency: 'BRL',
-                        })}
-                     </span>
-                  </div>
-                  <div className='flex gap-2'>
-                     <div className='flex items-center gap-2'>
-                        <Button
-                           animated
-                           className='cursor-pointer'
-                           size='icon'
-                           variant='secondary'
-                           onClick={() => decrement(orderItem.id)}
-                        >
-                           <Minus />
-                        </Button>
-                        <span className='w-6 text-center'>{orderItem.quantity}</span>
-                        <Button
-                           animated
-                           className='cursor-pointer'
-                           size='icon'
-                           variant='secondary'
-                           onClick={() => increment(orderItem.id)}
-                        >
-                           <Plus />
-                        </Button>
+         {orderItems?.length === 0 ? (
+            <div className='flex items-center justify-center flex-1 text-gray-500 text-lg'>Não possui pedido</div>
+         ) : (
+            <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1'>
+               {orderItems?.map((orderItem) => (
+                  <div
+                     className='flex items-center justify-between border p-2 px-4 rounded-md mt-2 hover:bg-gray-50'
+                     key={orderItem.id}
+                  >
+                     <div>
+                        <p>{orderItem.item}</p>
+                        <span>
+                           {orderItem.price.toLocaleString('pt-BR', {
+                              style: 'currency',
+                              currency: 'BRL',
+                           })}
+                        </span>
                      </div>
-                     <div className='flex items-center justify-end gap-2 w-32'>
-                        <span>R$ {(orderItem.price * orderItem.quantity).toFixed(2)}</span>
-                        <Button
-                           className='cursor-pointer'
-                           size='icon'
-                           variant='ghost'
-                           animated
-                           onClick={() => removeItem(orderItem.id)}
-                        >
-                           <Trash2 size={16} />
-                        </Button>
+                     <div className='flex gap-2'>
+                        <div className='flex items-center gap-2'>
+                           <Button
+                              animated
+                              className='cursor-pointer'
+                              size='icon'
+                              variant='secondary'
+                              onClick={() => decrement(orderItem.id)}
+                           >
+                              <Minus />
+                           </Button>
+                           <span className='w-6 text-center'>{orderItem.quantity}</span>
+                           <Button
+                              animated
+                              className='cursor-pointer'
+                              size='icon'
+                              variant='secondary'
+                              onClick={() => increment(orderItem.id)}
+                           >
+                              <Plus />
+                           </Button>
+                        </div>
+                        <div className='flex items-center justify-end gap-2 w-32'>
+                           <span>R$ {(orderItem.price * orderItem.quantity).toFixed(2)}</span>
+                           <Button
+                              className='cursor-pointer'
+                              size='icon'
+                              variant='ghost'
+                              animated
+                              onClick={() => removeItem(orderItem.id)}
+                           >
+                              <Trash2 size={16} />
+                           </Button>
+                        </div>
                      </div>
                   </div>
-               </div>
-            ))}
-         </CardContent>
+               ))}
+            </CardContent>
+         )}
          <Separator className='-mt-6 -mb-6' />
          <CardFooter className='w-full -mb-3'>
             <div className='flex gap-3 mt-3 w-full'>
