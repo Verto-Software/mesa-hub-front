@@ -16,6 +16,55 @@ export const orders: TOrder[] = [
       status: 'busy',
       description: '',
    },
+   {
+      id: '3',
+      name: 'Marlon',
+      number: '10',
+      status: 'free',
+      description: '',
+   },
+   {
+      id: '4',
+      name: 'Fulano',
+      number: '90',
+      status: 'busy',
+      description: '',
+   },
+   {
+      id: '5',
+      name: 'Marlon',
+      number: '10',
+      status: 'free',
+      description: '',
+   },
+   {
+      id: '6',
+      name: 'Fulano',
+      number: '90',
+      status: 'busy',
+      description: '',
+   },
+   {
+      id: '7',
+      name: 'Marlon',
+      number: '10',
+      status: 'free',
+      description: '',
+   },
+   {
+      id: '8',
+      name: 'Fulano',
+      number: '90',
+      status: 'busy',
+      description: '',
+   },
+   {
+      id: '9',
+      name: 'Marlon',
+      number: '10',
+      status: 'free',
+      description: '',
+   },
 ];
 
 export const menuItems: TMenuItems[] = [
