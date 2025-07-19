@@ -45,7 +45,12 @@ export function OrderCard({ orderItems, order, decrement, increment, removeItem,
                      >
                         <div>
                            <p>{orderItem.item}</p>
-                           <span>{orderItem.price}</span>
+                           <span>
+                              {orderItem.price.toLocaleString('pt-BR', {
+                                 style: 'currency',
+                                 currency: 'BRL',
+                              })}
+                           </span>
                         </div>
                         <div className='flex gap-2'>
                            <div className='flex items-center gap-2'>

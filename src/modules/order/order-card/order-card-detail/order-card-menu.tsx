@@ -21,7 +21,12 @@ export function OrderCardMenu({ menuItems, handleAddOrder }: TOrderCardMenu) {
                >
                   <div>
                      <p>{menuItem.item}</p>
-                     <span>R$ {menuItem.price}</span>
+                     <span>
+                        {menuItem.price.toLocaleString('pt-BR', {
+                           style: 'currency',
+                           currency: 'BRL',
+                        })}
+                     </span>
                   </div>
                   <div className='flex items-center gap-2'>
                      <Button
