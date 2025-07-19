@@ -1,5 +1,5 @@
-import { OrderCardDetail } from '@/modules/order/order-card/order-card-detail/order-card-detail';
+import { OrderCard } from '@/modules/order/order-card/order-card-detail/order-card';
 
 export default function OrderCardDetailPage() {
-   return <OrderCardDetail />;
+   return <OrderCard />;
 }

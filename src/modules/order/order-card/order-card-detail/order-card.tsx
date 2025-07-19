@@ -1,112 +1,98 @@
-import { cn } from '@/_lib/utils';
-import { Badge } from '@/_shared/components/ui/badge';
-import { Button } from '@/_shared/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/_shared/components/ui/card';
-import { Separator } from '@/_shared/components/ui/separator';
-import { Routes } from '@/_shared/routes/routes';
-import { Minus, Plus, SquareArrowLeft, Trash2 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { TOrderCard } from '../../interface';
+'use client';
 
-export function OrderCard({ orderItems, order, decrement, increment, removeItem, subtotal }: TOrderCard) {
-   const t = useTranslations();
+import { useParams } from 'next/navigation';
+import { useState } from 'react';
+import { TMenuItems, TOrder, TOrderItems } from '../../interface';
+import { OrderCardMenu } from './order-card-menu';
+import { OrderCardDetail } from './order-card-detail';
+
+export function OrderCard() {
+   const [orderItems, setOrderItems] = useState<TOrderItems[]>([]);
+   const params = useParams();
+   const id = params?.order;
+
+   const orders: TOrder[] = [
+      {
+         id: '1',
+         name: 'Marlon',
+         number: '10',
+         status: 'free',
+         description: '',
+      },
+      {
+         id: '2',
+         name: 'Fulano',
+         number: '75',
+         status: 'busy',
+         description: '',
+      },
+   ];
+
+   const menuItems: TMenuItems[] = [
+      { id: '1', item: 'Batata frita', price: 15 },
+      { id: '2', item: 'Hamburguer', price: 25 },
+      { id: '3', item: 'Hamburguer', price: 25 },
+      { id: '4', item: 'Hamburguer', price: 25 },
+      { id: '5', item: 'Hamburguer', price: 25 },
+      { id: '6', item: 'Hamburguer', price: 25 },
+      { id: '7', item: 'Hamburguer', price: 25 },
+      { id: '8', item: 'Hamburguer', price: 25 },
+      { id: '9', item: 'Hamburguer', price: 25 },
+      { id: '10', item: 'Hamburguer', price: 25 },
+      { id: '11', item: 'Hamburguer', price: 25 },
+      { id: '12', item: 'Hamburguer', price: 25 },
+      { id: '13', item: 'Hamburguer', price: 25 },
+      { id: '14', item: 'Hamburguer', price: 25 },
+      { id: '15', item: 'Hamburguer', price: 25 },
+   ];
+
+   const order = orders.find((order) => order.id === id);
+
+   const subtotal = orderItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+   function increment(itemId: string) {
+      setOrderItems((prev) =>
+         prev.map((item) => (item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item))
+      );
+   }
+
+   function decrement(itemId: string) {
+      setOrderItems((prev) =>
+         prev
+            .map((item) => (item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item))
+            .filter((item) => item.quantity > 0)
+      );
+   }
+
+   function removeItem(itemId: string) {
+      setOrderItems((prev) => prev.filter((item) => item.id !== itemId));
+   }
+
+   function handleAddOrder(menuItems: TMenuItems) {
+      setOrderItems((prev) => {
+         const existingItem = prev.find((item) => item.id === menuItems.id);
+         if (existingItem) {
+            return prev.map((item) => (item.id === menuItems.id ? { ...item, quantity: item.quantity + 1 } : item));
+         } else {
+            return [...prev, { ...menuItems, quantity: 1 }];
+         }
+      });
+   }
 
    return (
-      <>
-         {orderItems?.length === 0 ? null : (
-            <Card className='w-full flex flex-col h-[84vh]'>
-               <CardHeader className='flex items-center justify-between h-6 w-full'>
-                  <Link
-                     href={Routes.Order}
-                     className='text-gray-500 flex gap-1'
-                  >
-                     <SquareArrowLeft className='text-gray-500' />
-                     Voltar
-                  </Link>
-                  <div className='flex gap-4'>
-                     <p className='font-medium text-gray-400'>
-                        Cliente: <span className='font-bold text-gray-700'>{order?.name}</span>
-                     </p>
-                     <p className='font-medium text-gray-400'>
-                        Comanda: <span className='font-bold text-gray-700'>{order?.number}</span>
-                     </p>
-                     <Badge className={cn(order?.status === 'busy' ? 'bg-red-500' : 'bg-emerald-500')}>
-                        {order?.status === 'busy' ? t('Busy') : t('Free')}
-                     </Badge>
-                  </div>
-               </CardHeader>
-               <Separator className='-mb-6' />
-               <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1'>
-                  {orderItems?.map((orderItem) => (
-                     <div
-                        className='flex items-center justify-between border p-2 px-4 rounded-md mt-2 hover:bg-gray-50'
-                        key={orderItem.id}
-                     >
-                        <div>
-                           <p>{orderItem.item}</p>
-                           <span>
-                              {orderItem.price.toLocaleString('pt-BR', {
-                                 style: 'currency',
-                                 currency: 'BRL',
-                              })}
-                           </span>
-                        </div>
-                        <div className='flex gap-2'>
-                           <div className='flex items-center gap-2'>
-                              <Button
-                                 animated
-                                 className='cursor-pointer'
-                                 size='icon'
-                                 variant='secondary'
-                                 onClick={() => decrement(orderItem.id)}
-                              >
-                                 <Minus />
-                              </Button>
-                              <span className='w-6 text-center'>{orderItem.quantity}</span>
-                              <Button
-                                 animated
-                                 className='cursor-pointer'
-                                 size='icon'
-                                 variant='secondary'
-                                 onClick={() => increment(orderItem.id)}
-                              >
-                                 <Plus />
-                              </Button>
-                           </div>
-                           <div className='flex items-center justify-end gap-2 w-32'>
-                              <span>R$ {(orderItem.price * orderItem.quantity).toFixed(2)}</span>
-                              <Button
-                                 className='cursor-pointer'
-                                 size='icon'
-                                 variant='ghost'
-                                 animated
-                                 onClick={() => removeItem(orderItem.id)}
-                              >
-                                 <Trash2 size={16} />
-                              </Button>
-                           </div>
-                        </div>
-                     </div>
-                  ))}
-               </CardContent>
-               <Separator className='-mt-6 -mb-6' />
-               <CardFooter className='w-full -mb-3'>
-                  <div className='flex gap-3 mt-3 w-full'>
-                     <div className='flex flex-row items-center justify-between text-xl font-medium text-gray-700 w-full'>
-                        <span>Subtotal:</span>
-                        <span className='text-emerald-500 font-bold'>R$ {subtotal}</span>
-                     </div>
-                     <Button
-                        className='cursor-pointer'
-                        animated
-                     >
-                        Fechar conta
-                     </Button>
-                  </div>
-               </CardFooter>
-            </Card>
-         )}
-      </>
+      <section className='p-6 w-full h-full flex gap-6'>
+         <OrderCardDetail
+            order={order}
+            orderItems={orderItems}
+            subtotal={subtotal}
+            increment={increment}
+            decrement={decrement}
+            removeItem={removeItem}
+         />
+         <OrderCardMenu
+            handleAddOrder={handleAddOrder}
+            menuItems={menuItems}
+         />
+      </section>
    );
 }
