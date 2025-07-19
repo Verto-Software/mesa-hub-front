@@ -99,7 +99,7 @@ export function TableItems() {
                               {itemMenu.status}
                            </Badge>
                         </TableCell>
-                        <TableCell className='px-4 py-4 text-base'>
+                        <TableCell className='py-4 text-base'>
                            <Button
                               className='cursor-pointer'
                               variant='ghost'
