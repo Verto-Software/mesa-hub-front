@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/_shared/components/ui/card';
-import { InputSearchOrder } from '../../input-search-order';
-import { Separator } from '@/_shared/components/ui/separator';
 import { Button } from '@/_shared/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/_shared/components/ui/card';
+import { Separator } from '@/_shared/components/ui/separator';
 import { Plus } from 'lucide-react';
+import { InputSearchOrder } from '../../input-search-order';
 import { TOrderCardMenu } from '../../interface';
 
 export function OrderCardMenu({ menuItems, handleAddOrder }: TOrderCardMenu) {
