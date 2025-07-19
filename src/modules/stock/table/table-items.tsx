@@ -42,7 +42,7 @@ export function TableItems() {
    ];
 
    return (
-      <div className='px-5 pb-6'>
+      <div className='px-6 pb-6'>
          <div className='border border-gray-200 rounded-md'>
             <Table>
                <TableHeader>
@@ -50,7 +50,7 @@ export function TableItems() {
                      {itemsHead.map((itemHead) => (
                         <TableHead
                            key={itemHead}
-                           className='text-gray-500 pl-6'
+                           className='text-gray-500 pl-4'
                         >
                            {itemHead}
                         </TableHead>
@@ -63,33 +63,33 @@ export function TableItems() {
                         key={itemMenu.id}
                         className='hover:bg-muted/50 border-b border-gray-200'
                      >
-                        <TableCell className='px-5 py-4 text-base'>{itemMenu.itemname}</TableCell>
-                        <TableCell className='px-5 py-4 text-base'>{itemMenu.itemquantity}</TableCell>
-                        <TableCell className='px-5 py-4 text-base'>
+                        <TableCell className='px-4 py-4 text-base'>{itemMenu.itemname}</TableCell>
+                        <TableCell className='px-4 py-4 text-base'>{itemMenu.itemquantity}</TableCell>
+                        <TableCell className='px-4 py-4 text-base'>
                            {itemMenu.minimumstock} / {itemMenu.maximumstock}
                         </TableCell>
-                        <TableCell className='px-5 py-4 text-base'>{itemMenu.currentstock}</TableCell>
-                        <TableCell className='px-5 py-4 text-base'>
+                        <TableCell className='px-4 py-4 text-base'>{itemMenu.currentstock}</TableCell>
+                        <TableCell className='px-4 py-4 text-base'>
                            R${' '}
                            {itemMenu.purchaseprice.toLocaleString('pt-BR', {
                               minimumFractionDigits: 2,
                               maximumFractionDigits: 2,
                            })}
                         </TableCell>
-                        <TableCell className='px-5 py-4 text-base'>
+                        <TableCell className='px-4 py-4 text-base'>
                            R${' '}
                            {itemMenu.sellingprice.toLocaleString('pt-BR', {
                               minimumFractionDigits: 2,
                               maximumFractionDigits: 2,
                            })}
                         </TableCell>
-                        <TableCell className='px-5 py-4 text-base'>
+                        <TableCell className='px-4 py-4 text-base'>
                            <p className='max-w-96 overflow-hidden line-clamp-2 text-ellipsis whitespace-normal text-gray-500'>
                               {itemMenu.itemdescription}
                            </p>
                         </TableCell>
-                        <TableCell className='px-5 py-4 text-base'>{itemMenu.supplier}</TableCell>
-                        <TableCell className='px-5 py-4 text-base'>
+                        <TableCell className='px-4 py-4 text-base'>{itemMenu.supplier}</TableCell>
+                        <TableCell className='px-4 py-4 text-base'>
                            <Badge
                               className={cn(
                                  itemMenu.status === 'Normal' ? 'bg-emerald-500 text-white' : 'bg-red-500 text-white',
@@ -99,7 +99,7 @@ export function TableItems() {
                               {itemMenu.status}
                            </Badge>
                         </TableCell>
-                        <TableCell className='px-5 py-4 text-base'>
+                        <TableCell className='px-4 py-4 text-base'>
                            <Button
                               className='cursor-pointer'
                               variant='ghost'
