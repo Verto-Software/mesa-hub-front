@@ -6,7 +6,7 @@ export function InputItemQuantity({ register, errors }: TInputQuantity) {
       <div>
          <Input
             type='text'
-            placeholder='Quantidade de item'
+            placeholder='Quantidade'
             {...register('itemquantity')}
          />
          {errors.itemquantity?.message && <p className='text-red-500 text-xs mt-1'>{errors.itemquantity.message}</p>}

@@ -6,7 +6,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { ButtonAddItemStock } from './components/button-add-item-stock';
-import { InputCurrentStock } from './components/input-current-stock';
 import { InputItemDescription } from './components/input-item-description';
 import { InputItemName } from './components/input-item-name';
 import { InputItemQuantity } from './components/input-item-quantity';
@@ -65,14 +64,16 @@ export function FormAddItemStock({ handleCloseDialog }: TFormAddItemStock) {
                <DialogTitle>
                   <legend>{t('AddItemToStock')}</legend>
                </DialogTitle>
-               <InputItemName
-                  errors={errors}
-                  register={register}
-               />
-               <InputItemQuantity
-                  errors={errors}
-                  register={register}
-               />
+               <div className='flex gap-2 w-full'>
+                  <InputItemName
+                     errors={errors}
+                     register={register}
+                  />
+                  <InputItemQuantity
+                     errors={errors}
+                     register={register}
+                  />
+               </div>
                <InputPrices
                   errors={errors}
                   register={register}
@@ -81,11 +82,7 @@ export function FormAddItemStock({ handleCloseDialog }: TFormAddItemStock) {
                   sellingprice={sellingprice}
                   control={control}
                />
-               <div className='flex gap-2'>
-                  <InputCurrentStock
-                     errors={errors}
-                     register={register}
-                  />
+               <div className='flex gap-2 w-full'>
                   <InputMinimumStock
                      errors={errors}
                      register={register}

@@ -3,7 +3,7 @@ import { TInputMinimumStock } from '../../interface';
 
 export function InputMinimumStock({ register, errors }: TInputMinimumStock) {
    return (
-      <div>
+      <div className='w-full'>
          <Input
             type='text'
             placeholder='Estoque mínimo'

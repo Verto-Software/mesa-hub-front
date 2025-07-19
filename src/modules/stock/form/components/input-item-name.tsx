@@ -6,7 +6,7 @@ export function InputItemName({ register, errors }: TInputName) {
    const t = useTranslations();
 
    return (
-      <div>
+      <div className='w-full'>
          <Input
             type='text'
             placeholder={t('ItemName')}

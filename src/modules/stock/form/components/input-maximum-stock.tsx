@@ -3,7 +3,7 @@ import { TInputMaximumStock } from '../../interface';
 
 export function InputMaximumStock({ register, errors }: TInputMaximumStock) {
    return (
-      <div>
+      <div className='w-full'>
          <Input
             type='text'
             placeholder='Estoque máximo'
