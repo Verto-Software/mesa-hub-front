@@ -42,8 +42,9 @@ export function Auth() {
          : data.email === 'teste@teste.com' && data.password === 'Coxinh@123';
 
       if (isValid) {
-         isRegister && toast.success('Sua conta foi criada com sucesso!');
-
+         if (isRegister) {
+            toast.success('Sua conta foi criada com sucesso!');
+         }
          push(Routes.Order);
          reset();
       } else {
