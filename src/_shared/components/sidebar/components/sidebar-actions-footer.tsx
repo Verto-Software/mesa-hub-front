@@ -23,21 +23,18 @@ export function SidebarActionsFooter() {
       ),
    };
 
-   const buttonMenuItems = useMemo(
-      () => [
-         {
-            title: t('Support'),
-            url: 'https://web.whatsapp.com/send?phone=5522997823207&text=',
-            icon: ICONS.Support,
-         },
-         {
-            title: t('Plans'),
-            url: Routes.Plans,
-            icon: ICONS.Plans,
-         },
-      ],
-      [t]
-   );
+   const buttonMenuItems = [
+      {
+         title: t('Support'),
+         url: 'https://web.whatsapp.com/send?phone=5522997823207&text=',
+         icon: ICONS.Support,
+      },
+      {
+         title: t('Plans'),
+         url: Routes.Plans,
+         icon: ICONS.Plans,
+      },
+   ];
 
    return (
       <SidebarGroup>

@@ -46,31 +46,28 @@ export function SidebarContentActions() {
       ),
    };
 
-   const menuItems = useMemo(
-      () => [
-         {
-            title: t('Order'),
-            url: '/order',
-            icon: ICONS.Order,
-         },
-         {
-            title: t('Menu'),
-            url: '/menu',
-            icon: ICONS.Menu,
-         },
-         {
-            title: t('Stock'),
-            url: '/stock',
-            icon: ICONS.Stock,
-         },
-         {
-            title: t('Settings'),
-            url: '/settings',
-            icon: ICONS.Settings,
-         },
-      ],
-      [t]
-   );
+   const menuItems = [
+      {
+         title: t('Order'),
+         url: '/order',
+         icon: ICONS.Order,
+      },
+      {
+         title: t('Menu'),
+         url: '/menu',
+         icon: ICONS.Menu,
+      },
+      {
+         title: t('Stock'),
+         url: '/stock',
+         icon: ICONS.Stock,
+      },
+      {
+         title: t('Settings'),
+         url: '/settings',
+         icon: ICONS.Settings,
+      },
+   ];
 
    return (
       <SidebarContent>
