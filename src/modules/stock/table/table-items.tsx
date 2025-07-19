@@ -9,7 +9,6 @@ export function TableItems() {
       'Nome',
       'Quant.',
       'Min / Max',
-      'Estoque Atual',
       'Preço de Compra',
       'Preço de Venda',
       'Descrição',
@@ -68,7 +67,6 @@ export function TableItems() {
                         <TableCell className='px-4 py-4'>
                            {itemMenu.minimumstock} / {itemMenu.maximumstock}
                         </TableCell>
-                        <TableCell className='px-4 py-4'>{itemMenu.currentstock}</TableCell>
                         <TableCell className='px-4 py-4'>
                            R${' '}
                            {itemMenu.purchaseprice.toLocaleString('pt-BR', {
