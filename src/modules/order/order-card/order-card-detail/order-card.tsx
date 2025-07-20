@@ -3,7 +3,7 @@
 import { menuItems, orders } from '@/_shared/data-mock';
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
-import { TMenuItems, TOrderItems } from '../../interface';
+import { TOrderItems } from '../../interface';
 import { OrderCardDetail } from './order-card-detail';
 import { OrderCardMenu } from './order-card-menu';
 
@@ -38,7 +38,7 @@ export function OrderCard() {
       setOrderItems((prev) => prev.filter((item) => !(item.id === itemId && item.observation === observation)));
    }
 
-   function handleAddOrder(menuItem: TMenuItems & { observation?: string }) {
+   function handleAddOrder(menuItem: TOrderItems & { observation?: string }) {
       setOrderItems((prev) => {
          const existingItem = prev.find(
             (item) => item.id === menuItem.id && item.observation?.trim() === menuItem.observation?.trim()

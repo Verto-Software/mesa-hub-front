@@ -21,6 +21,8 @@ export function OrderCardDetail({
    clearItems,
 }: TOrderCard) {
    const [isDialogOpen, setIsDialogOpen] = useState(false);
+   const [isRemoveDialogOpen, setIsRemoveDialogOpen] = useState(false);
+   const [itemToRemove, setItemToRemove] = useState<{ id: string; observation?: string; name: string } | null>(null);
    const { push } = useRouter();
 
    function handleOpenDialog() {
@@ -29,6 +31,23 @@ export function OrderCardDetail({
 
    function handleCloseDialog() {
       setIsDialogOpen(false);
+   }
+
+   function handleOpenRemoveDialog(id: string, observation: string | undefined, itemName: string) {
+      setItemToRemove({ id, observation, name: itemName });
+      setIsRemoveDialogOpen(true);
+   }
+
+   function handleCloseRemoveDialog() {
+      setIsRemoveDialogOpen(false);
+      setItemToRemove(null);
+   }
+
+   function confirmRemoveItem() {
+      if (itemToRemove) {
+         removeItem(itemToRemove.id, itemToRemove.observation);
+         handleCloseRemoveDialog();
+      }
    }
 
    function confirmCloseOrder() {
@@ -92,13 +111,14 @@ export function OrderCardDetail({
                                  </p>
                               )}
                            </div>
-                           <div className='flex gap-2'>
-                              <div className='flex items-center gap-2'>
+                           <div className='flex gap-1'>
+                              <div className='flex items-center gap-1'>
                                  <Button
                                     animated
                                     className='cursor-pointer'
-                                    size='icon'
+                                    size='sm'
                                     variant='secondary'
+                                    disabled={orderItem.quantity <= 1}
                                     onClick={() => decrement(orderItem.id, orderItem.observation)}
                                  >
                                     <Minus />
@@ -107,7 +127,7 @@ export function OrderCardDetail({
                                  <Button
                                     animated
                                     className='cursor-pointer'
-                                    size='icon'
+                                    size='sm'
                                     variant='secondary'
                                     onClick={() => increment(orderItem.id, orderItem.observation)}
                                  >
@@ -123,7 +143,9 @@ export function OrderCardDetail({
                                     size='icon'
                                     variant='ghost'
                                     animated
-                                    onClick={() => removeItem(orderItem.id, orderItem.observation)}
+                                    onClick={() =>
+                                       handleOpenRemoveDialog(orderItem.id, orderItem.observation, orderItem.item)
+                                    }
                                  >
                                     <Trash2 size={16} />
                                  </Button>
@@ -133,26 +155,22 @@ export function OrderCardDetail({
                      ))}
                </CardContent>
             )}
-            {orderItems.length === 0 ? null : (
-               <>
-                  <Separator className='-mt-6 -mb-6' />
-                  <CardFooter className='w-full -mb-3'>
-                     <div className='flex gap-3 mt-3 w-full'>
-                        <div className='flex flex-row items-center gap-3 text-xl font-medium text-gray-700 w-full'>
-                           <span className='text-gray-400'>Subtotal:</span>
-                           <span className='text-emerald-500 font-bold'>R$ {subtotal}</span>
-                        </div>
-                        <Button
-                           className='cursor-pointer'
-                           animated
-                           onClick={handleOpenDialog}
-                        >
-                           Fechar conta
-                        </Button>
-                     </div>
-                  </CardFooter>
-               </>
-            )}
+            <Separator className='-mt-6 -mb-6' />
+            <CardFooter className='w-full -mb-3'>
+               <div className='flex gap-3 mt-3 w-full'>
+                  <div className='flex flex-row items-center gap-3 text-xl font-medium text-gray-700 w-full'>
+                     <span className='text-gray-400'>Subtotal:</span>
+                     <span className='text-emerald-500 font-bold'>R$ {subtotal}</span>
+                  </div>
+                  <Button
+                     className='cursor-pointer'
+                     animated
+                     onClick={handleOpenDialog}
+                  >
+                     Fechar conta
+                  </Button>
+               </div>
+            </CardFooter>
          </Card>
 
          <Dialog
@@ -161,10 +179,23 @@ export function OrderCardDetail({
          >
             <DialogContent className='flex flex-col'>
                <DialogHeader>
-                  <DialogTitle className='mt-5 leading-8'>
-                     Deseja concluir o fechamento da conta do <span className='text-primary'>{order?.name}</span> da
-                     comanda número <span className='text-primary'>{order?.number}</span>.
-                  </DialogTitle>
+                  <DialogTitle className='mt-5 leading-8'>Deseja fechar a comanda?</DialogTitle>
+                  <div className='flex gap-3 items-center text-xl'>
+                     <p className='text-xl font-medium flex items-center gap-1'>
+                        <Hash
+                           size={14}
+                           className='text-gray-500 hover: group-hover:text-white'
+                        />
+                        <span>{order?.number}</span>
+                     </p>
+                     <p className='text-xl font-medium flex items-center gap-1'>
+                        <User
+                           size={18}
+                           className='text-gray-500 hover: group-hover:text-white'
+                        />
+                        <span>{order?.name}</span>
+                     </p>
+                  </div>
                </DialogHeader>
                <DialogFooter>
                   <Button
@@ -181,6 +212,37 @@ export function OrderCardDetail({
                      animated
                   >
                      Confirmar
+                  </Button>
+               </DialogFooter>
+            </DialogContent>
+         </Dialog>
+
+         <Dialog
+            open={isRemoveDialogOpen}
+            onOpenChange={setIsRemoveDialogOpen}
+         >
+            <DialogContent className='flex flex-col'>
+               <DialogHeader>
+                  <DialogTitle className='mt-5 leading-8'>
+                     Deseja excluir <span className='text-primary'>{itemToRemove?.name}</span> da lista?
+                  </DialogTitle>
+               </DialogHeader>
+               <DialogFooter>
+                  <Button
+                     className='cursor-pointer'
+                     variant='secondary'
+                     onClick={handleCloseRemoveDialog}
+                     animated
+                  >
+                     Cancelar
+                  </Button>
+                  <Button
+                     className='cursor-pointer'
+                     variant='destructive'
+                     onClick={confirmRemoveItem}
+                     animated
+                  >
+                     Excluir
                   </Button>
                </DialogFooter>
             </DialogContent>

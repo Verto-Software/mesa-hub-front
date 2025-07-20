@@ -1,12 +1,12 @@
 'use client';
 
 import { Dialog } from '@/_shared/components/ui/dialog';
+import { orders } from '@/_shared/data-mock';
 import { useState } from 'react';
 import { ButtonOpenDialogAddNewOrder } from './form/components/button-open-dialog-add-new-order';
-import { InputSearchOrder } from './input-search-order';
 import { FormCreateNewOrder } from './form/form-create-new-order';
+import { InputSearchOrder } from './input-search-order';
 import { OrderCardItem } from './order-card/order-card-item';
-import { orders } from '@/_shared/data-mock';
 
 export function Order() {
    const [open, setOpen] = useState(false);
@@ -31,7 +31,7 @@ export function Order() {
                {orders.length === 0 ? (
                   <p className='text-gray-500'>Não tem comanda em aberto</p>
                ) : (
-                  <p className='text-gray-400 text-sm font-medium'>
+                  <p className='text-gray-400 text-xs font-medium'>
                      {orders.length === 1 ? 'Comanda' : 'Comandas'} em aberto: {orders.length}
                   </p>
                )}

@@ -1,4 +1,4 @@
-import { TMenuItems, TOrder } from '@/modules/order/interface';
+import { TOrder, TOrderItems } from '@/modules/order/interface';
 
 export const orders: TOrder[] = [
    {
@@ -25,12 +25,12 @@ export const orders: TOrder[] = [
       number: '14',
       description: '',
    },
-   // {
-   //    id: '5',
-   //    name: 'Marlon',
-   //    number: '10',
-   //    description: '',
-   // },
+   {
+      id: '5',
+      name: 'Colega',
+      number: '53',
+      description: '',
+   },
    // {
    //    id: '6',
    //    name: 'Fulano',
@@ -63,8 +63,8 @@ export const orders: TOrder[] = [
    // },
 ];
 
-export const menuItems: TMenuItems[] = [
-   { id: '1', item: 'Batata frita', price: 15, observation: '' },
-   { id: '2', item: 'Hamburguer', price: 30, observation: '' },
-   { id: '3', item: 'Coca-cola', price: 6, observation: '' },
+export const menuItems: TOrderItems[] = [
+   { id: '1', item: 'Batata frita', price: 15, observation: '', quantity: 10 },
+   { id: '2', item: 'Hamburguer', price: 30, observation: '', quantity: 10 },
+   { id: '3', item: 'Coca-cola', price: 6, observation: '', quantity: 10 },
 ];

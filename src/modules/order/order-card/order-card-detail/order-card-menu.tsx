@@ -6,14 +6,14 @@ import { Separator } from '@/_shared/components/ui/separator';
 import { Plus } from 'lucide-react';
 import { useState } from 'react';
 import { InputSearchOrder } from '../../input-search-order';
-import { TMenuItems, TOrderCardMenu } from '../../interface';
+import { TOrderCardMenu, TOrderItems } from '../../interface';
 
 export function OrderCardMenu({ menuItems, handleAddOrder }: TOrderCardMenu) {
    const [isDialogOpen, setIsDialogOpen] = useState(false);
-   const [selectedItem, setSelectedItem] = useState<TMenuItems | null>(null);
+   const [selectedItem, setSelectedItem] = useState<TOrderItems | null>(null);
    const [observation, setObservation] = useState('');
 
-   function openDialog(item: TMenuItems) {
+   function openDialog(item: TOrderItems) {
       setSelectedItem(item);
       setIsDialogOpen(true);
    }

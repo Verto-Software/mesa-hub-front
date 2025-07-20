@@ -30,10 +30,6 @@ export interface TOrderItems {
    observation?: string;
 }
 
-export interface TMenuItems extends Pick<TOrderItems, 'item' | 'price'>, Pick<TOrder, 'id'> {
-   observation: string;
-}
-
 export interface TOrder extends Pick<TOrderItems, 'id'> {
    name: string;
    number: string;
@@ -51,6 +47,6 @@ export interface TOrderCard {
 }
 
 export interface TOrderCardMenu {
-   menuItems: TMenuItems[];
-   handleAddOrder: (item: TMenuItems) => void;
+   menuItems: TOrderItems[];
+   handleAddOrder: (item: TOrderItems) => void;
 }

@@ -25,15 +25,15 @@ export function OrderCardItem() {
                   onClick={() => handleCardDetail(order.id)}
                >
                   <CardContent>
-                     <div className='flex items-center w-full justify-between'>
-                        <p className='text-xl font-medium flex items-center gap-1'>
+                     <div className='flex items-center w-full justify-between flex-wrap'>
+                        <p className='text-md font-medium flex items-center gap-2'>
                            <Hash
                               size={14}
                               className='text-gray-500 hover: group-hover:text-white'
                            />
                            {order.number}
                         </p>
-                        <p className='text-xl font-medium flex items-center gap-1'>
+                        <p className='text-md font-medium flex items-center gap-1'>
                            <User
                               size={18}
                               className='text-gray-500 hover: group-hover:text-white'
