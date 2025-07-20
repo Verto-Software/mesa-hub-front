@@ -52,6 +52,11 @@ export function OrderCardDetail({ orderItems, order, decrement, increment, remov
                               currency: 'BRL',
                            })}
                         </span>
+                        {orderItem.observation && (
+                           <p className='text-sm text-amber-500 font-semibold italic mt-1'>
+                              Obs: {orderItem.observation}
+                           </p>
+                        )}
                      </div>
                      <div className='flex gap-2'>
                         <div className='flex items-center gap-2'>

@@ -27,9 +27,12 @@ export interface TOrderItems {
    item: string;
    price: number;
    quantity: number;
+   observation?: string;
 }
 
-export interface TMenuItems extends Pick<TOrderItems, 'item' | 'price'>, Pick<TOrder, 'id'> {}
+export interface TMenuItems extends Pick<TOrderItems, 'item' | 'price'>, Pick<TOrder, 'id'> {
+   observation: string;
+}
 
 export interface TOrder extends Pick<TOrderItems, 'id'> {
    name: string;
