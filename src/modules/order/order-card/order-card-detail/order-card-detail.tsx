@@ -80,7 +80,7 @@ export function OrderCardDetail({
                         key={orderItem.id}
                      >
                         <div>
-                           <p>{orderItem.item}</p>
+                           <p className='font-medium'>{orderItem.item}</p>
                            <p className='flex items-center gap-1 text-emerald-500 font-medium'>
                               {orderItem.price.toLocaleString('pt-BR', {
                                  style: 'currency',
