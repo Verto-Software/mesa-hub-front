@@ -34,13 +34,20 @@ export function OrderCard() {
       setOrderItems((prev) => prev.filter((item) => item.id !== itemId));
    }
 
-   function handleAddOrder(menuItems: TMenuItems) {
+   function handleAddOrder(menuItem: TMenuItems & { observation?: string }) {
       setOrderItems((prev) => {
-         const existingItem = prev.find((item) => item.id === menuItems.id);
+         const existingItem = prev.find(
+            (item) => item.id === menuItem.id && item.observation?.trim() === menuItem.observation?.trim()
+         );
+
          if (existingItem) {
-            return prev.map((item) => (item.id === menuItems.id ? { ...item, quantity: item.quantity + 1 } : item));
+            return prev.map((item) =>
+               item.id === menuItem.id && item.observation?.trim() === menuItem.observation?.trim()
+                  ? { ...item, quantity: item.quantity + 1 }
+                  : item
+            );
          } else {
-            return [...prev, { ...menuItems, quantity: 1 }];
+            return [...prev, { ...menuItem, quantity: 1 }];
          }
       });
    }

@@ -13,18 +13,18 @@ export const orders: TOrder[] = [
       number: '90',
       description: '',
    },
-   // {
-   //    id: '3',
-   //    name: 'Marlon',
-   //    number: '10',
-   //    description: '',
-   // },
-   // {
-   //    id: '4',
-   //    name: 'Fulano',
-   //    number: '90',
-   //    description: '',
-   // },
+   {
+      id: '3',
+      name: 'Ciclano',
+      number: '43',
+      description: '',
+   },
+   {
+      id: '4',
+      name: 'Beltrano',
+      number: '14',
+      description: '',
+   },
    // {
    //    id: '5',
    //    name: 'Marlon',
@@ -65,18 +65,6 @@ export const orders: TOrder[] = [
 
 export const menuItems: TMenuItems[] = [
    { id: '1', item: 'Batata frita', price: 15, observation: '' },
-   { id: '2', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '3', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '4', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '5', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '6', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '7', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '8', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '9', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '10', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '11', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '12', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '13', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '14', item: 'Hamburguer', price: 25, observation: '' },
-   { id: '15', item: 'Hamburguer', price: 25, observation: '' },
+   { id: '2', item: 'Hamburguer', price: 30, observation: '' },
+   { id: '3', item: 'Coca-cola', price: 6, observation: '' },
 ];
