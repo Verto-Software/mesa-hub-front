@@ -48,6 +48,7 @@ export interface TOrderCard {
    orderItems: TOrderItems[];
    subtotal: number;
    order?: TOrder;
+   clearItems: () => void;
 }
 
 export interface TOrderCardMenu {
