@@ -3,6 +3,7 @@
 import { Card, CardContent, CardDescription } from '@/_shared/components/ui/card';
 import { orders } from '@/_shared/data-mock';
 import { Routes } from '@/_shared/routes/routes';
+import { Hash, User } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export function OrderCardItem() {
@@ -18,14 +19,26 @@ export function OrderCardItem() {
             return (
                <Card
                   key={order.id}
-                  className='cursor-pointer select-none active:scale-[0.99] active:brightness-100 hover:scale-105 transition-transform duration-300 mt-1 hover:bg-primary hover:text-white bg-secondary'
+                  className='cursor-pointer select-none active:scale-[0.99] active:brightness-100 hover:scale-105 transition-transform duration-300 mt-1 hover:bg-primary hover:text-white bg-secondary group'
                   role='button'
                   tabIndex={0}
                   onClick={() => handleCardDetail(order.id)}
                >
                   <CardContent>
-                     <p className='text-xl font-medium'>{order.number}</p>
-                     <p className='text-xl font-medium mt-3'>{order.name}</p>
+                     <p className='text-xl font-medium flex items-center gap-1'>
+                        <Hash
+                           size={14}
+                           className='text-gray-500 hover: group-hover:text-white'
+                        />
+                        {order.number}
+                     </p>
+                     <p className='text-xl font-medium flex items-center gap-1 mt-2'>
+                        <User
+                           size={18}
+                           className='text-gray-500 hover: group-hover:text-white'
+                        />
+                        {order.name}
+                     </p>
                      <CardDescription>
                         <p>{order.description}</p>
                      </CardDescription>
