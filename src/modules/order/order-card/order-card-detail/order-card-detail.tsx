@@ -89,7 +89,7 @@ export function OrderCardDetail({
                               <span className=' text-sm font-medium text-gray-400'>cada</span>
                            </p>
                            {orderItem.observation && (
-                              <p className='text-sm text-amber-500 font-semibold italic mt-1'>
+                              <p className='text-xs text-amber-500 font-semibold italic mt-1'>
                                  Obs: {orderItem.observation}
                               </p>
                            )}
