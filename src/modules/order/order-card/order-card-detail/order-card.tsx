@@ -3,9 +3,9 @@
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
 import { TMenuItems, TOrderItems } from '../../interface';
-import { menuItems, orders } from './data-mock';
 import { OrderCardDetail } from './order-card-detail';
 import { OrderCardMenu } from './order-card-menu';
+import { menuItems, orders } from '@/_shared/data-mock';
 
 export function OrderCard() {
    const [orderItems, setOrderItems] = useState<TOrderItems[]>([]);
