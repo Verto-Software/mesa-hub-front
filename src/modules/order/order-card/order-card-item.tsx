@@ -3,10 +3,10 @@
 import { cn } from '@/_lib/utils';
 import { Badge } from '@/_shared/components/ui/badge';
 import { Card, CardContent, CardDescription } from '@/_shared/components/ui/card';
+import { orders } from '@/_shared/data-mock';
 import { Routes } from '@/_shared/routes/routes';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { orders } from './order-card-detail/data-mock';
 
 export function OrderCardItem() {
    const t = useTranslations();
