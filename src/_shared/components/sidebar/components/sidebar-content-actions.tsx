@@ -9,7 +9,6 @@ import {
    useSidebar,
 } from '@/_shared/components/ui/sidebar';
 import { Package, Settings, SquareMenu, StickyNote } from 'lucide-react';
-import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
@@ -72,7 +71,7 @@ export function SidebarContentActions() {
    return (
       <SidebarContent>
          <SidebarGroup>
-            <SidebarMenu className='flex gap-3'>
+            <SidebarMenu className='flex gap-3 '>
                {menuItems.map((menuItem) => (
                   <SidebarMenuItem key={menuItem.title}>
                      <SidebarMenuButton
@@ -81,10 +80,7 @@ export function SidebarContentActions() {
                         asChild
                         tooltip={isCollapsed ? menuItem.title : undefined}
                      >
-                        <Link
-                           className='focus:bg-[#8347eb] focus:text-white'
-                           href={menuItem.url}
-                        >
+                        <Link href={menuItem.url}>
                            <i>{menuItem.icon}</i>
                            <p className='mt-0.5'>{menuItem.title}</p>
                         </Link>

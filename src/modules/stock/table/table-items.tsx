@@ -35,7 +35,7 @@ export function TableItems() {
          get status() {
             const current = parseInt(this.currentstock);
             const min = parseInt(this.minimumstock);
-            if (current <= min) return 'Low';
+            if (current <= min) return 'Baixo';
             return 'Normal';
          },
       },

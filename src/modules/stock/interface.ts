@@ -38,5 +38,5 @@ export interface TItemMenu {
    supplier: string;
    category: string;
    itemdescription: string;
-   readonly status: 'Low' | 'Normal';
+   readonly status: 'Baixo' | 'Normal';
 }
