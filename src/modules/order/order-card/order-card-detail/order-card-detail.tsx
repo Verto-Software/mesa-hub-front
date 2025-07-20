@@ -70,65 +70,67 @@ export function OrderCardDetail({
                <p className='flex items-center justify-center flex-1 text-gray-500 text-lg'>Não possui pedido</p>
             ) : (
                <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1 px-2'>
-                  {orderItems?.map((orderItem) => (
-                     <div
-                        key={`${orderItem.id}-${orderItem.observation ?? ''}`}
-                        className='flex items-center justify-between border p-2 px-3 rounded-md mt-2 hover:bg-gray-50'
-                     >
-                        <div>
-                           <p className='font-medium'>{orderItem.item}</p>
-                           <p className='flex items-center gap-1 text-emerald-500 font-medium'>
-                              {orderItem.price.toLocaleString('pt-BR', {
-                                 style: 'currency',
-                                 currency: 'BRL',
-                              })}{' '}
-                              <span className=' text-sm font-medium text-gray-400'>cada</span>
-                           </p>
-                           {orderItem.observation && (
-                              <p className='text-xs text-amber-500 font-semibold italic mt-1'>
-                                 Obs: {orderItem.observation}
+                  {[...orderItems]
+                     .sort((a, b) => a.item.localeCompare(b.item))
+                     .map((orderItem) => (
+                        <div
+                           key={`${orderItem.id}-${orderItem.observation ?? ''}`}
+                           className='flex items-center justify-between border p-2 px-3 rounded-md mt-2 hover:bg-gray-50'
+                        >
+                           <div>
+                              <p className='font-medium'>{orderItem.item}</p>
+                              <p className='flex items-center gap-1 text-emerald-500 font-medium'>
+                                 {orderItem.price.toLocaleString('pt-BR', {
+                                    style: 'currency',
+                                    currency: 'BRL',
+                                 })}{' '}
+                                 <span className=' text-sm font-medium text-gray-400'>cada</span>
                               </p>
-                           )}
-                        </div>
-                        <div className='flex gap-2'>
-                           <div className='flex items-center gap-2'>
-                              <Button
-                                 animated
-                                 className='cursor-pointer'
-                                 size='icon'
-                                 variant='secondary'
-                                 onClick={() => decrement(orderItem.id, orderItem.observation)}
-                              >
-                                 <Minus />
-                              </Button>
-                              <span className='w-6 text-center'>{orderItem.quantity}</span>
-                              <Button
-                                 animated
-                                 className='cursor-pointer'
-                                 size='icon'
-                                 variant='secondary'
-                                 onClick={() => increment(orderItem.id, orderItem.observation)}
-                              >
-                                 <Plus />
-                              </Button>
+                              {orderItem.observation && (
+                                 <p className='text-xs text-amber-500 font-semibold italic mt-1'>
+                                    Obs: {orderItem.observation}
+                                 </p>
+                              )}
                            </div>
-                           <div className='flex items-center justify-end gap-2 w-32'>
-                              <span className='text-red-500 font-medium'>
-                                 R$ {(orderItem.price * orderItem.quantity).toFixed(2)}
-                              </span>
-                              <Button
-                                 className='cursor-pointer'
-                                 size='icon'
-                                 variant='ghost'
-                                 animated
-                                 onClick={() => removeItem(orderItem.id, orderItem.observation)}
-                              >
-                                 <Trash2 size={16} />
-                              </Button>
+                           <div className='flex gap-2'>
+                              <div className='flex items-center gap-2'>
+                                 <Button
+                                    animated
+                                    className='cursor-pointer'
+                                    size='icon'
+                                    variant='secondary'
+                                    onClick={() => decrement(orderItem.id, orderItem.observation)}
+                                 >
+                                    <Minus />
+                                 </Button>
+                                 <span className='w-6 text-center'>{orderItem.quantity}</span>
+                                 <Button
+                                    animated
+                                    className='cursor-pointer'
+                                    size='icon'
+                                    variant='secondary'
+                                    onClick={() => increment(orderItem.id, orderItem.observation)}
+                                 >
+                                    <Plus />
+                                 </Button>
+                              </div>
+                              <div className='flex items-center justify-end gap-2 w-32'>
+                                 <span className='text-red-500 font-medium'>
+                                    R$ {(orderItem.price * orderItem.quantity).toFixed(2)}
+                                 </span>
+                                 <Button
+                                    className='cursor-pointer'
+                                    size='icon'
+                                    variant='ghost'
+                                    animated
+                                    onClick={() => removeItem(orderItem.id, orderItem.observation)}
+                                 >
+                                    <Trash2 size={16} />
+                                 </Button>
+                              </div>
                            </div>
                         </div>
-                     </div>
-                  ))}
+                     ))}
                </CardContent>
             )}
             {orderItems.length === 0 ? null : (
