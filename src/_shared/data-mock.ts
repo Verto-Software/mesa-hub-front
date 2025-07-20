@@ -1,5 +1,4 @@
-import { TOrderItems } from '../../interface';
-import { TMenuItems, TOrder } from '../../interface';
+import { TMenuItems, TOrder } from '@/modules/order/interface';
 
 export const orders: TOrder[] = [
    {
