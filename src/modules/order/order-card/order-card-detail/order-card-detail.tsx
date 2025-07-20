@@ -6,7 +6,7 @@ import { Button } from '@/_shared/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/_shared/components/ui/card';
 import { Separator } from '@/_shared/components/ui/separator';
 import { Routes } from '@/_shared/routes/routes';
-import { Minus, Plus, SquareArrowLeft, Trash2 } from 'lucide-react';
+import { Hash, Minus, Plus, SquareArrowLeft, Trash2, User } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { TOrderCard } from '../../interface';
@@ -47,17 +47,25 @@ export function OrderCardDetail({
             <CardHeader className='flex items-center justify-between h-6 w-full'>
                <Link
                   href={Routes.Order}
-                  className='text-gray-500 flex gap-3 border rounded-sm p-2 hover:bg-gray-50 font-bold'
+                  className='text-gray-500 flex gap-3 border rounded-sm p-2 hover:bg-gray-50 font-bold hover:text-primary'
                >
-                  <SquareArrowLeft className='text-gray-500' />
+                  <SquareArrowLeft />
                   Voltar
                </Link>
                <div className='flex gap-4'>
-                  <p className='font-medium text-gray-400'>
-                     Cliente: <span className='font-bold text-xl text-gray-700'>{order?.name}</span>
+                  <p className='text-xl font-medium flex items-center gap-1'>
+                     <User
+                        size={18}
+                        className='text-primary hover: group-hover:text-white'
+                     />
+                     {order?.name}
                   </p>
-                  <p className='font-medium text-gray-400'>
-                     Comanda: <span className='font-bold text-xl text-gray-700'>{order?.number}</span>
+                  <p className='text-xl font-medium flex items-center gap-1'>
+                     <Hash
+                        size={14}
+                        className='text-primary hover: group-hover:text-white'
+                     />
+                     {order?.number}
                   </p>
                </div>
             </CardHeader>
@@ -73,12 +81,12 @@ export function OrderCardDetail({
                      >
                         <div>
                            <p>{orderItem.item}</p>
-                           <p className='flex items-center gap-1'>
+                           <p className='flex items-center gap-1 text-emerald-500 font-medium'>
                               {orderItem.price.toLocaleString('pt-BR', {
                                  style: 'currency',
                                  currency: 'BRL',
                               })}{' '}
-                              <span className='text-emerald-500 text-sm font-medium'>cada</span>
+                              <span className=' text-sm font-medium text-gray-400'>cada</span>
                            </p>
                            {orderItem.observation && (
                               <p className='text-sm text-amber-500 font-semibold italic mt-1'>
@@ -109,7 +117,9 @@ export function OrderCardDetail({
                               </Button>
                            </div>
                            <div className='flex items-center justify-end gap-2 w-32'>
-                              <span>R$ {(orderItem.price * orderItem.quantity).toFixed(2)}</span>
+                              <span className='text-red-500 font-medium'>
+                                 R$ {(orderItem.price * orderItem.quantity).toFixed(2)}
+                              </span>
                               <Button
                                  className='cursor-pointer'
                                  size='icon'
@@ -130,8 +140,8 @@ export function OrderCardDetail({
                   <Separator className='-mt-6 -mb-6' />
                   <CardFooter className='w-full -mb-3'>
                      <div className='flex gap-3 mt-3 w-full'>
-                        <div className='flex flex-row items-center justify-between text-xl font-medium text-gray-700 w-full'>
-                           <span>Subtotal:</span>
+                        <div className='flex flex-row items-center gap-3 text-xl font-medium text-gray-700 w-full'>
+                           <span className='text-gray-400'>Subtotal:</span>
                            <span className='text-emerald-500 font-bold'>R$ {subtotal}</span>
                         </div>
                         <Button
@@ -153,7 +163,7 @@ export function OrderCardDetail({
          >
             <DialogContent className='flex flex-col'>
                <DialogHeader>
-                  <DialogTitle className='mt-5'>
+                  <DialogTitle className='mt-5 leading-8'>
                      Deseja concluir o fechamento da conta do <span className='text-primary'>{order?.name}</span> da
                      comanda número <span className='text-primary'>{order?.number}</span>.
                   </DialogTitle>

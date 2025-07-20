@@ -83,7 +83,7 @@ export default function QRCodeModal({ cardapioUrl }: QRCodeModalProps) {
       >
          <DialogTrigger asChild>
             <Button
-               variant='outline'
+               variant='secondary'
                className='cursor-pointer'
             >
                <QrCode size={16} />
