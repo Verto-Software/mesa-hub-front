@@ -1,18 +1,16 @@
 'use client';
 
-import { cn } from '@/_lib/utils';
-import { Badge } from '@/_shared/components/ui/badge';
 import { Button } from '@/_shared/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/_shared/components/ui/card';
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/_shared/components/ui/dialog';
 import { Separator } from '@/_shared/components/ui/separator';
 import { Routes } from '@/_shared/routes/routes';
 import { Hash, Minus, Plus, SquareArrowLeft, Trash2, User } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { TOrderCard } from '../../interface';
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/_shared/components/ui/dialog';
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { TOrderCard } from '../../interface';
 
 export function OrderCardDetail({
    orderItems,
@@ -101,7 +99,7 @@ export function OrderCardDetail({
                                  className='cursor-pointer'
                                  size='icon'
                                  variant='secondary'
-                                 onClick={() => decrement(orderItem.id)}
+                                 onClick={() => decrement(orderItem.id, orderItem.observation)}
                               >
                                  <Minus />
                               </Button>
@@ -111,7 +109,7 @@ export function OrderCardDetail({
                                  className='cursor-pointer'
                                  size='icon'
                                  variant='secondary'
-                                 onClick={() => increment(orderItem.id)}
+                                 onClick={() => increment(orderItem.id, orderItem.observation)}
                               >
                                  <Plus />
                               </Button>
@@ -125,7 +123,7 @@ export function OrderCardDetail({
                                  size='icon'
                                  variant='ghost'
                                  animated
-                                 onClick={() => removeItem(orderItem.id)}
+                                 onClick={() => removeItem(orderItem.id, orderItem.observation)}
                               >
                                  <Trash2 size={16} />
                               </Button>

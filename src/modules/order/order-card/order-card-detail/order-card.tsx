@@ -1,11 +1,11 @@
 'use client';
 
+import { menuItems, orders } from '@/_shared/data-mock';
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
 import { TMenuItems, TOrderItems } from '../../interface';
 import { OrderCardDetail } from './order-card-detail';
 import { OrderCardMenu } from './order-card-menu';
-import { menuItems, orders } from '@/_shared/data-mock';
 
 export function OrderCard() {
    const [orderItems, setOrderItems] = useState<TOrderItems[]>([]);
@@ -16,22 +16,26 @@ export function OrderCard() {
 
    const subtotal = orderItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-   function increment(itemId: string) {
+   function increment(itemId: string, observation?: string) {
       setOrderItems((prev) =>
-         prev.map((item) => (item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item))
+         prev.map((item) =>
+            item.id === itemId && item.observation === observation ? { ...item, quantity: item.quantity + 1 } : item
+         )
       );
    }
 
-   function decrement(itemId: string) {
+   function decrement(itemId: string, observation?: string) {
       setOrderItems((prev) =>
          prev
-            .map((item) => (item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item))
+            .map((item) =>
+               item.id === itemId && item.observation === observation ? { ...item, quantity: item.quantity - 1 } : item
+            )
             .filter((item) => item.quantity > 0)
       );
    }
 
-   function removeItem(itemId: string) {
-      setOrderItems((prev) => prev.filter((item) => item.id !== itemId));
+   function removeItem(itemId: string, observation?: string) {
+      setOrderItems((prev) => prev.filter((item) => !(item.id === itemId && item.observation === observation)));
    }
 
    function handleAddOrder(menuItem: TMenuItems & { observation?: string }) {

@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/_shared/components/u
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/_shared/components/ui/dialog';
 import { Input } from '@/_shared/components/ui/input';
 import { Separator } from '@/_shared/components/ui/separator';
-import { Plus, UserPlus2 } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { useState } from 'react';
 import { InputSearchOrder } from '../../input-search-order';
 import { TMenuItems, TOrderCardMenu } from '../../interface';

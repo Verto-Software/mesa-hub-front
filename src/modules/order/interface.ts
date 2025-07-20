@@ -41,9 +41,9 @@ export interface TOrder extends Pick<TOrderItems, 'id'> {
 }
 
 export interface TOrderCard {
-   increment: (itemId: string) => void;
-   decrement: (itemId: string) => void;
-   removeItem: (itemId: string) => void;
+   increment: (itemId: string, observation?: string) => void;
+   decrement: (itemId: string, observation?: string) => void;
+   removeItem: (itemId: string, observation?: string) => void;
    orderItems: TOrderItems[];
    subtotal: number;
    order?: TOrder;
