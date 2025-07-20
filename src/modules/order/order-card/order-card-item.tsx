@@ -19,7 +19,7 @@ export function OrderCardItem() {
             return (
                <Card
                   key={order.id}
-                  className='cursor-pointer select-none active:scale-[0.99] active:brightness-100 hover:scale-105 transition-transform duration-300 mt-1 hover:bg-primary hover:text-white bg-secondary group'
+                  className='cursor-pointer select-none active:scale-[0.99] hover:-translate-y-0.8 hover:bg-gray-50 hover:shadow-lg transition-all duration-300 mt-0.5'
                   role='button'
                   tabIndex={0}
                   onClick={() => handleCardDetail(order.id)}
