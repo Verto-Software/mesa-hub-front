@@ -69,7 +69,7 @@ export function MenuView() {
                {Object.entries(groupedItems).map(([category, items]) => (
                   <Card
                      key={category}
-                     className='category-section border-none hover:bg-gray-50 p-3 !rounded-md print:gap-2'
+                     className='category-section border-none hover:bg-gray-50 p-3 !rounded-md print:gap-2 active:scale-[0.99] hover:-translate-y-0.7 hover:shadow-lg transition-all duration-300 hover:border-none'
                   >
                      <CardHeader className='!p-0'>
                         <Badge className='bg-gray-100 !rounded-sm print:bg-white text-gray-800 text-base print:text-xl'>
