@@ -76,8 +76,8 @@ export function OrderCardDetail({
                <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1 px-2'>
                   {orderItems?.map((orderItem) => (
                      <div
+                        key={`${orderItem.id}-${orderItem.observation ?? ''}`}
                         className='flex items-center justify-between border p-2 px-3 rounded-md mt-2 hover:bg-gray-50'
-                        key={orderItem.id}
                      >
                         <div>
                            <p className='font-medium'>{orderItem.item}</p>
