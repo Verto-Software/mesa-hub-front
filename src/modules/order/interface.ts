@@ -37,7 +37,6 @@ export interface TMenuItems extends Pick<TOrderItems, 'item' | 'price'>, Pick<TO
 export interface TOrder extends Pick<TOrderItems, 'id'> {
    name: string;
    number: string;
-   status: 'busy' | 'free';
    description?: string;
 }
 

@@ -54,14 +54,11 @@ export function OrderCardDetail({
                </Link>
                <div className='flex gap-4'>
                   <p className='font-medium text-gray-400'>
-                     Cliente: <span className='font-bold text-gray-700'>{order?.name}</span>
+                     Cliente: <span className='font-bold text-xl text-gray-700'>{order?.name}</span>
                   </p>
                   <p className='font-medium text-gray-400'>
-                     Comanda: <span className='font-bold text-gray-700'>{order?.number}</span>
+                     Comanda: <span className='font-bold text-xl text-gray-700'>{order?.number}</span>
                   </p>
-                  <Badge className={cn(orderItems.length > 0 ? 'bg-red-500' : 'bg-emerald-500')}>
-                     {orderItems.length > 0 ? t('Busy') : t('Free')}
-                  </Badge>
                </div>
             </CardHeader>
             <Separator className='-mb-6' />
