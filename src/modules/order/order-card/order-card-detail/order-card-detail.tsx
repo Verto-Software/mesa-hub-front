@@ -6,7 +6,6 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '
 import { Separator } from '@/_shared/components/ui/separator';
 import { Routes } from '@/_shared/routes/routes';
 import { Hash, Minus, Plus, SquareArrowLeft, Trash2, User } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -22,7 +21,6 @@ export function OrderCardDetail({
    clearItems,
 }: TOrderCard) {
    const [isDialogOpen, setIsDialogOpen] = useState(false);
-   const t = useTranslations();
    const { push } = useRouter();
 
    function handleOpenDialog() {
