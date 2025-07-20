@@ -36,28 +36,30 @@ export function OrderCardMenu({ menuItems, handleAddOrder }: TOrderCardMenu) {
             </CardHeader>
             <Separator className='-mb-6' />
             <CardContent className='flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden pb-3 pt-1 px-2'>
-               {menuItems.map((menuItem) => (
-                  <div
-                     key={menuItem.id}
-                     className='flex items-center justify-between border p-2 px-3 rounded-md mt-2 hover:bg-gray-50'
-                  >
-                     <div>
-                        <p>{menuItem.item}</p>
-                        <span>
-                           {menuItem.price.toLocaleString('pt-BR', {
-                              style: 'currency',
-                              currency: 'BRL',
-                           })}
-                        </span>
-                     </div>
-                     <Button
-                        className='cursor-pointer'
-                        onClick={() => openDialog(menuItem)}
+               {[...menuItems]
+                  .sort((a, b) => a.item.localeCompare(b.item))
+                  .map((menuItem) => (
+                     <div
+                        key={menuItem.id}
+                        className='flex items-center justify-between border p-2 px-3 rounded-md mt-2 hover:bg-gray-50'
                      >
-                        <Plus />
-                     </Button>
-                  </div>
-               ))}
+                        <div>
+                           <p>{menuItem.item}</p>
+                           <span>
+                              {menuItem.price.toLocaleString('pt-BR', {
+                                 style: 'currency',
+                                 currency: 'BRL',
+                              })}
+                           </span>
+                        </div>
+                        <Button
+                           className='cursor-pointer'
+                           onClick={() => openDialog(menuItem)}
+                        >
+                           <Plus />
+                        </Button>
+                     </div>
+                  ))}
             </CardContent>
          </Card>
 

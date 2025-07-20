@@ -75,7 +75,7 @@ export function SidebarContentActions() {
                {menuItems.map((menuItem) => (
                   <SidebarMenuItem key={menuItem.title}>
                      <SidebarMenuButton
-                        className='text-gray-600 h-10 font-medium text-base'
+                        className='text-gray-600 h-10 font-medium text-base active:scale-[0.99] hover:-translate-y-0.7 hover:bg-gray-50 hover:shadow-md transition-all duration-300'
                         variant='outline'
                         asChild
                         tooltip={isCollapsed ? menuItem.title : undefined}

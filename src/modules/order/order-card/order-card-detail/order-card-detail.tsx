@@ -112,7 +112,7 @@ export function OrderCardDetail({
                               )}
                            </div>
                            <div className='flex gap-1'>
-                              <div className='flex items-center gap-1'>
+                              <div className='hidden lg:flex items-center gap-1'>
                                  <Button
                                     animated
                                     className='cursor-pointer'
