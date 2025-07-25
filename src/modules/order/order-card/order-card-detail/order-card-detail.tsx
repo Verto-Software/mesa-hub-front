@@ -112,7 +112,7 @@ export function OrderCardDetail({
                               )}
                            </div>
                            <div className='flex gap-1'>
-                              <div className='hidden lg:flex items-center gap-1'>
+                              {/* <div className='hidden lg:flex items-center gap-1'>
                                  <Button
                                     animated
                                     className='cursor-pointer'
@@ -133,7 +133,7 @@ export function OrderCardDetail({
                                  >
                                     <Plus />
                                  </Button>
-                              </div>
+                              </div> */}
                               <div className='flex items-center justify-end gap-2 w-32'>
                                  <span className='text-red-500 font-medium'>
                                     R$ {(orderItem.price * orderItem.quantity).toFixed(2)}
