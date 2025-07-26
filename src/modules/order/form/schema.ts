@@ -2,9 +2,9 @@ import z from 'zod';
 
 export function OrderSchema() {
    return z.object({
-      ordernumber: z.string().min(1, 'Número obrigatório'),
-      ordername: z.string().optional(),
-      orderdescription: z.string().optional(),
+      number: z.string().min(1, 'Número obrigatório'),
+      name: z.string().optional(),
+      description: z.string().optional(),
    });
 }
 

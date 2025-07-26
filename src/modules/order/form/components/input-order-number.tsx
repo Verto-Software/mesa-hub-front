@@ -11,9 +11,9 @@ export function OrderNumber({ register, errors }: TOrderNumber) {
             type='number'
             placeholder={t('OrderNumber')}
             min={0}
-            {...register('ordernumber')}
+            {...register('number')}
          />
-         {errors.ordernumber?.message && <p className='text-red-500 text-xs mt-1'>{errors.ordernumber.message}</p>}
+         {errors.number?.message && <p className='text-red-500 text-xs mt-1'>{errors.number.message}</p>}
       </div>
    );
 }

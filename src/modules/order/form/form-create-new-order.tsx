@@ -10,6 +10,7 @@ import { InputOrderName } from './components/input-order-name';
 import { OrderNumber } from './components/input-order-number';
 import { FormOrderSchema, OrderSchema } from './schema';
 import { TFormOrder } from '../interface';
+import { toast } from 'sonner';
 
 export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
    const t = useTranslations();
@@ -25,10 +26,31 @@ export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
       mode: 'onBlur',
    });
 
-   function handleSubmitNewOrder(data: FormOrderSchema) {
-      console.log('Comanda criada', data);
-      handleCloseDialog();
-      reset();
+   async function handleSubmitNewOrder(data: FormOrderSchema) {
+      try {
+         const response = await fetch('http://localhost:5008/api/Orders', {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json',
+               Accept: '*/*',
+            },
+            body: JSON.stringify({
+               number: data.number,
+               name: data.name,
+               description: data.description,
+            }),
+         });
+
+         if (!response.ok) {
+            throw new Error(`Erro ao criar a ordem: ${response.statusText}`);
+         }
+
+         toast.success('Comanda criada com sucesso!');
+         handleCloseDialog();
+         reset();
+      } catch (error) {
+         console.error('Erro ao criar ordem:', error);
+      }
    }
 
    return (

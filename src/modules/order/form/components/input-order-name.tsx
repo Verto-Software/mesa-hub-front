@@ -11,9 +11,9 @@ export function InputOrderName({ register, errors }: TInputOrderName) {
             type='text'
             className='break-words'
             placeholder={t('OrderName')}
-            {...register('ordername')}
+            {...register('name')}
          />
-         {errors.ordername?.message && <p className='text-red-500 text-xs mt-1'>{errors.ordername.message}</p>}
+         {errors.name?.message && <p className='text-red-500 text-xs mt-1'>{errors.name.message}</p>}
       </div>
    );
 }
