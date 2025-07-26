@@ -14,7 +14,7 @@ import { useCreateOrder } from '@/hooks/useOrders';
 
 export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
    const t = useTranslations();
-   const { mutate: createOrder } = useCreateOrder();
+   const { mutate: createOrder, isPending } = useCreateOrder();
 
    const {
       register,
@@ -70,7 +70,10 @@ export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
                   errors={errors}
                   watch={watch}
                />
-               <ButtonCreateOrder reset={reset} />
+               <ButtonCreateOrder
+                  reset={reset}
+                  isPending={isPending}
+               />
             </fieldset>
          </form>
       </DialogContent>

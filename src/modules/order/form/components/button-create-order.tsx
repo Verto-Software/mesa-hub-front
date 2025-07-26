@@ -2,8 +2,9 @@ import { Button } from '@/_shared/components/ui/button';
 import { DialogClose, DialogFooter } from '@/_shared/components/ui/dialog';
 import { useTranslations } from 'next-intl';
 import { TButtonCreateOrder } from '../../interface';
+import { Loading } from '@/_shared/components/ui/loading';
 
-export function ButtonCreateOrder({ reset }: TButtonCreateOrder) {
+export function ButtonCreateOrder({ reset, isPending }: TButtonCreateOrder) {
    const t = useTranslations();
 
    return (
@@ -21,9 +22,10 @@ export function ButtonCreateOrder({ reset }: TButtonCreateOrder) {
          <Button
             className='cursor-pointer flex-1'
             type='submit'
+            disabled={isPending}
             animated
          >
-            {t('CreateOrder')}
+            {isPending ? <Loading /> : t('CreateOrder')}
          </Button>
       </DialogFooter>
    );

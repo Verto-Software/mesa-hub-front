@@ -12,6 +12,7 @@ export interface TInputOrderDEscription extends TInputField {
 
 export interface TButtonCreateOrder {
    reset: UseFormReset<FormOrderSchema>;
+   isPending: boolean;
 }
 
 export interface TOrderNumber extends TInputField {}
