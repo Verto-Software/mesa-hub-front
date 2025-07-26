@@ -23,7 +23,7 @@ export interface TFormOrder {
 }
 
 export interface TOrderItems {
-   id: string;
+   id: number;
    item: string;
    price: number;
    quantity: number;
@@ -32,14 +32,12 @@ export interface TOrderItems {
 
 export interface TOrder extends Pick<TOrderItems, 'id'> {
    name: string;
-   number: string;
+   number: number;
    description?: string;
 }
 
 export interface TOrderCard {
-   increment: (itemId: string, observation?: string) => void;
-   decrement: (itemId: string, observation?: string) => void;
-   removeItem: (itemId: string, observation?: string) => void;
+   removeItem: (itemId: number, observation?: string) => void;
    orderItems: TOrderItems[];
    subtotal: number;
    order?: TOrder;

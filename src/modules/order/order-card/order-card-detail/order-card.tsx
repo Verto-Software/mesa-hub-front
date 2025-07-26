@@ -1,8 +1,9 @@
 'use client';
 
-import { menuItems, orders } from '@/_shared/data-mock';
+import { menuItems } from '@/_shared/data-mock';
 import { useParams } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useOrders } from '@/hooks/useOrders';
 import { TOrderItems } from '../../interface';
 import { OrderCardDetail } from './order-card-detail';
 import { OrderCardMenu } from './order-card-menu';
@@ -10,31 +11,14 @@ import { OrderCardMenu } from './order-card-menu';
 export function OrderCard() {
    const [orderItems, setOrderItems] = useState<TOrderItems[]>([]);
    const params = useParams();
-   const id = params?.order;
+   const { data: orders } = useOrders();
 
-   const order = orders.find((order) => order.id === id);
+   const orderId = params?.order ? Number(params.order) : null;
+   const order = orders?.find((order) => order.id === orderId);
 
    const subtotal = orderItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-   function increment(itemId: string, observation?: string) {
-      setOrderItems((prev) =>
-         prev.map((item) =>
-            item.id === itemId && item.observation === observation ? { ...item, quantity: item.quantity + 1 } : item
-         )
-      );
-   }
-
-   function decrement(itemId: string, observation?: string) {
-      setOrderItems((prev) =>
-         prev
-            .map((item) =>
-               item.id === itemId && item.observation === observation ? { ...item, quantity: item.quantity - 1 } : item
-            )
-            .filter((item) => item.quantity > 0)
-      );
-   }
-
-   function removeItem(itemId: string, observation?: string) {
+   function removeItem(itemId: number, observation?: string) {
       setOrderItems((prev) => prev.filter((item) => !(item.id === itemId && item.observation === observation)));
    }
 
@@ -66,8 +50,6 @@ export function OrderCard() {
             order={order}
             orderItems={orderItems}
             subtotal={subtotal}
-            increment={increment}
-            decrement={decrement}
             removeItem={removeItem}
             clearItems={clearItems}
          />

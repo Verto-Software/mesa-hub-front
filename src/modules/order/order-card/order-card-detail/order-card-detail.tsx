@@ -5,24 +5,16 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/_shared/components/
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/_shared/components/ui/dialog';
 import { Separator } from '@/_shared/components/ui/separator';
 import { Routes } from '@/_shared/routes/routes';
-import { Hash, Minus, Plus, SquareArrowLeft, Trash2, User } from 'lucide-react';
+import { Hash, SquareArrowLeft, Trash2, User } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { TOrderCard } from '../../interface';
 
-export function OrderCardDetail({
-   orderItems,
-   order,
-   decrement,
-   increment,
-   removeItem,
-   subtotal,
-   clearItems,
-}: TOrderCard) {
+export function OrderCardDetail({ orderItems, order, removeItem, subtotal, clearItems }: TOrderCard) {
    const [isDialogOpen, setIsDialogOpen] = useState(false);
    const [isRemoveDialogOpen, setIsRemoveDialogOpen] = useState(false);
-   const [itemToRemove, setItemToRemove] = useState<{ id: string; observation?: string; name: string } | null>(null);
+   const [itemToRemove, setItemToRemove] = useState<{ id: number; observation?: string; name: string } | null>(null);
    const { push } = useRouter();
 
    function handleOpenDialog() {
@@ -33,7 +25,7 @@ export function OrderCardDetail({
       setIsDialogOpen(false);
    }
 
-   function handleOpenRemoveDialog(id: string, observation: string | undefined, itemName: string) {
+   function handleOpenRemoveDialog(id: number, observation: string | undefined, itemName: string) {
       setItemToRemove({ id, observation, name: itemName });
       setIsRemoveDialogOpen(true);
    }
@@ -112,28 +104,6 @@ export function OrderCardDetail({
                               )}
                            </div>
                            <div className='flex gap-1'>
-                              {/* <div className='hidden lg:flex items-center gap-1'>
-                                 <Button
-                                    animated
-                                    className='cursor-pointer'
-                                    size='sm'
-                                    variant='secondary'
-                                    disabled={orderItem.quantity <= 1}
-                                    onClick={() => decrement(orderItem.id, orderItem.observation)}
-                                 >
-                                    <Minus />
-                                 </Button>
-                                 <span className='w-6 text-center'>{orderItem.quantity}</span>
-                                 <Button
-                                    animated
-                                    className='cursor-pointer'
-                                    size='sm'
-                                    variant='secondary'
-                                    onClick={() => increment(orderItem.id, orderItem.observation)}
-                                 >
-                                    <Plus />
-                                 </Button>
-                              </div> */}
                               <div className='flex items-center justify-end gap-2 w-32'>
                                  <span className='text-red-500 font-medium'>
                                     R$ {(orderItem.price * orderItem.quantity).toFixed(2)}
