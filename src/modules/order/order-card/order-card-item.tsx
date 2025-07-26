@@ -45,8 +45,8 @@ export function OrderCardItem() {
                            </p>
                         </div>
                         {order.description && (
-                           <CardDescription className='mt-3 group-hover:text-white'>
-                              <p>{order.description}</p>
+                           <CardDescription className='mt-3 group-hover:text-white '>
+                              <p className='break-words whitespace-normal'>{order.description}</p>
                            </CardDescription>
                         )}
                      </CardContent>
