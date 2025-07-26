@@ -11,6 +11,7 @@ import { InputOrderName } from './components/input-order-name';
 import { OrderNumber } from './components/input-order-number';
 import { FormOrderSchema, OrderSchema } from './schema';
 import { useCreateOrder } from '@/hooks/useOrders';
+import { toast } from 'sonner';
 
 export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
    const t = useTranslations();
@@ -39,8 +40,8 @@ export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
                reset();
                handleCloseDialog();
             },
-            onError: (error) => {
-               console.error('Erro ao criar comanda:', error);
+            onError: () => {
+               toast.error(`Essa comanda já existe em aberto!`);
             },
          }
       );
