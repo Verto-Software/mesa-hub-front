@@ -27,7 +27,7 @@ export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
       mode: 'onBlur',
    });
 
-   async function handleSubmitNewOrder(data: FormOrderSchema) {
+   function handleSubmitNewOrder(data: FormOrderSchema) {
       createOrder(
          {
             number: Number(data.number),

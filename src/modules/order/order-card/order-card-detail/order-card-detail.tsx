@@ -12,12 +12,13 @@ import { useState } from 'react';
 import { TOrderCard } from '../../interface';
 import { useDeleteOrder } from '@/hooks/useOrders';
 import { toast } from 'sonner';
+import { Loading } from '@/_shared/components/ui/loading';
 
 export function OrderCardDetail({ orderItems, order, removeItem, subtotal, clearItems }: TOrderCard) {
    const [isDialogOpen, setIsDialogOpen] = useState(false);
    const [isRemoveDialogOpen, setIsRemoveDialogOpen] = useState(false);
    const [itemToRemove, setItemToRemove] = useState<{ id: number; observation?: string; name: string } | null>(null);
-   const { mutate: deleteOrder } = useDeleteOrder();
+   const { mutate: deleteOrder, isPending } = useDeleteOrder();
    const { push } = useRouter();
 
    function handleOpenDialog() {
@@ -191,8 +192,9 @@ export function OrderCardDetail({ orderItems, order, removeItem, subtotal, clear
                      className='cursor-pointer'
                      onClick={() => confirmCloseOrder(order?.id as number)}
                      animated
+                     disabled={isPending}
                   >
-                     Confirmar
+                     {isPending ? <Loading /> : 'Confirmar'}
                   </Button>
                </DialogFooter>
             </DialogContent>
