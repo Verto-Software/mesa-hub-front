@@ -10,11 +10,14 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { TOrderCard } from '../../interface';
+import { useDeleteOrder } from '@/hooks/useOrders';
+import { toast } from 'sonner';
 
 export function OrderCardDetail({ orderItems, order, removeItem, subtotal, clearItems }: TOrderCard) {
    const [isDialogOpen, setIsDialogOpen] = useState(false);
    const [isRemoveDialogOpen, setIsRemoveDialogOpen] = useState(false);
    const [itemToRemove, setItemToRemove] = useState<{ id: number; observation?: string; name: string } | null>(null);
+   const { mutate: deleteOrder } = useDeleteOrder();
    const { push } = useRouter();
 
    function handleOpenDialog() {
@@ -42,10 +45,18 @@ export function OrderCardDetail({ orderItems, order, removeItem, subtotal, clear
       }
    }
 
-   function confirmCloseOrder() {
-      clearItems();
-      setIsDialogOpen(false);
-      push(Routes.Order);
+   function confirmCloseOrder(id: number) {
+      deleteOrder(id, {
+         onSuccess: () => {
+            clearItems();
+            toast.success('Comanda fechada com sucesso!');
+            setIsDialogOpen(false);
+            push(Routes.Order);
+         },
+         onError: () => {
+            toast.error('Não foi possível fechar a comanda!');
+         },
+      });
    }
 
    return (
@@ -178,7 +189,7 @@ export function OrderCardDetail({ orderItems, order, removeItem, subtotal, clear
                   </Button>
                   <Button
                      className='cursor-pointer'
-                     onClick={confirmCloseOrder}
+                     onClick={() => confirmCloseOrder(order?.id as number)}
                      animated
                   >
                      Confirmar

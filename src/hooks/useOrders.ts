@@ -29,6 +29,18 @@ async function createOrder(newOrder: Omit<Order, 'id'>) {
    return response.json();
 }
 
+async function deleteOrder(id: number) {
+   const response = await fetch(`${API_URL}/${id}`, {
+      method: 'DELETE',
+   });
+
+   if (!response.ok) {
+      throw new Error(`Erro ao deletar ordem: ${response.statusText}`);
+   }
+
+   return true;
+}
+
 export function useOrders() {
    return useQuery<Order[]>({
       queryKey: ['orders'],
@@ -41,6 +53,17 @@ export function useCreateOrder() {
 
    return useMutation({
       mutationFn: createOrder,
+      onSuccess: () => {
+         queryClient.invalidateQueries({ queryKey: ['orders'] });
+      },
+   });
+}
+
+export function useDeleteOrder() {
+   const queryClient = useQueryClient();
+
+   return useMutation({
+      mutationFn: deleteOrder,
       onSuccess: () => {
          queryClient.invalidateQueries({ queryKey: ['orders'] });
       },
