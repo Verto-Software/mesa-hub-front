@@ -1,15 +1,16 @@
 'use client';
 
 import { Dialog } from '@/_shared/components/ui/dialog';
-import { orders } from '@/_shared/data-mock';
 import { useState } from 'react';
 import { ButtonOpenDialogAddNewOrder } from './form/components/button-open-dialog-add-new-order';
 import { FormCreateNewOrder } from './form/form-create-new-order';
 import { InputSearchOrder } from './input-search-order';
 import { OrderCardItem } from './order-card/order-card-item';
+import { useOrders } from '@/hooks/useOrders';
 
 export function Order() {
    const [open, setOpen] = useState(false);
+   const { data: orders } = useOrders();
 
    function handleCloseDialog() {
       setOpen(false);
@@ -28,11 +29,11 @@ export function Order() {
                      <FormCreateNewOrder handleCloseDialog={handleCloseDialog} />
                   </Dialog>
                </div>
-               {orders.length === 0 ? (
+               {orders?.length === 0 ? (
                   <p className='text-gray-500'>Não tem comanda em aberto</p>
                ) : (
                   <p className='text-gray-400 text-xs font-medium'>
-                     {orders.length === 1 ? 'Comanda' : 'Comandas'} em aberto: {orders.length}
+                     {orders?.length === 1 ? 'Comanda' : 'Comandas'} em aberto: {orders?.length}
                   </p>
                )}
             </div>

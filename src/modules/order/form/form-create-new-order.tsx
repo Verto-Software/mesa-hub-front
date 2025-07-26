@@ -4,16 +4,17 @@ import { DialogContent, DialogHeader, DialogTitle } from '@/_shared/components/u
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
+import { TFormOrder } from '../interface';
 import { ButtonCreateOrder } from './components/button-create-order';
 import { InputOrderDescription } from './components/input-order-description';
 import { InputOrderName } from './components/input-order-name';
 import { OrderNumber } from './components/input-order-number';
 import { FormOrderSchema, OrderSchema } from './schema';
-import { TFormOrder } from '../interface';
-import { toast } from 'sonner';
+import { useCreateOrder } from '@/hooks/useOrders';
 
 export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
    const t = useTranslations();
+   const { mutate: createOrder } = useCreateOrder();
 
    const {
       register,
@@ -27,30 +28,22 @@ export function FormCreateNewOrder({ handleCloseDialog }: TFormOrder) {
    });
 
    async function handleSubmitNewOrder(data: FormOrderSchema) {
-      try {
-         const response = await fetch('http://localhost:5008/api/Orders', {
-            method: 'POST',
-            headers: {
-               'Content-Type': 'application/json',
-               Accept: '*/*',
+      createOrder(
+         {
+            number: Number(data.number),
+            name: data.name ?? '',
+            description: data.description ?? '',
+         },
+         {
+            onSuccess: () => {
+               reset();
+               handleCloseDialog();
             },
-            body: JSON.stringify({
-               number: data.number,
-               name: data.name,
-               description: data.description,
-            }),
-         });
-
-         if (!response.ok) {
-            throw new Error(`Erro ao criar a ordem: ${response.statusText}`);
+            onError: (error) => {
+               console.error('Erro ao criar comanda:', error);
+            },
          }
-
-         toast.success('Comanda criada com sucesso!');
-         handleCloseDialog();
-         reset();
-      } catch (error) {
-         console.error('Erro ao criar ordem:', error);
-      }
+      );
    }
 
    return (

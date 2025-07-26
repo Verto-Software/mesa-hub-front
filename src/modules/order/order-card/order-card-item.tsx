@@ -1,22 +1,23 @@
 'use client';
 
 import { Card, CardContent, CardDescription } from '@/_shared/components/ui/card';
-import { orders } from '@/_shared/data-mock';
 import { Routes } from '@/_shared/routes/routes';
+import { useOrders } from '@/hooks/useOrders';
 import { Hash, User } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export function OrderCardItem() {
    const router = useRouter();
+   const { data: orders } = useOrders();
 
-   function handleCardDetail(id: string) {
+   function handleCardDetail(id: number) {
       router.push(`${Routes.Order}/${id}`);
    }
 
    return (
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-6'>
-         {[...orders]
-            .sort((a, b) => Number(a.number) - Number(b.number))
+         {orders
+            ?.sort((a, b) => Number(a.number) - Number(b.number))
             .map((order) => {
                return (
                   <Card
