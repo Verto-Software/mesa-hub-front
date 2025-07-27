@@ -3,16 +3,16 @@
 import { Button } from '@/_shared/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/_shared/components/ui/card';
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/_shared/components/ui/dialog';
+import { Loading } from '@/_shared/components/ui/loading';
 import { Separator } from '@/_shared/components/ui/separator';
 import { Routes } from '@/_shared/routes/routes';
+import { useDeleteOrder } from '@/hooks/useOrders';
 import { Hash, SquareArrowLeft, Trash2, User } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { TOrderCard } from '../../interface';
-import { useDeleteOrder } from '@/hooks/useOrders';
 import { toast } from 'sonner';
-import { Loading } from '@/_shared/components/ui/loading';
+import { TOrderCard } from '../../interface';
 
 export function OrderCardDetail({ orderItems, order, removeItem, subtotal, clearItems }: TOrderCard) {
    const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -117,8 +117,12 @@ export function OrderCardDetail({ orderItems, order, removeItem, subtotal, clear
                            </div>
                            <div className='flex gap-1'>
                               <div className='flex items-center justify-end gap-2 w-32'>
+                                 <span className='w-6 text-center'>{orderItem.quantity}</span>
                                  <span className='text-red-500 font-medium'>
-                                    R$ {(orderItem.price * orderItem.quantity).toFixed(2)}
+                                    {(orderItem.price * orderItem.quantity).toLocaleString('pt-BR', {
+                                       style: 'currency',
+                                       currency: 'BRL',
+                                    })}
                                  </span>
                                  <Button
                                     className='cursor-pointer'

@@ -9,6 +9,8 @@ export type Order = {
 
 const API_URL = 'http://localhost:5008/api/Orders';
 
+const ORDER = 'order';
+
 async function fetchOrders() {
    const response = await fetch(API_URL, {
       headers: { Accept: 'application/json' },
@@ -33,39 +35,35 @@ async function deleteOrder(id: number) {
    const response = await fetch(`${API_URL}/${id}`, {
       method: 'DELETE',
    });
-
    if (!response.ok) {
       throw new Error(`Erro ao deletar ordem: ${response.statusText}`);
    }
-
    return true;
 }
 
 export function useOrders() {
    return useQuery<Order[]>({
-      queryKey: ['orders'],
+      queryKey: [ORDER],
       queryFn: fetchOrders,
    });
 }
 
 export function useCreateOrder() {
    const queryClient = useQueryClient();
-
    return useMutation({
       mutationFn: createOrder,
       onSuccess: () => {
-         queryClient.invalidateQueries({ queryKey: ['orders'] });
+         queryClient.invalidateQueries({ queryKey: [ORDER] });
       },
    });
 }
 
 export function useDeleteOrder() {
    const queryClient = useQueryClient();
-
    return useMutation({
       mutationFn: deleteOrder,
       onSuccess: () => {
-         queryClient.invalidateQueries({ queryKey: ['orders'] });
+         queryClient.invalidateQueries({ queryKey: [ORDER] });
       },
    });
 }
