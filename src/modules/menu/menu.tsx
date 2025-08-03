@@ -6,7 +6,7 @@ import { useState } from 'react';
 import QRCodeModal from '../menu-view/menu-qr-code';
 import { ButtonViewMenu } from './button-view-menu';
 import { ButtonOpenDialogAddItem } from './form/components/button-open-dialog-add-item';
-import { FormAddItemMenu } from './form/form-add-item-menu';
+import { FormItemMenu } from './form/form-add-item-menu';
 import { InputSearch } from './input-search-item';
 import { TableItems } from './table/table-items';
 
@@ -26,7 +26,7 @@ export function Menu() {
                   onOpenChange={setOpen}
                >
                   <ButtonOpenDialogAddItem />
-                  <FormAddItemMenu handleCloseDialog={handleCloseDialog} />
+                  <FormItemMenu handleCloseDialog={handleCloseDialog} />
                </Dialog>
             </div>
             <div className='flex gap-3'>
