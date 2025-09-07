@@ -1,12 +1,11 @@
-'use client';
+"use client";
 
-import { menuItems } from '@/_shared/data-mock';
-import { useParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
-import { useOrders } from '@/hooks/useOrders';
-import { TOrderItems } from '../../interface';
-import { OrderCardDetail } from './order-card-detail';
-import { OrderCardMenu } from './order-card-menu';
+import { useParams } from "next/navigation";
+import { useState } from "react";
+import { useOrders } from "@/hooks/useOrders";
+import { TOrderItems } from "../../interface";
+import { OrderCardDetail } from "./order-card-detail";
+import { OrderCardMenu } from "./order-card-menu";
 
 export function OrderCard() {
    const [orderItems, setOrderItems] = useState<TOrderItems[]>([]);
@@ -45,7 +44,7 @@ export function OrderCard() {
    }
 
    return (
-      <section className='md:p-6 p-2 w-full h-full flex gap-6 select-none flex-col md:flex-row'>
+      <section className="md:p-6 p-2 w-full h-full flex gap-6 select-none flex-col md:flex-row">
          <OrderCardDetail
             order={order}
             orderItems={orderItems}
